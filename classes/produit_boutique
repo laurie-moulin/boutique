@@ -1,0 +1,49 @@
+<?php
+
+class Product  {
+    public $id = '';
+    public $name = '';
+    public $description = '';
+    public $image = '';
+    public $category = [];
+    public $stock = [];
+    public $tags = '';
+
+    private function connectdb(){
+        try{
+            $db = new PDO('mysql:host=localhost;dbname=boutique;charset=utf8', 'root', '');
+            return($db);
+        }
+        catch(PDOException $e){
+            print "Erreur : ".$e->getMessage();
+            die();
+        }
+    }
+
+    public function productInfos()
+    {
+        $db = $this->connectdb();
+        $query = $db->prepare("SELECT * FROM products ");
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
+
+        $this->id = $results[0]->id;
+        $this->name = $results[0]->title;
+        $this->description = $results[0]->description;
+        $this->image = $results[0]->image;
+//        array_push($this->category, $results[0]->cid, $results[0]->cname);
+
+      /*  $query = $db->prepare("SELECT t.tag_name FROM tag AS t INNER JOIN product_tag AS pt ON t.id = pt.tag_id WHERE pt.product_id = '$this->id'");
+        $query->execute();
+        $tagsclass = $query->fetchAll(PDO::FETCH_OBJ);
+        $tags = [];
+        foreach ($tagsclass as $tagclass) {
+            array_push($tags, $tagclass->tag_name);
+        }*/
+
+    }
+}
+
+$product = new Product();
+
+var_dump($product->productInfos());
