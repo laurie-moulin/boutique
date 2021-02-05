@@ -7,6 +7,8 @@ class product extends dataBase
 {
     protected $category = [];
 
+    //CATEGORIES
+
     function addCategory()
     {
         $categoryName = htmlentities($_POST['add_categ']);
@@ -45,6 +47,15 @@ class product extends dataBase
         $this->query('UPDATE category SET categ_product = ? WHERE id = ?', [$categoryUpdate, $_GET['id']]);
         return [];
     }
+
+    public function deleteCategory()
+    {
+        $this->query('DELETE FROM category WHERE id = ?', [$_GET['id']]);
+        return [];
+    }
+
+    //PRODUITS
+
 
 
 }

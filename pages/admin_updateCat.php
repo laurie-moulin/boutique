@@ -7,8 +7,6 @@ $product = new \db\product();
 
 $category = $product->setCategory();
 
-
-
 ?>
 
 <html lang="fr">
@@ -27,7 +25,7 @@ $category = $product->setCategory();
 
 <main>
 
-    <form action="update.php?id=<?= $category['id'] ?>" method="post">
+    <form action="admin_updateCat.php?id=<?= $category['id'] ?>" method="post">
 
             <label for="categoryUpdate">Modifier nom Catégorie</label>
             <input type="text" name="categoryUpdate"  value="<?= $category['categ_product'] ?>"
