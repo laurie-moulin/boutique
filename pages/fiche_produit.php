@@ -54,20 +54,4 @@ echo "<br><a href='boutique.php?categorie=" . $produit['categorie'] . "'>Retour 
 
 ?>
 
-<div class="form-group">
-    <label for="exampleFormControlSelect1">Choisir taille:</label>
-    <select class="form-control input change-input" name="size" id="exampleFormControlSelect1">
-        <?php
-        $i = 0;
-        $stock = 0;
-        foreach ($sizes as $size) {
-            if($i == 0)
-            {
-                $stock = $size['stock'];
-            }
-            ++$i;
-            ?>
-            <option value="<?= $size['taille'] ?>" data-value-stock="<?= $size['stock'] ?>"><?= strtoupper($size['taille']) ?></option>
-        <?php } ?>
-    </select>
-</div>
+
