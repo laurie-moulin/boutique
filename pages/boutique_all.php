@@ -21,7 +21,9 @@ $panier = new \db\panier();
 <body>
 
 <header>
-
+<nav>
+    <a href="panier.php">Panier</a>
+</nav>
 </header>
 
 <main>
