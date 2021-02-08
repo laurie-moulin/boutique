@@ -58,7 +58,7 @@ $panier = new \db\panier();
     </section>
 
     <section>
-        <form method="post" action="add_panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
+        <form method="post" action="panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
 
             <input type='hidden' name='id_produit' value='<?php $product->details_produit()["id_produit"] ?>'>
 
@@ -99,16 +99,6 @@ $panier = new \db\panier();
 
         </form>
 
-        <?php
-
-        if (isset($_POST["ajout_panier"]))
-        {
-            $_SESSION["panier"] = [$_POST["size"], $_POST["stock"]];
-        }
-
-        var_dump($_SESSION["panier"]);
-
-        ?>
 
     </section>
 
