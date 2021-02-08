@@ -32,7 +32,7 @@ if (isset($_POST['submit_addProd'])) {
 </header>
 
 <main>
-    <form action="admin_addProd.php" method="post">
+    <form action="admin_addProd.php" method="post" enctype="multipart/form-data">
 
         <label for="date">Date d'ajout du produit : </label><br>
         <input type="date" id="date" name="date" value=<?php echo $today ?> min=<?php echo $today ?> max=<?php echo $today ?>><br>

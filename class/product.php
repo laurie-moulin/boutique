@@ -65,23 +65,29 @@ class product extends dataBase
         $description = htmlentities($_POST['description']);
         $prix = htmlentities($_POST['prix']);
 
-        if (empty($_FILES)) {
-            $error[] = "Il manque un quelque chose....";
-        } else {
-            $checkLog = $this->checkLogo();
-            if (!empty($checkLog['error'])) {
-                $error[] = $checkLog['error'];
-            }
+        $extensionsValides = array('jpg', 'jpeg', 'png');
+
+        if($extensionsValides){
+            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+            $chemin = "../img/imgboutique/".$_POST['nameProd'] .".".$this->extension;
+            $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
         }
+        else{
+            echo non;
+        }
+
+        $photo= $_POST['nameProd'] .".".$this->extension;
+
+//        $this->checkPicture();
+//        $this->setPicture();
 
 
         $add = $this->query('INSERT INTO product(id_category, nom, description, prix, date, photo) VALUES(?,?,?,?,?,?) ', [
-            $cat, $nameProd, $description, $prix, $date, '']);
+            $cat, $nameProd, $description, $prix, $date, $photo]);
 
         $idProduct = $this->lastInsertId();
 
         $arrayTaille = ['S', 'M', 'L', 'XL'];
-        $this->setLogo();
 
         foreach ($arrayTaille as $taille) {
             if (empty($_POST[$taille])) {
@@ -90,37 +96,42 @@ class product extends dataBase
                 $currentTaille = $_POST[$taille];
             }
 
-            $this->query('INSERT INTO stock(id_product, taille, stock) VALUES(?,?,?) ', [ $idProduct, $taille, $currentTaille,]);
+            $this->query('INSERT INTO stock(id_product, taille, stock) VALUES(?,?,?) ', [ $idProduct, $taille, $currentTaille]);
         }
 
 
     }
 
-    //CHECK PHOTO
+//    public function checkPicture(){
+//
+//        $type = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+//        $output = [
+//            'type' => $type
+//        ];
+//        if (!in_array("." . $type, $this->extensionType)) {
+//            echo "Format d'image autorisé: " . implode(", ", $this->extensionType);
+//        }
+//        return $output;
+//    }
 
-    public function checkLogo()
-    {
-        $type = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-        $output = ['type' => $type];
+//    public function setPicture()
+//    {
+//
+//        $extensionsValides = array('jpg', 'jpeg', 'png');
+//
+//        if($extensionsValides){
+//            $extensionUpload = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+//            $chemin = "../img/imgboutique/".$_POST['nameProd'] .".".$extensionUpload;
+//            $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+//        }
+//        else{
+//            echo non;
+//        }
 
-        if (!in_array("." . $type, $this->extensionType)) {
-            $output['error'] = "Format d'image autorisé: " . implode(", ", $this->extensionType);
-        }
-        return $output;
+
     }
 
-    public function setLogo()
-    {
-        $pathAvatar = '../img/';
-        $name = $this->lastInsertId() . ".jpg";
-        foreach (scandir($pathAvatar) as $avatar) {
-            if (pathinfo($avatar, PATHINFO_FILENAME) == pathinfo($name, PATHINFO_FILENAME)) {
-                $path = $pathAvatar . $avatar;
-                unset($path);
-            }
-        }
-        move_uploaded_file($_FILES["image"]["tmp_name"], $pathAvatar . $name);
-    }
+
 
 
 }
