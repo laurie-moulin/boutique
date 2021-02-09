@@ -13,9 +13,6 @@ if (isset($_POST['submit_addProd'])) {
   $product->addProduct();
 }
 
-
-
-
 ?>
 
 <html lang="fr">
@@ -54,6 +51,7 @@ if (isset($_POST['submit_addProd'])) {
 
         <label for="description">Description</label> <br/>
         <textarea id="description" name="description" required> </textarea><br>
+
 
         <label for="taille">Stock par taille</label> <br/>
 
