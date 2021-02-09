@@ -5,13 +5,15 @@ require_once '../class/dataBase.php';
 
 $product = new \db\product();
 
-setlocale(LC_TIME, 'fr_FR');
+$error = '';
 date_default_timezone_set('Europe/Paris');
-$today = date('Y-m-m');
+$today = date("d/m/Y");
 
 if (isset($_POST['submit_addProd'])) {
-    $product->addProduct();
+  $product->addProduct();
 }
+
+
 
 
 ?>
@@ -35,7 +37,7 @@ if (isset($_POST['submit_addProd'])) {
     <form action="admin_addProd.php" method="post" enctype="multipart/form-data">
 
         <label for="date">Date d'ajout du produit : </label><br>
-        <input type="date" id="date" name="date" value=<?php echo $today ?> min=<?php echo $today ?> max=<?php echo $today ?>><br>
+        <input type="date" id="date" name="date" value='<?php echo $today ?>' required><br>
 
         <label for="categorie-select">Catégorie</label> <br/>
         <select name="category"  class="input">
@@ -70,7 +72,9 @@ if (isset($_POST['submit_addProd'])) {
 
         <label for="prix">Prix</label> <br/>
         <input type="number" id="prix" name="prix" min="0" step="0.01" required><br>
+<?php
 
+?>
 
         <input type="submit" value="Ajouter" name="submit_addProd">
     </form>

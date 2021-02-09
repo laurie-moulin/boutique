@@ -6,7 +6,6 @@ require_once 'dataBase.php';
 class product extends dataBase
 {
     protected $category = [];
-    protected $extensionType = ['.png', '.jpeg', '.jpg'];
 
     //CATEGORIES
 
@@ -65,54 +64,110 @@ class product extends dataBase
         $description = htmlentities($_POST['description']);
         $prix = htmlentities($_POST['prix']);
 
-        $extensionsValides = array('jpg', 'jpeg', 'png');
+        $error = '';
 
-        if($extensionsValides){
-            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
-            $chemin = "../img/imgboutique/".$_POST['nameProd'] .".".$this->extension;
-            $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+
+        $this->checkPicture();
+
+//        $this->setPicture();
+        $photo = $_POST['nameProd'] . "." . $this->extension;
+
+        if (empty($error)) {
+            $add = $this->query('INSERT INTO product(id_category, nom, description, prix, date, photo) VALUES(?,?,?,?,?,?) ',
+                [$cat, $nameProd, $description, $prix, $date, $photo]);
+
+            $idProduct = $this->lastInsertId();
+
+            $arrayTaille = ['S', 'M', 'L', 'XL'];
+
+            foreach ($arrayTaille as $taille) {
+                if (empty($_POST[$taille])) {
+                    $currentTaille = 0;
+                } else {
+                    $currentTaille = $_POST[$taille];
+                }
+
+                $this->query('INSERT INTO stock(id_product, taille, stock) VALUES(?,?,?) ', [$idProduct, $taille, $currentTaille]);
+            }
         }
         else{
-            echo non;
-        }
-
-        $photo= $_POST['nameProd'] .".".$this->extension;
-
-//        $this->checkPicture();
-//        $this->setPicture();
-
-
-        $add = $this->query('INSERT INTO product(id_category, nom, description, prix, date, photo) VALUES(?,?,?,?,?,?) ', [
-            $cat, $nameProd, $description, $prix, $date, $photo]);
-
-        $idProduct = $this->lastInsertId();
-
-        $arrayTaille = ['S', 'M', 'L', 'XL'];
-
-        foreach ($arrayTaille as $taille) {
-            if (empty($_POST[$taille])) {
-                $currentTaille = 0;
-            } else {
-                $currentTaille = $_POST[$taille];
-            }
-
-            $this->query('INSERT INTO stock(id_product, taille, stock) VALUES(?,?,?) ', [ $idProduct, $taille, $currentTaille]);
+            echo $error;
         }
 
 
     }
 
-//    public function checkPicture(){
+    public function checkPicture()
+    {
+        $error = '';
+            $extensionsValides = array('jpg', 'jpeg', 'png');
+            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+
+            if (in_array($this->extension, $extensionsValides)) {
+                $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
+                $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+            } else {
+                $error = 'pas bon format';
+
+            }
+
+        return $error;
+
+    }
+
+    public function getAllProducts()
+    {
+        $response = $this->query('SELECT * FROM product INNER JOIN category WHERE product.id_category = category.id');
+        return $response->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function setProduct(){
+        $this->product = $this->query('SELECT * FROM product WHERE id_product = ?', [$_GET['id']])->fetch(\PDO::FETCH_ASSOC);
+        return $this;
+
+    }
+
+    public function getSize()
+    {
+        return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+
+//    public function checkPicture()
+//    {
+//        $error = '';
 //
-//        $type = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-//        $output = [
-//            'type' => $type
-//        ];
-//        if (!in_array("." . $type, $this->extensionType)) {
-//            echo "Format d'image autorisé: " . implode(", ", $this->extensionType);
+//        if (isset($_FILES)) {
+//            $extensionsValides = array('jpg', 'jpeg', 'png');
+//            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+//
+//            if (in_array($this->extension, $extensionsValides)) {
+//                $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
+//                $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+//            } else {
+//                $error = 'photo pas bon format';
+//
+//            }
+//        } else {
+//            $error = 'photo manquante';
+//
 //        }
-//        return $output;
-//    }
+
+
+//        $error = '';
+//
+//
+//        if ($extensionsValides) {
+//            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+//            $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
+//            $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+//        } else {
+//            $error= 'non';
+//        }
+//
+//        return $error;
+
+//}
 
 //    public function setPicture()
 //    {
@@ -128,10 +183,5 @@ class product extends dataBase
 //            echo non;
 //        }
 
-
-    }
-
-
-
-
 }
+
