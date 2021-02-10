@@ -3,6 +3,7 @@
 namespace db;
 require_once 'dataBase.php';
 require 'message.php';
+require 'admin.php';
 
 class user extends dataBase
 {
@@ -44,7 +45,39 @@ class user extends dataBase
 
     }
 
+    public function connect()
+    {
+        $email = htmlentities($_POST['email']);
+        $password = $_POST['password'];
 
+
+        //VERIFICATION EXISTANCE MAIL
+        $user = $this->query('SELECT * FROM users WHERE email = ? ', [$email])->fetch(\PDO::FETCH_ASSOC);
+        if (empty($user)) {
+            $errors[] = "Adresse mail inexistante";
+        }
+
+        //VERIF MDP
+        if (!empty($user) && !password_verify($password, $user['password'])) {
+            $errors[] = "mauvais mdp";
+        }
+
+        //METHODE POUR TROUVER LE STATUT DE LA PERSONNE
+        $admin = new admin();
+        $statut = $admin->getStatut($email);
+
+        if (empty($errors) && $statut['admin'] == 1) {
+            $_SESSION['id'] = $user['id'];
+            header("location:admin.php");
+        } elseif (empty($errors) && $statut['admin'] == 0) {
+            $_SESSION['id'] = $user['id'];
+            header("location:profil.php");
+        } elseif (isset($errors)) {
+            $message = new messages($errors);
+            echo $message->renderMessage();
+        }
+
+    }
 
 
 }

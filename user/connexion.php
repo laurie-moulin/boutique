@@ -5,6 +5,8 @@ require_once '../class/dataBase.php';
 
 $connect = new \db\user();
 
+
+
 ?>
 
 <html lang="fr">
@@ -29,17 +31,17 @@ $connect = new \db\user();
         <h1 class="titre">Connexion</h1>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" id="email" name="email" ><br>
 
         <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password" required><br>
+        <input type="password" id="password" name="password"><br>
 
 
-<!--        --><?php
-//        if(isset($_POST['submit_register'])){
-//            $register->register();
-//        }
-//        ?>
+        <?php
+        if(isset($_POST['submit_connect'])){
+            $connect->connect();
+        }
+        ?>
 
         <input type="submit" value="Se connecter" name="submit_connect">
     </form>
