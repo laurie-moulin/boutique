@@ -30,10 +30,7 @@ $panier = new \db\panier();
 
     <section>
         <?php foreach ($product->affichages_categories() as $line) { ?>
-
             <a href="?categorie=<?= $line["categorie"] ?>"><?= $line["categorie"] ?></a>
-
-
         <?php } ?>
 
         <a href='boutique_all.php'>All</a>
@@ -43,52 +40,30 @@ $panier = new \db\panier();
     <section>
         <?php
         if (isset($_GET['categorie']))
-
         {
             foreach ($product->affichages_des_produits() as $produits) { ?>
-
-                <div class="boutique-produit">
-
+                <div>
                     <h2><?=$produits["titre"]?></h2>
-
                     <a href = detail_produit.php?id_produit=<?= $produits["id_produit"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
-
                     <p><?=$produits["prix"] ?> €</p>
                     <p><?=$produits["description"] ?> </p>
-
                     <a href="detail_produit.php?id_produit=' . <?=$produits["id_produit"] ?>. ' ">Achetez</a>
-
-
                 </div>
-
             <?php }
-
         }
         else
         {
             foreach ($product->affichages_boutique() as $boutique) { ?>
-
-                <div class="boutique-produit">
-
+                <div>
                     <h2><?=$boutique["titre"]?></h2>
-
                     <a href = detail_produit.php?id_produit=<?= $boutique["id_produit"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
-
                     <p><?=number_format($boutique["prix"] ,2,',',' ')?> €</p>
                     <p><?=$boutique["description"] ?> </p>
-
-
                 </div>
-
             <?php }
         }
-
         ?>
-
-
     </section>
-
-
 </main>
 
 <footer>

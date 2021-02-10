@@ -19,49 +19,32 @@ $panier = new \db\panier();
 </head>
 
 <body>
-
 <header>
-
 </header>
-
 <main>
-
     <section>
         <?php
-
-
         if (isset($_GET['id_produit']))
         {
             $product->details_produit() ?>
-
                 <div class="boutique-produit">
-
                     <h2><?=$product->details_produit()["titre"]?></h2>
-
                     <img src=../img/<?=$product->details_produit()["photo"]?> ="500" height="550">
-
                     <p><?=number_format($product->details_produit()["prix"] ,2,',',' ') ?> €</p>
                     <p><?=$product->details_produit()["description"] ?> </p>
-
                 </div>
-
-
             <?php }
-
         else
         {
             header("location:boutique_all.php");
         }
-
         ?>
 
     </section>
 
     <section>
         <form method="post" action="panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
-
             <input type='hidden' name='id_produit' value='<?php $product->details_produit()["id_produit"] ?>'>
-
                 <label for="taille">Choisir taille:</label>
                 <select  name="size" id="taille">
                     <?php
@@ -91,21 +74,14 @@ $panier = new \db\panier();
                     {
                         echo "Rupture de stock";
                     }
-
                     ?>
                 </select>
-
             <input type="submit" name="ajout_panier" value="ajout au panier">
-
         </form>
-
-
     </section>
-
     <a href='boutique_all.php'>Revenir à la boutique</a>
 
 </main>
-
 <footer>
 
 </footer>

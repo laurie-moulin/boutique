@@ -12,7 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/panier.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/panier.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/produit_boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/produit_boutique.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/boutique_all.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/boutique_all.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail_produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail_produit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612255061201</updated>
       <workItem from="1612255062294" duration="180000" />
-      <workItem from="1612452543016" duration="62525000" />
+      <workItem from="1612452543016" duration="104678000" />
     </task>
     <servers />
   </component>
@@ -67,10 +70,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="354" y="135" key="#Inspections" timestamp="1612719276186">
+    <state x="354" y="135" key="#Inspections" timestamp="1612953054751">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1612719276186" />
+    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1612953054751" />
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612508360886">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -87,17 +90,17 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="513" y="167" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612446068679" />
-    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1612715150346">
+    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1612892252728">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612715150346" />
+    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612892252728" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1612446321881">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1612446321881" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1612622433231">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1612876242581">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1612622433231" />
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1612876242581" />
   </component>
 </project>

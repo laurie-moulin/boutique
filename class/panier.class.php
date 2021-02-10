@@ -18,7 +18,7 @@ class Panier extends dataBase
     {
         if(!isset($_SESSION['panier']))
         {
-            $_SESSION['panier'] = [];
+          $_SESSION['panier'] = [];
             $_SESSION['panier']['titre'] = [];
             $_SESSION['panier']['id_produit'] = [];
             $_SESSION['panier']['stock'] = [];
@@ -34,15 +34,17 @@ class Panier extends dataBase
         $this->creationDuPanier();
          //$position_produit = array_search($id_produit,$_SESSION['panier']['id_produit']);
          //$position_produit = $_SESSION['panier']['id_produit'];
+
             $_SESSION['panier']['titre'][] = $titre;
             $_SESSION['panier']['id_produit'][] = $id_produit;
             $_SESSION['panier']['stock'][] = $stock;
             $_SESSION['panier']['prix'][] = $prix;
             $_SESSION['panier']['taille'][] = $taille;
             $_SESSION['panier']['photo'][] = $photo;
+
     }
 
-    public function montantTotal()
+ public function montantTotal()
     {
         $total=0;
         for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
@@ -52,20 +54,69 @@ class Panier extends dataBase
         return round($total,2);
     }
 
-    public function retirerProduitDuPanier($id_produit_a_supprimer)
-    {
-        $position_produit = array_search($id_produit_a_supprimer,  $_SESSION['panier']['id_produit']);
-        if ($position_produit !== false)
+
+    function supprimerArticle($libelleProduit){
+        //Si le panier existe
+        if ($this->creationDuPanier())
         {
-            array_splice($_SESSION['panier']['titre'], $position_produit, 1);
-            array_splice($_SESSION['panier']['id_produit'], $position_produit, 1);
-            array_splice($_SESSION['panier']['stock'], $position_produit, 1);
-            array_splice($_SESSION['panier']['prix'], $position_produit, 1);
-            array_splice($_SESSION['panier']['taille'], $position_produit, 1);
-            array_splice($_SESSION['panier']['photo'], $position_produit, 1);
+            //Nous allons passer par un panier temporaire
+            $tmp = [];
+            $tmp['titre'] = [];
+            $tmp['id_produit'] = [];
+            $tmp['stock'] = [];
+            $tmp['taille'] = [];
+            $tmp['prix'] = [];
+            $tmp['photo'] = [];
+
+            for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
+            {
+                if ($_SESSION['panier']['id_produit'][$i] !== $libelleProduit)
+                {
+                    array_push( $tmp['titre'],$_SESSION['panier']['titre'][$i]);
+                    array_push( $tmp['id_produit'],$_SESSION['panier']['id_produit'][$i]);
+                    array_push( $tmp['stock'],$_SESSION['panier']['stock'][$i]);
+                    array_push( $tmp['taille'],$_SESSION['panier']['taille'][$i]);
+                    array_push( $tmp['prix'],$_SESSION['panier']['prix'][$i]);
+                    array_push( $tmp['photo'],$_SESSION['panier']['photo'][$i]);
+                }
+
+            }
+            //On remplace le panier en session par notre panier temporaire à jour
+            $_SESSION['panier'] =  $tmp;
+            //On efface notre panier temporaire
+            unset($tmp);
         }
+        else
+            echo "Un problème est survenu veuillez contacter l'administrateur du site.";
     }
-//------------------------------------
+
+
+    /*   public function montantTotal($id_produit, $stock, $prix)
+       {
+           $total=0;
+           for($i = 0; $i < count([$id_produit]); $i++)
+           {
+               $total += $stock[$i] * $prix[$i];
+           }
+           return round($total,2);
+       }*/
+
+
+
+/*    public function retirerProduitDuPanier($id_produit_a_supprimer)
+    {
+
+            array_splice($_SESSION['panier']['titre'], $id_produit_a_supprimer, 1);
+            array_splice($_SESSION['panier']['id_produit'], $id_produit_a_supprimer, 1);
+            array_splice($_SESSION['panier']['stock'], $id_produit_a_supprimer, 1);
+            array_splice($_SESSION['panier']['prix'], $id_produit_a_supprimer, 1);
+            array_splice($_SESSION['panier']['taille'], $id_produit_a_supprimer, 1);
+            array_splice($_SESSION['panier']['photo'], $id_produit_a_supprimer, 1);
+
+    }*/
+
+
 }
+
 
 ?>

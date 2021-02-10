@@ -21,6 +21,13 @@ class product extends dataBase
     }
 
 
+    public function test($ids)
+    {
+        $cat = $this->query('SELECT * FROM produit WHERE id_produit IN ( id_produit, titre, photo, prix )');
+       return $cat->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
     public function affichages_boutique()
         {
            $cat = $this->query('SELECT * FROM produit');
