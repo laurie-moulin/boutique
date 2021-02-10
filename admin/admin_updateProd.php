@@ -70,19 +70,19 @@ var_dump($product->getCategory());
         <label for="description">Description</label> <br/>
         <textarea id="description" name="description"  required> <?= $product['description'] ?></textarea><br>
 
-        <label for="taille">Stock par taille</label> <br/>
-
-        <label for="taille">S</label> <br/>
-        <input type="number" id="s" name="S" min="0" required><br>
-
-        <label for="taille">M</label> <br/>
-        <input type="number" id="m" name="M" min="0" required><br>
-
-        <label for="taille">L</label> <br/>
-        <input type="number" id="l" name="L" min="0" required><br>
-
-        <label for="taille">XL</label> <br/>
-        <input type="number" id="xl" name="XL" min="0" required><br>
+<!--        <label for="taille">Stock par taille</label> <br/>-->
+<!---->
+<!--        <label for="taille">S</label> <br/>-->
+<!--        <input type="number" id="s" name="S" min="0" required><br>-->
+<!---->
+<!--        <label for="taille">M</label> <br/>-->
+<!--        <input type="number" id="m" name="M" min="0" required><br>-->
+<!---->
+<!--        <label for="taille">L</label> <br/>-->
+<!--        <input type="number" id="l" name="L" min="0" required><br>-->
+<!---->
+<!--        <label for="taille">XL</label> <br/>-->
+<!--        <input type="number" id="xl" name="XL" min="0" required><br>-->
 
 <!--        --><?php //foreach ($product->getSize() as $size) { ?>
 <!--            <label>--><?//= $size['taille'] ?><!--</label>-->
@@ -93,9 +93,17 @@ var_dump($product->getCategory());
         <input type="number" id="prix" name="prix" value="<?= $product['prix'] ?>" required><br>
         <?php
 
-        ?>
+        $product->getSize();
+        $product['id_product'];
 
-        <input type="submit" value="Ajouter" name="submit_addProd">
+//                      foreach ($product->getSize() as $size) { ?>
+<!--        <label>--><?//= $size['taille'] ?><!--</label>-->
+<!--        <input type="number" value="--><?//= $size['stock'] ?><!--" name="--><?//= $size['taille'] ?><!--" class="input">-->
+<!--        --><?php //} ?>
+
+
+
+        <input type="submit" value="Modifier" name="submit_addProd">
     </form>
 
 

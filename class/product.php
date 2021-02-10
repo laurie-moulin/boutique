@@ -89,8 +89,7 @@ class product extends dataBase
 
                 $this->query('INSERT INTO stock(id_product, taille, stock) VALUES(?,?,?) ', [$idProduct, $taille, $currentTaille]);
             }
-        }
-        else{
+        } else {
             echo $error;
         }
 
@@ -100,16 +99,16 @@ class product extends dataBase
     public function checkPicture()
     {
         $error = '';
-            $extensionsValides = array('jpg', 'jpeg', 'png');
-            $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
+        $extensionsValides = array('jpg', 'jpeg', 'png');
+        $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
 
-            if (in_array($this->extension, $extensionsValides)) {
-                $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
-                $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
-            } else {
-                $error = 'pas bon format';
+        if (in_array($this->extension, $extensionsValides)) {
+            $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
+            $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
+        } else {
+            $error = 'pas bon format';
 
-            }
+        }
 
         return $error;
 
@@ -121,7 +120,8 @@ class product extends dataBase
         return $response->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function setProduct(){
+    public function setProduct()
+    {
         $this->product = $this->query('SELECT * FROM product WHERE id_product = ?', [$_GET['id']])->fetch(\PDO::FETCH_ASSOC);
         return $this;
 
