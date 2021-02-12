@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/panier.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/panier.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/produit_boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/produit_boutique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/boutique_all.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/boutique_all.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/detail_produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail_produit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
     </list>
@@ -41,6 +40,16 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager">
+    <configuration name="search.class.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/class/search.class.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.search.class.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612255061201</updated>
       <workItem from="1612255062294" duration="180000" />
-      <workItem from="1612452543016" duration="104678000" />
+      <workItem from="1612452543016" duration="137714000" />
     </task>
     <servers />
   </component>
@@ -70,10 +79,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="354" y="135" key="#Inspections" timestamp="1612953054751">
+    <state x="354" y="135" key="#Inspections" timestamp="1613131149300">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1612953054751" />
+    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1613131149300" />
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612508360886">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -90,10 +99,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="513" y="167" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612446068679" />
-    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1612892252728">
+    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1613153815798">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1612892252728" />
+    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1613153815798" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1612446321881">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -68,9 +68,10 @@ class product extends dataBase
     }
 
 
-    public function get_id_produit()
+    public function search()
     {
-        return $this->id;
+        $cat = $this->query("select id_produit, titre, photo, prix, description  FROM  produit where categorie ='$_GET[categorie]'");
+        return $cat->fetchAll();
     }
 
 }

@@ -4,6 +4,12 @@ require_once 'dataBase.php';
 
 class Panier extends dataBase
 {
+    public function supprimer_produit($key){
+        # Retire un produit de la liste
+        unset($_SESSION['panier'][$key]);
+    }
+
+
     public function internauteEstConnecte()
     {
         if(!isset($_SESSION['membre'])) return false;
@@ -54,8 +60,16 @@ class Panier extends dataBase
         return round($total,2);
     }
 
+    /*SUPPRIME UN ARTICLE DU PANIER*/
+    function deleteProduct($position)
+    {
+        $_SESSION['panier'][$position];
+        array_splice($_SESSION['panier'], $position, 1);
+        $this->montantTotal();
+    }
 
-    function supprimerArticle($libelleProduit){
+
+    /*function supprimerArticle($libelleProduit){
         //Si le panier existe
         if ($this->creationDuPanier())
         {
@@ -88,24 +102,28 @@ class Panier extends dataBase
         }
         else
             echo "Un problème est survenu veuillez contacter l'administrateur du site.";
-    }
+    }*/
 
-
-    /*   public function montantTotal($id_produit, $stock, $prix)
+/*
+   public function montantTotal($id_produit, $stock, $prix)
        {
            $total=0;
            for($i = 0; $i < count([$id_produit]); $i++)
            {
-               $total += $stock[$i] * $prix[$i];
+               $total += ($stock[$i]) * ($prix[$i]);
            }
            return round($total,2);
        }*/
 
 
 
-/*    public function retirerProduitDuPanier($id_produit_a_supprimer)
+  public function retirerProduitDuPanier($id_produit_a_supprimer)
     {
 
+
+        $position_produit = array_search($id_produit_a_supprimer,  $_SESSION['panier']['id_produit']);
+        if ($position_produit !== false)
+        {
             array_splice($_SESSION['panier']['titre'], $id_produit_a_supprimer, 1);
             array_splice($_SESSION['panier']['id_produit'], $id_produit_a_supprimer, 1);
             array_splice($_SESSION['panier']['stock'], $id_produit_a_supprimer, 1);
@@ -113,9 +131,21 @@ class Panier extends dataBase
             array_splice($_SESSION['panier']['taille'], $id_produit_a_supprimer, 1);
             array_splice($_SESSION['panier']['photo'], $id_produit_a_supprimer, 1);
 
-    }*/
+        }
+    }
+
+    public function test()
+    {
+        $testta = $_SESSION['panier']['id_produit'];
+        $testta = implode( ',', $testta );
 
 
+        $cat = $this->query("SELECT * FROM produit WHERE id_produit=" . $testta);
+            return $cat->fetch(\PDO::FETCH_ASSOC);
+
+
+
+    }
 }
 
 
