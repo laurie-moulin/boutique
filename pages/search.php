@@ -44,6 +44,9 @@ if(isset($submit)) {
                 echo '<br> Taille	: '.$row['taille'];
                 echo '</h4>';
 
+                echo "<a href='boutique_all.php?id=" . $row['id_produit'] . "'>Boutique</a>";
+
+
             }
         }else{
             echo'<h2> Search Result</h2>';
