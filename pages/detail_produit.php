@@ -9,7 +9,7 @@ $product = new \db\product();
 $panier = new \db\panier();
 
 ?>
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">

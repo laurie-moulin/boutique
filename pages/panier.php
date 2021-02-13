@@ -9,24 +9,21 @@ $product = new \db\product();
 $panier = new \db\panier();
 
 
-
 if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
 }
 
-var_dump($_SESSION);
-
 if(isset($_GET["action"]))
 {
   $panier->delete();
 }
-
 if(isset($_GET['action']) && $_GET['action'] == "vider")
 {
     unset($_SESSION['panier']);
     session_destroy();
 }
+
 
 ?>
 
@@ -49,8 +46,8 @@ if(!empty($_SESSION["panier"]))
             <td><?=  $values["item_name"] ?></td>
             <td><?=  $values["item_quantity"]?></td>
             <td><?=  $values["item_price"] ?></td>
-            <td><?=  $values["item_size"] ?></td>
-            <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?></td>
+            <td><?=  strtoupper($values["item_size"]) ?></td>
+            <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?> €</td>
             <td><img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" /></td>
             <td><a href="panier.php?action=delete&id=<?=  $values["item_id"] ?>"><span class="text-danger">Remove</span></a></td>
         </tr>
@@ -60,7 +57,7 @@ if(!empty($_SESSION["panier"]))
     ?>
     <tr>
         <td colspan="3" align="right">Total</td>
-        <td align="right"> <?= number_format($total, 2) ?></td>
+        <td align="right"> <?= number_format($total, 2) ?> euros</td>
         <td></td>
     </tr>
   </table>
@@ -73,11 +70,19 @@ if(!empty($_SESSION["panier"]))
         echo '</form>';
 
     }
+
+
     else
     {
+        ?>
+       <form method="post" action="paiement_paypal.php">
+       <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
 
-        echo '<tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>';
+       <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
+        </form>
 
+        <tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>
+<?php
     }
 
     echo "<tr><td colspan='5'><a href='?action=vider'>Vider mon panier</a></td></tr>";
@@ -89,3 +94,4 @@ else
 ?>
 
 <a href="detail_produit.php">revenir</a>
+<a href="paiement_paypal.php">payer</a>
