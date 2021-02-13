@@ -30,26 +30,26 @@ if(isset($submit)) {
     $name = htmlspecialchars($_GET['search']);
     if(empty($name))
     {
-        $make = '<h4>You must type a word to search!</h4>';
+        $make = '<h1>You must type a word to search!</h1>';
 
     }else{
-        $make = '<h4>No match found!</h4>';
+        $make = '<h2>No match found!</h2>';
         $results = $search->resultat_recherche($name);
 
         if($row = $results->rowCount() > 0){
             while( $row = $results->fetch(\PDO::FETCH_ASSOC))
             {
-                echo '<h4> Id : '.$row['id_produit'];
+                echo '<h3> Id : '.$row['id_produit'];
                 echo '<br> name	: '.$row['titre'];
                 echo '<br> Taille	: '.$row['taille'];
-                echo '</h4>';
+                echo '</h3>';
 
                 echo "<a href='boutique_all.php?id=" . $row['id_produit'] . "'>Boutique</a>";
 
 
             }
         }else{
-            echo'<h2> Search Result</h2>';
+            echo'<h4> Search Result</h4>';
 
             print ($make);
         }

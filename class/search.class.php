@@ -6,11 +6,11 @@ class Search extends dataBase
 {
 
 
-    function resultat_recherche($query)
+    function resultat_recherche($name)
     {
-        $resultat = $this->query('SELECT titre, taille, id_produit FROM produit WHERE titre LIKE "%' . $query . '%" ORDER BY id_produit DESC');
+        $resultat = $this->query('SELECT titre, taille, id_produit FROM produit WHERE titre LIKE "%' . $name. '%" ORDER BY id_produit DESC');
         if (empty($resultat )) {
-            $resultat  = $this->query('SELECT titre, taille, id_produit FROM produit WHERE CONCAT(titre, description) LIKE "%' . $query . '%" ORDER BY id_produit DESC');
+            $resultat  = $this->query('SELECT titre, taille, id_produit FROM produit WHERE CONCAT(titre, description) LIKE "%' . $name . '%" ORDER BY id_produit DESC');
         }
         return $resultat ;
     }
