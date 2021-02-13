@@ -18,7 +18,13 @@ $commands = new \db\Commands();
 
 if (isset($_POST["payer"]))
 {
-    echo $commands->montant();
+     $commands->insertcommande(2, $commands->montant(),date('Y-m-d'));
+     {
+        foreach($_SESSION["panier"] as $keys => $values)
+        $commands->insertcommandedetail($commands->Last_id(), 2,$values["item_id"], $values["item_quantity"] , $values["item_price"]);
+     }
+    header('location:paiement_paypal.php');
+
 }
 
 ?>

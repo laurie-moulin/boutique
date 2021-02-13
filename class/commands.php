@@ -4,6 +4,7 @@ require_once 'dataBase.php';
 
 class Commands extends dataBase
 {
+
     public function montant()
     {
         if(!empty($_SESSION["panier"]))
@@ -18,27 +19,22 @@ class Commands extends dataBase
         return number_format($total, 2);
     }
 
-    public function query()
+
+    public function insertcommande($id_users, $montant,$date_enregistrement)
     {
+        $insert = $this->query('INSERT INTO commande (id_users, montant, date_enregistrement) VALUE( ?, ?, ?)', [$id_users, $montant,  $date_enregistrement]);
 
     }
 
-
-    public function insertcommande()
+    public function Last_id()
     {
-        executeRequete("INSERT INTO commande (id_membre, montant, date_enregistrement) VALUES (" . $_SESSION['membre']['id_membre'] . "," . montantTotal() . ", NOW())");
+       $stmt = $this->query("SELECT LAST_INSERT_ID()");
+       return $stmt->fetchColumn();
+    }
 
-        $id_commande = $mysqli->insert_id;
-
-        for($i = 0; $i < count($_SESSION['panier']['id_produit']); $i++)
-        {
-            executeRequete("INSERT INTO details_commande (id_commande, id_produit, quantite, prix) VALUES ($id_commande, " . $_SESSION['panier']['id_produit'][$i] . "," . $_SESSION['panier']['quantite'][$i] . "," . $_SESSION['panier']['prix'][$i] . ")");
-        }
-
-        unset($_SESSION['panier']);
-
-        mail($_SESSION['membre']['email'], "confirmation de la commande", "Merci votre n° de suivi est le $id_commande", "From:vendeur@dp_site.com");
-        $contenu .= "<div class='validation'>Merci pour votre commande. votre n° de suivi est le $id_commande</div>";
+    public function insertcommandedetail($id_commande, $id_users, $id_produit, $quantite, $prix)
+    {
+        $insert = $this->query('INSERT INTO details_commande (id_commande,id_users, id_produit, quantité, prix) VALUE(?, ?, ?, ?, ?)', [$id_commande, $id_users, $id_produit, $quantite, $prix]);
     }
 }
 ?>

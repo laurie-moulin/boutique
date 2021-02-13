@@ -75,7 +75,7 @@ if(!empty($_SESSION["panier"]))
     else
     {
         ?>
-       <form method="post" action="paiement_paypal.php">
+       <form method="post" action="commande.php">
        <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
 
        <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>

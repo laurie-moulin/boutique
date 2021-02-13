@@ -11,7 +11,7 @@ $product = new \db\Product();
 $panier = new \db\Panier();
 $search = new \db\Search();
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 
 if(!empty($_SESSION["panier"]))
 
