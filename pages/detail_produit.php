@@ -43,7 +43,14 @@ $panier = new \db\panier();
     </section>
 
     <section>
-        <form method="post" action="panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
+        <form method="post" action="commande.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
+
+            <input type="hidden" name="hidden_name" value="<?php echo $product->details_produit()["titre"]; ?>" />
+
+            <input type="hidden" name="hidden_price" value="<?php echo $product->details_produit()["prix"]; ?>" />
+
+            <input type="hidden" name="hidden_photo" value="<?php echo $product->details_produit()["photo"]; ?>" />
+
                 <label for="taille">Choisir taille:</label>
                 <select  name="size" id="taille">
                     <?php
@@ -61,7 +68,7 @@ $panier = new \db\panier();
                 </select>
 
                 <label for="quantite">Quantité:</label>
-                <select name="stock" id="quantite" >
+                <select name="quantity" id="quantite" >
                     <?php
                     if ($size['stock'] > 0){
                         for($i = 1; $i <= $size['stock'] && $i <= 5; $i++) {

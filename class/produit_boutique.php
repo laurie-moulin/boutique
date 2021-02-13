@@ -42,6 +42,13 @@ class product extends dataBase
         }
 
 
+        public function details1_produit($get)
+        {
+           $cat = $this->query("SELECT * FROM produit WHERE id_produit = '. $get . '");
+           return $cat->fetch(\PDO::FETCH_ASSOC);
+        }
+
+
         public function panier_produit()
         {
            $cat = $this->query("SELECT * FROM produit WHERE id_produit = '$_GET[id_produit]'");

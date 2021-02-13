@@ -9,26 +9,6 @@ $product = new \db\product();
 $panier = new \db\panier();
 
 
-if(isset($_GET['id_produit']) && !empty($_GET['id_produit']))
-
-{
-    $new_articles = $_GET['id_produit'];
-
-
- foreach ($new_articles as $article) {
-
-    // Si il existe déjà
-    if(isset($articles[$article])) {
-
-        $articles[$article] = $articles[$article] + 1;
-
-    } else {
-
-        $articles[$article] = 1;
-
-    }
-}
-}
 
 if(isset($_POST['ajout_panier']))
     {
@@ -48,7 +28,9 @@ unset($_SESSION['panier'][2]);
 var_dump($_GET);
 
 
-
+if (isset($_POST['removeOne'])) {
+    $panier->deleteProduct($_POST['position']);
+}
 
 ?>
 
@@ -77,7 +59,7 @@ var_dump($_GET);
       <?php
 
 
-      if(empty($_SESSION['panier']['id_produit'])){
+     if (empty($_SESSION['panier'])){
           ?>
                 <tr><td colspan='10'>Votre panier est vide</td></tr>
             <?php
@@ -97,10 +79,9 @@ var_dump($_GET);
 
                         <td><a href="panier.php?delPanier=" class="del">X</a></td>
 
-                        <form method="post" action="">
-                            <input type="hidden" name="position" value="<?= $_SESSION['panier']['id_produit'] ?>">
-                            <td> 									<input type="submit" name="delete" value="❌">
-                            </td>
+                        <form method="post" action="panier.php">
+                            <input type="hidden" name="position" value="<?= $i ?>">
+                            <input type="submit" name="removeOne" value="Delete">
                         </form>
           <?php }
                 echo "<tr><th colspan='3'>Total</th><td colspan='2'>" . $panier->montantTotal() . " euros</td></tr>";
