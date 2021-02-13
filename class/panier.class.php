@@ -69,7 +69,7 @@ class Panier extends dataBase
                 {
                     unset($_SESSION["panier"][$keys]);
                     echo '<script>alert("Article retiré du panier")</script>';
-                    echo '<script>window.location="commande.php"</script>';
+                    echo '<script>window.location="panier.php"</script>';
                 }
             }
         }

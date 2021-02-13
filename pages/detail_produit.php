@@ -43,7 +43,7 @@ $panier = new \db\panier();
     </section>
 
     <section>
-        <form method="post" action="commande.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
+        <form method="post" action="panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
 
             <input type="hidden" name="hidden_name" value="<?php echo $product->details_produit()["titre"]; ?>" />
 

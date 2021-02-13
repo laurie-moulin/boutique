@@ -22,7 +22,7 @@ $panier = new \db\panier();
 
 <header>
 <nav>
-    <a href="commande.php">Panier</a>
+    <a href="panier.php">Panier</a>
 </nav>
 </header>
 
