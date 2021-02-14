@@ -77,10 +77,8 @@ if(!empty($_SESSION["panier"]))
         ?>
        <form method="post" action="commande.php">
        <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
-
        <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
         </form>
-
         <tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>
 <?php
     }

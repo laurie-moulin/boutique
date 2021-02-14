@@ -22,6 +22,7 @@ $panier = new \db\panier();
 <header>
 </header>
 <main>
+    <article><a href="panier.php">Panier</a> </article>
     <section>
         <?php
         if (isset($_GET['id_produit']))
@@ -69,18 +70,13 @@ $panier = new \db\panier();
 
                 <label for="quantite">Quantité:</label>
                 <select name="quantity" id="quantite" >
-                    <?php
-                    if ($size['stock'] > 0){
-                        for($i = 1; $i <= $size['stock'] && $i <= 5; $i++) {
-                            ?>
-                            <option><?=$i?></option>";
-                        <?php }
-                    }
-                    else
-                    {
-                        echo "Rupture de stock";
-                    }
-                    ?>
+                 <?php
+                    $i = 0;
+                    while ($i < $stock && $i <= 4) {
+                        $i++; ?>
+                        <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php } ?>
+
                 </select>
             <input type="submit" name="ajout_panier" value="ajout au panier">
         </form>

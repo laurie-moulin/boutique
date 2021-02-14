@@ -37,9 +37,9 @@ class Panier extends dataBase
                 );
                 $_SESSION["panier"][$count] = $item_array;
             }
-            else
+         else
             {
-                echo '<script>alert("Article deja ajouté au panier avec la quantité \nSi vous voulez changer la quantité revenez sur la fiche du produit.")</script>';
+                echo '<script>alert("Article deja ajouté au panier avec la quantité .")</script>';
             }
 
         }
