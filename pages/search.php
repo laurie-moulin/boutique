@@ -30,10 +30,10 @@ if(isset($submit)) {
     $name = htmlspecialchars($_GET['search']);
     if(empty($name))
     {
-        $make = '<h1>You must type a word to search!</h1>';
+        $make = '<h1>Vous devriez taper un mot pour rechercher!</h1>';
 
     }else{
-        $make = '<h2>No match found!</h2>';
+        $make = '<h2>Pas de résultats!</h2>';
         $results = $search->resultat_recherche($name);
 
         if($row = $results->rowCount() > 0){
@@ -49,7 +49,7 @@ if(isset($submit)) {
 
             }
         }else{
-            echo'<h4> Search Result</h4>';
+            echo'<h4> Chercher un résultat</h4>';
 
             print ($make);
         }

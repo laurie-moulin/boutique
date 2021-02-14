@@ -9,13 +9,14 @@ session_start();
 $product = new \db\product();
 $panier = new \db\panier();
 $commands = new \db\Commands();
+
 ?>
 
 
 
 
 <?php
-var_dump($_SESSION["panier"][0]);
+var_dump($_SESSION["panier"]);
 /*if (isset($_POST["payer"]))
 {
 foreach($_SESSION["panier"] as $keys => $values)
@@ -32,15 +33,8 @@ foreach($_SESSION["panier"] as $keys => $values)
 
 if (isset($_POST["payer"]))
 {
-       $commands->insertcommande(20, $commands->montant(),date('Y-m-d'));
-       $lastID = $commands->selectidcommand();
-        foreach($_SESSION["panier"] as $keys => $values)
-        {
-            $commands->insertcommandedetail($lastID,20,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
-            $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);
-        }
-
-//     header('location:paiement_paypal.php');
+    $commands->insertcommande(25, $commands->montant(),date('Y-m-d'));
+    header('location:paiement_paypal.php');
 }
 
 ?>

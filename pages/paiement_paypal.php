@@ -1,5 +1,4 @@
 <?php
-
 require_once '../class/produit_boutique.php';
 require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
@@ -75,7 +74,16 @@ echo '
   <input  align="right" valign="center" type="image" alt="Paiement par Paypal" src=" https://www.paypal.com/fr_FR/i/bnr/horizontal_solution_PP.gif" border="0" name="submit" alt="Paiement sécurisé par paypal"/>
   </form> ';
 
-unset($_SESSION["panier"]);
+
+foreach($_SESSION["panier"] as $keys => $values)
+{
+    $lastID = $commands->lastInsertId();
+    $commands->insertcommandedetail($lastID,25,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
+}
+
+    $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);
+
+    unset($_SESSION["panier"]);
 
 ?>
 
