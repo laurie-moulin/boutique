@@ -33,7 +33,16 @@ foreach($_SESSION["panier"] as $keys => $values)
 
 if (isset($_POST["payer"]))
 {
-    $commands->insertcommande(25, $commands->montant(),date('Y-m-d'));
+    $commands->insertcommande(29, $commands->montant(),date('Y-m-d'));
+    $lastID = $commands->lastInsertId();
+
+
+    foreach($_SESSION["panier"] as $keys => $values)
+    {
+        $commands->insertcommandedetail($lastID,29,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
+    }
+
+    $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);
     header('location:paiement_paypal.php');
 }
 
