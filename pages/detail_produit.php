@@ -75,7 +75,8 @@ $panier = new \db\panier();
                     while ($i < $stock && $i <= 4) {
                         $i++; ?>
                         <option value="<?= $i ?>"><?= $i ?></option>
-                    <?php } ?>
+                    <?php }
+                    ?>
 
                 </select>
             <input type="submit" name="ajout_panier" value="ajout au panier">

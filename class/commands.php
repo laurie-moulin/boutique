@@ -29,34 +29,29 @@ class Commands extends dataBase
 
     }*/
 
-    public function getSizes($id_produit)
+
+
+
+    public function UpdateStock($stock, $id_produit,$taille)
     {
-        return $this->query('SELECT * FROM stock WHERE id_produit = ? AND stock > 0 ORDER BY taille', $id_produit)->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-
-    function UpdateStock($stock, $id_produit,$taille)
-    {
-                $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_produit = ? and taille = ?',
-                    [
-                        $stock,
-                        $id_produit,
-                        $taille
-                    ]);
-
+        return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_produit = ? and taille = ?', [$stock, $id_produit, $taille]);
 
     }
 
     public function insertcommande($id_users, $montant,$date_enregistrement)
     {
-        $insert = $this->query('INSERT INTO commande (id_users, montant, date_enregistrement) VALUE( ?, ?, ?)', [$id_users, $montant,  $date_enregistrement]);
+        return $insert = $this->query('INSERT INTO commande (id_users, montant, date_enregistrement) VALUE( ?, ?, ?)', [$id_users, $montant,  $date_enregistrement]);
 
+    }
+    public function selectidcommand()
+    {
+        $cat = $this->query('SELECT id_commande FROM details_commande');
+        return $lastID = $cat->rowCount();
     }
 
     public function insertcommandedetail($lastID, $id_users, $id_produit, $quantite, $prix, $size)
     {
-            $insert = $this->query('INSERT INTO details_commande (id_commande,id_users, id_produit, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$this->lastInsertId(), $id_users, $id_produit, $quantite, $prix, $size]);
-
+       return  $insert = $this->query('INSERT INTO details_commande (id_commande,id_users, id_produit, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$this->lastInsertId(), $id_users, $id_produit, $quantite, $prix, $size]);
 
     }
 }
