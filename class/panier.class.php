@@ -17,7 +17,8 @@ class Panier extends dataBase
     }
 
 
-    public function creationDuPanier()
+
+  public function creationDuPanier()
     {
         if(isset($_SESSION["panier"]))
         {
@@ -39,6 +40,7 @@ class Panier extends dataBase
          else
             {
                 echo '<script>alert("Article deja ajouté au panier avec la quantité .")</script>';
+
             }
 
         }
@@ -68,6 +70,7 @@ class Panier extends dataBase
                 {
                     $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -1;
                     unset($_SESSION["panier"][$keys]);
+                    session_destroy();
                     echo '<script>alert("Article retiré du panier")</script>';
                     echo '<script>window.location="panier.php"</script>';
                 }
@@ -78,21 +81,14 @@ class Panier extends dataBase
 
     public function creation_shop_icon()
     {
-
-            if(!isset($_SESSION["icon_shop"]))
-            {
-                $_SESSION["icon_shop"] = 0;
-            }
-           if(isset($_SESSION["icon_shop"]))
-           {
-               $_SESSION["icon_shop"] = $_SESSION["icon_shop"] +1;
-
-           }
-           else
-           {
-               echo "rien";
-           }
-
+              if(!isset($_SESSION["icon_shop"]))
+              {
+                  $_SESSION["icon_shop"] = 0;
+              }
+              if(isset($_SESSION["icon_shop"]))
+              {
+                  $_SESSION["icon_shop"] = $_SESSION["icon_shop"] +1;
+              }
 
     }
 

@@ -17,7 +17,7 @@ if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
  $panier->creation_shop_icon();
- header('location:boutique_all.php');
+ //header('location:boutique_all.php');
 
 }
 
@@ -35,20 +35,32 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
 
 ?>
 
+<head>
+    <style type="text/css">
+        .test{
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            color: red;
+        }
+    </style>
+</head>
 
 
-    <div   style='color: red'>
 
-        <h1>
     <?php
 
-   if(isset($_SESSION["icon_shop"]))
-   {
-      echo  $_SESSION["icon_shop"] ;
-   }
+    if(isset($_SESSION["icon_shop"]))
+    {
+        echo "<div class='test'>";
+        echo  $_SESSION["icon_shop"] ;
+        echo "</div>";
+    }
+
     ?>
-        </h1>
-    </div>
+
+
 
 
 
