@@ -18,9 +18,9 @@ class Commands extends dataBase
         return number_format($total, 2);
     }
 
-    public function UpdateStock($stock, $id_produit,$taille)
+    public function UpdateStock($stock,$id_product,$taille)
     {
-        return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_produit = ? and taille = ?', [$stock, $id_produit, $taille]);
+        return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
 
     }
 
@@ -30,9 +30,9 @@ class Commands extends dataBase
         $lastid = $this->lastInsertId();
     }
 
-    public function insertcommandedetail($lastID, $id_users, $id_produit, $quantite, $prix, $size)
+    public function insertcommandedetail($lastID, $id_users, $id_product, $quantite, $prix, $size)
     {
-        return $insert = $this->query('INSERT INTO details_commande (id_commande,id_users, id_produit, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$lastID, $id_users, $id_produit, $quantite, $prix, $size]);
+        return $insert = $this->query('INSERT INTO details_commande (id_commande, id_users , id_product, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$lastID, $id_users, $id_product, $quantite, $prix, $size]);
     }
 
 

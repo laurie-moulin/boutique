@@ -23,12 +23,11 @@ class Panier extends dataBase
         {
             $item_array_id = array_column($_SESSION["panier"], "item_id");
 
-
-            if(!in_array($_GET["id_produit"], $item_array_id))
+            if(!in_array($_GET["id_product"], $item_array_id))
             {
                 $count = count($_SESSION["panier"]);
                 $item_array = array(
-                    'item_id'		=>	$_GET["id_produit"],
+                    'item_id'		=>	$_GET["id_product"],
                     'item_name'		=>	$_POST["hidden_name"],
                     'item_price'		=>	$_POST["hidden_price"],
                     'item_quantity'		=>	$_POST["quantity"],
@@ -46,7 +45,7 @@ class Panier extends dataBase
         else
         {
             $item_array = array(
-                'item_id'		=>	$_GET["id_produit"],
+                'item_id'		=>	$_GET["id_product"],
                 'item_name'		=>	$_POST["hidden_name"],
                 'item_price'		=>	$_POST["hidden_price"],
                 'item_quantity'		=>	$_POST["quantity"],

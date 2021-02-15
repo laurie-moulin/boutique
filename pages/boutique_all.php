@@ -30,7 +30,7 @@ $panier = new \db\panier();
 
     <section>
         <?php foreach ($product->affichages_categories() as $line) { ?>
-            <a href="?categorie=<?= $line["categorie"] ?>"><?= $line["categorie"] ?></a>
+            <a href="?id_category=<?= $line["id_category"] ?>"><?= $line["id_category"] ?></a>
         <?php } ?>
 
         <a href='boutique_all.php'>All</a>
@@ -39,15 +39,15 @@ $panier = new \db\panier();
 
     <section>
         <?php
-        if (isset($_GET['categorie']))
+        if (isset($_GET['id_category']))
         {
             foreach ($product->affichages_des_produits() as $produits) { ?>
                 <div>
-                    <h2><?=$produits["titre"]?></h2>
-                    <a href = detail_produit.php?id_produit=<?= $produits["id_produit"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
+                    <h2><?=$produits["nom"]?></h2>
+                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
                     <p><?=$produits["prix"] ?> €</p>
                     <p><?=$produits["description"] ?> </p>
-                    <a href="detail_produit.php?id_produit=' . <?=$produits["id_produit"] ?>. ' ">Achetez</a>
+                    <a href="detail_produit.php?id_product=' . <?=$produits["id_product"] ?>. ' ">Achetez</a>
                 </div>
             <?php }
         }
@@ -55,8 +55,8 @@ $panier = new \db\panier();
         {
             foreach ($product->affichages_boutique() as $boutique) { ?>
                 <div>
-                    <h2><?=$boutique["titre"]?></h2>
-                    <a href = detail_produit.php?id_produit=<?= $boutique["id_produit"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
+                    <h2><?=$boutique["nom"]?></h2>
+                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
                     <p><?=number_format($boutique["prix"] ,2,',',' ')?> €</p>
                     <p><?=$boutique["description"] ?> </p>
                 </div>

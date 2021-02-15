@@ -39,12 +39,12 @@ if(isset($submit)) {
         if($row = $results->rowCount() > 0){
             while( $row = $results->fetch(\PDO::FETCH_ASSOC))
             {
-                echo '<h3> Id : '.$row['id_produit'];
-                echo '<br> name	: '.$row['titre'];
-                echo '<br> Taille	: '.$row['taille'];
+                echo '<h3> Id : '.$row['id_product'];
+                echo '<br> name	: '.$row['nom'];
+                echo '<br> Prix	: '.$row['prix'] . " euros";
                 echo '</h3>';
 
-                echo "<a href='boutique_all.php?id=" . $row['id_produit'] . "'>Boutique</a>";
+                echo "<a href='detail_produit.php?id_product=" . $row['id_product'] . "'>Voir</a>";
 
 
             }

@@ -5,12 +5,11 @@ require_once 'dataBase.php';
 class Search extends dataBase
 {
 
-
     function resultat_recherche($name)
     {
-        $resultat = $this->query('SELECT titre, taille, id_produit FROM produit WHERE titre LIKE "%' . $name. '%" ORDER BY id_produit DESC');
+        $resultat = $this->query('SELECT nom, prix, id_product FROM product WHERE nom LIKE "%' . $name. '%" ORDER BY id_product DESC');
         if (empty($resultat )) {
-            $resultat  = $this->query('SELECT titre, taille, id_produit FROM produit WHERE CONCAT(titre, description) LIKE "%' . $name . '%" ORDER BY id_produit DESC');
+            $resultat  = $this->query('SELECT nom, prix, id_product FROM product WHERE CONCAT(nom, description) LIKE "%' . $name . '%" ORDER BY id_product DESC');
         }
         return $resultat ;
     }
@@ -18,9 +17,9 @@ class Search extends dataBase
 
     function placeholders_article()
     {
-        $placeholders = $this->query('SELECT titre FROM produit ORDER BY id_produit');
+        $placeholders = $this->query('SELECT nom FROM product ORDER BY id_product limit 2');
         foreach ($placeholders  as $holders) {
-            echo $holders['titre'] . ' / ';
+            echo $holders['nom'] . ' / ';
         }
 }
 

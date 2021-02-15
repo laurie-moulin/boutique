@@ -25,11 +25,11 @@ $panier = new \db\panier();
     <article><a href="panier.php">Panier</a> </article>
     <section>
         <?php
-        if (isset($_GET['id_produit']))
+        if (isset($_GET['id_product']))
         {
             $product->details_produit() ?>
                 <div class="boutique-produit">
-                    <h2><?=$product->details_produit()["titre"]?></h2>
+                    <h2><?=$product->details_produit()["nom"]?></h2>
                     <img src=../img/<?=$product->details_produit()["photo"]?> ="500" height="550">
                     <p><?=number_format($product->details_produit()["prix"] ,2,',',' ') ?> €</p>
                     <p><?=$product->details_produit()["description"] ?> </p>
@@ -44,12 +44,9 @@ $panier = new \db\panier();
     </section>
 
     <section>
-        <form method="post" action="panier.php?id_produit=<?= $product->details_produit()["id_produit"] ?>">
-
-            <input type="hidden" name="hidden_name" value="<?php echo $product->details_produit()["titre"]; ?>" />
-
+        <form method="post" action="panier.php?id_product=<?= $product->details_produit()["id_product"] ?>">
+            <input type="hidden" name="hidden_name" value="<?php echo $product->details_produit()["nom"]; ?>" />
             <input type="hidden" name="hidden_price" value="<?php echo $product->details_produit()["prix"]; ?>" />
-
             <input type="hidden" name="hidden_photo" value="<?php echo $product->details_produit()["photo"]; ?>" />
 
                 <label for="taille">Choisir taille:</label>
