@@ -2,7 +2,7 @@
 
 namespace db;
 require_once 'dataBase.php';
-require 'message.php';
+//require 'message.php';
 require_once 'admin.php';
 
 class user extends dataBase
@@ -16,6 +16,7 @@ class user extends dataBase
         $email = htmlentities($_POST['email']);
         $password = $_POST['password'];
         $confpassword = $_POST['confpassword'];
+
 
 //VERIFICATION EXISTENCE USER
         $userExist = $this->query('SELECT * FROM users WHERE email = ?', [$email])->rowCount();
@@ -38,7 +39,7 @@ class user extends dataBase
         if (empty($errors)) {
             $this->query('INSERT INTO users (prenom, nom, email, password) VALUE(?, ?, ?, ?)',
                 [$prenom, $nom, $email, $password]);
-            header('location: connexion.php');
+//            header('location: connexion.php');
         } else {
             $message = new messages($errors);
             echo $message->renderMessage();
@@ -68,7 +69,7 @@ class user extends dataBase
         $statut = $admin->getStatut($email);
 
         if (empty($errors) && $statut['admin'] == 1) {
-//            $this->id = $user['id'];
+            $this->id = $user['id'];
             $_SESSION['id'] = $user['id'];
             header("location:../admin/admin.php");
         } elseif (empty($errors) && $statut['admin'] == 0) {

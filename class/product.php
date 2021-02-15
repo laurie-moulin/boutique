@@ -127,9 +127,19 @@ class product extends dataBase
 
     }
 
+//    public function getSize()
+//    {
+//        return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
+//    }
+
     public function getSize()
     {
-        return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    public function getSizes()
+    {
+        return $this->query('SELECT * FROM stock WHERE id_product = ? AND stock > 0 ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 
@@ -182,6 +192,48 @@ class product extends dataBase
 //        else{
 //            echo non;
 //        }
+
+
+    public function updateProduct()
+    {
+        $productId = $_GET['id_product'];
+        $date = $_POST['date'];
+        $nproduit = $_POST['nom'];
+        $description = $_POST['description'];
+        $prix = $_POST['prix'];
+
+        $product = $this->query('SELECT * FROM product WHERE id_product = ?',
+            [$productId,])->fetch(\PDO::FETCH_ASSOC);
+
+//        if (!empty($_FILES)) {
+//            $checkLog = $this->checkLogo();
+//            $errors = [];
+//            if (!empty($checkLog['error'])) {
+//                $errors[] = $checkLog['error'];
+//            }
+//        }
+        if (!empty($product) && empty($errors)) {
+            $this->query('UPDATE product SET date = ?, nom = ?, description = ?,  prix = ?  WHERE id_product = ?', [
+                $date,
+                $nproduit,
+                $description,
+                $prix,
+                $_GET['id_product']
+            ]);
+            foreach ($this->getSize() as $size) {
+                $currentSize = $_POST[$size->taille];
+                $this->query('UPDATE stock set stock = ? WHERE id_product = ? AND taille = ? ', [
+                    $currentSize,
+                    $productId,
+                    $size['taille']
+                ]);
+            }
+//            if (!empty($_FILES)) {
+//                $this->setLogo();
+//            }
+        }
+        return [];
+    }
 
 }
 

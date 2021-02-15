@@ -2,12 +2,14 @@
 require_once '../class/product.php';
 require_once '../class/dataBase.php';
 require_once '../class/admin.php';
+require_once '../class/user.php';
 
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
 $admin = new \db\admin();
+$register = new \db\user();
 
 
 if ($admin->isAdmin()) {
@@ -92,7 +94,8 @@ if ($admin->isAdmin()) {
 
             <?php
             if(isset($_POST['submit_addAdmin'])){
-                $admin->registerAdmin();
+                $register->register();
+                $admin->addStatut();
             }
             ?>
 

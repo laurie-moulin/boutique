@@ -1,23 +1,20 @@
 <?php
 require_once '../class/product.php';
 require_once '../class/dataBase.php';
+require_once '../class/user.php';
+
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-include ("../includes/nav_admin.php");
+include("../includes/nav_admin.php");
 
 
 $product = new \db\product();
 
 
-//$product->setCategory();
-//    $product['categ_product'];
+$stock = $product->getSize();
 
-//var_dump($product->setCategory());
-var_dump($product->getCategory());
-
-//var_dump($product->getSize());
 ?>
 
 <html lang="fr">
@@ -37,7 +34,6 @@ var_dump($product->getCategory());
 
 <main>
 
-    <!--    //RECAP ARTICLE ! -->
 
     <?php foreach ($product->setProduct() as $product) { ?>
         NOM : <?= $product['nom'] ?><br>
@@ -48,63 +44,68 @@ var_dump($product->getCategory());
     <?php } ?>
 
 
-<!--    --><?php //foreach ($product->getSize() as $size => $value) { ?>
-<!--    --><?//=  $value['taille'] ?><!--<br>-->
-<!--    --><?php //} ?>
-
     <form action="admin_updateProd.php<?= $product['id_product'] ?>" method="post" enctype="multipart/form-data">
 
         <label for="date">Date de modification du produit : </label><br>
         <input type="date" id="date" name="date" value='' required><br>
 
-<!--        <label for="categorie-select">Catégorie</label> <br/>-->
-<!--        <select name="category"  class="input">-->
-<!--            --><?php //foreach ($product->getCategory() as $categorie) { ?>
-<!--                <option value="--><?//= $categorie['id'] ?><!--">--><?//= $categorie['categ_product'] ?><!--</option>-->
-<!--            --><?php //} ?>
-<!--        </select><br>-->
-
+        <!--        <label for="categorie-select">Catégorie</label> <br/>-->
+        <!--        <select name="category"  class="input">-->
+        <!--            --><?php //foreach ($product->getCategory() as $categorie) { ?>
+        <!--                <option value="--><? //= $categorie['id'] ?><!--">-->
+        <? //= $categorie['categ_product'] ?><!--</option>-->
+        <!--            --><?php //} ?>
+        <!--        </select><br>-->
 
 
         <label for="nom">Nom</label> <br/>
-        <input type="text" id="nom" name="nameProd" value="<?= $product['nom'] ?>" required><br>
+        <input type="text" id="nom" name="nom" value="<?= $product['nom'] ?>" ><br>
 
         <label for="image">Image</label> <br/>
-        <input type="file" id="image" name="image" required><br>
+        <input type="file" id="image" name="image"><br>
 
         <label for="description">Description</label> <br/>
-        <textarea id="description" name="description"  required> <?= $product['description'] ?></textarea><br>
+        <textarea id="description" name="description" > <?= $product['description'] ?></textarea><br>
 
-<!--        <label for="taille">Stock par taille</label> <br/>-->
+<!--        --><?php //foreach($stock as $stock){ ?>
+<!--            --><?php //echo $stock->taille; ?>
+<!--            --><?php //echo $stock->stock; ?>
 <!---->
-<!--        <label for="taille">S</label> <br/>-->
-<!--        <input type="number" id="s" name="S" min="0" required><br>-->
+<!--                    <label for="taille">Stock par taille</label> <br/>-->
 <!---->
-<!--        <label for="taille">M</label> <br/>-->
-<!--        <input type="number" id="m" name="M" min="0" required><br>-->
+<!--                    <label for="taille">S</label> <br/>-->
+<!--                    <input type="number" id="s" name="S" min="0" required><br>-->
 <!---->
-<!--        <label for="taille">L</label> <br/>-->
-<!--        <input type="number" id="l" name="L" min="0" required><br>-->
+<!--                    <label for="taille">M</label> <br/>-->
+<!--                    <input type="number" id="m" name="M" min="0" required><br>-->
 <!---->
-<!--        <label for="taille">XL</label> <br/>-->
-<!--        <input type="number" id="xl" name="XL" min="0" required><br>-->
-
-<!--        --><?php //foreach ($product->getSize() as $size) { ?>
-<!--            <label>--><?//= $size['taille'] ?><!--</label>-->
-<!--            <input type="number" value="--><?//= $size['stock'] ?><!--" name="--><?//= $size['taille'] ?><!--" class="input">-->
+<!--                    <label for="taille">L</label> <br/>-->
+<!--                    <input type="number" id="l" name="L" min="0" required><br>-->
+<!---->
+<!--                    <label for="taille">XL</label> <br/>-->
+<!--                    <input type="number" id="xl" name="XL" min="0" required><br>-->
 <!--        --><?php //} ?>
+
+        <table>
+            <tr>
+                <th>Produit id</th>
+                <th>Taille</th>
+                <th>Stock actuel</th>
+                <th>Nouveau stock</th>
+            </tr>
+            <?php
+            foreach($stock as $stock){ ?>
+                <tr>
+                    <td><?php echo $stock->id_product; ?></td>
+                    <td><?php echo $stock->taille; ?></td>
+                    <td><?php echo $stock->stock; ?></td>
+                    <td><input type="text" value="<?php echo $stock->stock ?>" name="<?php $stock->taille ?>"></td>
+                </tr>
+            <?php } ?>
+        </table>
 
         <label for="prix">Prix</label> <br/>
-        <input type="number" id="prix" name="prix" value="<?= $product['prix'] ?>" required><br>
-        <?php
-
-        $product->getSize();
-        $product['id_product'];
-
-//                      foreach ($product->getSize() as $size) { ?>
-<!--        <label>--><?//= $size['taille'] ?><!--</label>-->
-<!--        <input type="number" value="--><?//= $size['stock'] ?><!--" name="--><?//= $size['taille'] ?><!--" class="input">-->
-<!--        --><?php //} ?>
+        <input type="number" id="prix" name="prix" value="<?= $product['prix'] ?>" ><br>
 
 
 
