@@ -7,7 +7,7 @@ class product extends dataBase
 
     public function affichages_categories()
     {
-      $cat = $this->query('SELECT id_category FROM product');
+      $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product, category WHERE product.id_category = category.id');
        return $cat->fetchAll();
     }
 
