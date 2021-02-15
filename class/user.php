@@ -3,10 +3,12 @@
 namespace db;
 require_once 'dataBase.php';
 require 'message.php';
-require 'admin.php';
+require_once 'admin.php';
 
 class user extends dataBase
 {
+    private $id;
+
     public function register()
     {
         $nom = htmlentities($_POST['nom']);
@@ -42,7 +44,6 @@ class user extends dataBase
             echo $message->renderMessage();
         }
 
-
     }
 
     public function connect()
@@ -67,8 +68,9 @@ class user extends dataBase
         $statut = $admin->getStatut($email);
 
         if (empty($errors) && $statut['admin'] == 1) {
+//            $this->id = $user['id'];
             $_SESSION['id'] = $user['id'];
-            header("location:admin.php");
+            header("location:../admin/admin.php");
         } elseif (empty($errors) && $statut['admin'] == 0) {
             $_SESSION['id'] = $user['id'];
             header("location:profil.php");

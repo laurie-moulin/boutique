@@ -2,6 +2,8 @@
 
 namespace db;
 
+session_start();
+
 class dataBase{
 
     protected $pdo = null;
