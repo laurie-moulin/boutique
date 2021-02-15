@@ -13,14 +13,7 @@
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/commands.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/commands.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/panier.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/panier.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/produit_boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/produit_boutique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/search.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/search.class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/boutique_all.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/boutique_all.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/commande.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/detail_produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail_produit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
