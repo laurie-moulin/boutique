@@ -139,7 +139,7 @@ class product extends dataBase
 
     public function getSizes()
     {
-        return $this->query('SELECT * FROM stock WHERE id_product = ? AND stock > 0 ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 
@@ -220,7 +220,7 @@ class product extends dataBase
                 $prix,
                 $_GET['id_product']
             ]);
-            foreach ($this->getSize() as $size) {
+            foreach ($this->getSizes() as $size) {
                 $currentSize = $_POST[$size->taille];
                 $this->query('UPDATE stock set stock = ? WHERE id_product = ? AND taille = ? ', [
                     $currentSize,

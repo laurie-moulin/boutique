@@ -44,7 +44,7 @@ $stock = $product->getSize();
     <?php } ?>
 
 
-    <form action="admin_updateProd.php<?= $product['id_product'] ?>" method="post" enctype="multipart/form-data">
+    <form action="admin_updateProd.php?id=<?= $product['id_product'] ?>" method="post" enctype="multipart/form-data">
 
         <label for="date">Date de modification du produit : </label><br>
         <input type="date" id="date" name="date" value='' required><br>
@@ -109,7 +109,16 @@ $stock = $product->getSize();
 
 
 
-        <input type="submit" value="Modifier" name="submit_addProd">
+        <input type="submit" value="Modifier" name="submit_updateProd">
+
+        <?php
+
+        if(isset($_POST['submit_updateProd'])){
+            $product->updateProduct();
+        }
+
+        ?>
+
     </form>
 
 

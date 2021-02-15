@@ -73,8 +73,9 @@ class user extends dataBase
             $_SESSION['id'] = $user['id'];
             header("location:../admin/admin.php");
         } elseif (empty($errors) && $statut['admin'] == 0) {
+            $this->id = $user['id'];
             $_SESSION['id'] = $user['id'];
-            header("location:profil.php");
+            header("location:profil.php?id=".$_SESSION['id']);
         } elseif (isset($errors)) {
             $message = new messages($errors);
             echo $message->renderMessage();
