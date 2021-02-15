@@ -40,6 +40,7 @@ class Panier extends dataBase
          else
             {
                 echo '<script>alert("Article deja ajouté au panier avec la quantité .")</script>';
+                echo '<script>window.location="boutique_all.php"</script>';
 
             }
 

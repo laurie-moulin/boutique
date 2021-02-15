@@ -53,9 +53,6 @@ $panier = new \db\panier();
     <section>
         <?php foreach ($product->affichages_categories() as $line) { ?>
           <a href="?id_category=<?= $line["id"] ?>"><?= $line['categ_product'] ?></a>
-
-            <!--<a class="link <?/*= $_GET['id_category'] == $line['id'] ? 'is-active' : '' */?>"
-               href="boutique_all.php?category_id=<?/*= $line['id'] */?>"><?/*= $line['categ_product'] */?></a>-->
         <?php } ?>
 
         <a href='boutique_all.php'>All</a>
@@ -72,7 +69,6 @@ $panier = new \db\panier();
                     <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
                     <p><?=$produits["prix"] ?> €</p>
                     <p><?=$produits["description"] ?> </p>
-                    <a href="detail_produit.php?id_product=' . <?=$produits["id_product"] ?>. ' ">Achetez</a>
                 </div>
             <?php }
         }
