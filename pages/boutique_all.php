@@ -27,6 +27,18 @@ $panier = new \db\panier();
 </header>
 
 <main>
+    <div   style='color: red'>
+
+        <h1>
+            <?php
+
+            if(isset($_SESSION["icon_shop"]))
+            {
+                echo  $_SESSION["icon_shop"] ;
+            }
+            ?>
+        </h1>
+    </div>
 
     <section>
         <?php foreach ($product->affichages_categories() as $line) { ?>

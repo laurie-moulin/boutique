@@ -16,6 +16,9 @@ $commands = new \db\Commands();
 if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
+ $panier->creation_shop_icon();
+ header('location:boutique_all.php');
+
 }
 
 if(isset($_GET["action"]))
@@ -25,12 +28,27 @@ if(isset($_GET["action"]))
 if(isset($_GET['action']) && $_GET['action'] == "vider")
 {
     unset($_SESSION['panier']);
+    unset($_SESSION["icon_shop"]);
     session_destroy();
 }
 
 
 ?>
 
+
+
+    <div   style='color: red'>
+
+        <h1>
+    <?php
+
+   if(isset($_SESSION["icon_shop"]))
+   {
+      echo  $_SESSION["icon_shop"] ;
+   }
+    ?>
+        </h1>
+    </div>
 
 
 

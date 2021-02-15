@@ -75,6 +75,7 @@ echo '
   </form> ';
 
     unset($_SESSION["panier"]);
+    unset($_SESSION["icon_shop"]);
 
 ?>
 

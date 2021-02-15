@@ -22,6 +22,19 @@ $panier = new \db\panier();
 <header>
 </header>
 <main>
+
+    <div   style='color: red'>
+
+        <h1>
+            <?php
+
+            if(isset($_SESSION["icon_shop"]))
+            {
+                echo  $_SESSION["icon_shop"] ;
+            }
+            ?>
+        </h1>
+    </div>
     <article><a href="panier.php">Panier</a> </article>
     <section>
         <?php

@@ -66,6 +66,7 @@ class Panier extends dataBase
             {
                 if($values["item_id"] == $_GET["id"])
                 {
+                    $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -1;
                     unset($_SESSION["panier"][$keys]);
                     echo '<script>alert("Article retiré du panier")</script>';
                     echo '<script>window.location="panier.php"</script>';
@@ -75,6 +76,25 @@ class Panier extends dataBase
     }
 
 
+    public function creation_shop_icon()
+    {
+
+            if(!isset($_SESSION["icon_shop"]))
+            {
+                $_SESSION["icon_shop"] = 0;
+            }
+           if(isset($_SESSION["icon_shop"]))
+           {
+               $_SESSION["icon_shop"] = $_SESSION["icon_shop"] +1;
+
+           }
+           else
+           {
+               echo "rien";
+           }
+
+
+    }
 
 }
 
