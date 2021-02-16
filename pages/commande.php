@@ -15,13 +15,13 @@ $commands = new \db\Commands();
 
 if (isset($_POST["payer"]))
 {
-    $commands->insertcommande(35, $commands->montant(),date('Y-m-d'));
-    
+    $commands->insertcommande(40, $commands->montant(),date('Y-m-d'));
+
     $lastID = $commands->lastInsertId();
 
     foreach($_SESSION["panier"] as $keys => $values)
     {
-        $commands->insertcommandedetail($lastID,35,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
+        $commands->insertcommandedetail($lastID,40,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
     }
     $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);
 

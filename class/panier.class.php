@@ -16,8 +16,6 @@ class Panier extends dataBase
         else return false;
     }
 
-
-
   public function creationDuPanier()
     {
         if(isset($_SESSION["panier"]))
