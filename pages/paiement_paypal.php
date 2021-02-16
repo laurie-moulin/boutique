@@ -13,50 +13,67 @@ $commands = new \db\Commands();
 //var_dump($_SESSION);
 ?>
 
-<table>
-    <article><h1>RECAPITULATIF DE LA COMMANDE ET PAIEMENT</h1></article>
-<?php
-if(!empty($_SESSION["panier"]))
-{
-    $total = 0;
-    foreach($_SESSION["panier"] as $keys => $values)
-    {
-        ?>
-        <tr>
-            <td><?=  $values["item_name"] ?></td>
-            <td><?=  $values["item_quantity"]?></td>
-            <td><?=  $values["item_price"] ?></td>
-            <td><?=  strtoupper($values["item_size"]) ?></td>
-            <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?> €</td>
-            <td><img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" /></td>
-        </tr>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>paimenent</title>
+    <link rel="stylesheet" href="../css/shop.css" />
+</head>
+<body>
+<header>
+    <nav>
+        <a></a>
+    </nav>
+</header>
+<main>
+    <article>
+        <table>
+            <article><h1>RECAPITULATIF DE LA COMMANDE ET PAIEMENT</h1></article>
+            <?php
+            if(!empty($_SESSION["panier"]))
+            {
+            $total = 0;
+            foreach($_SESSION["panier"] as $keys => $values)
+            {
+                ?>
+                <tr>
+                    <td><?=  $values["item_name"] ?></td>
+                    <td><?=  $values["item_quantity"]?></td>
+                    <td><?=  $values["item_price"] ?></td>
+                    <td><?=  strtoupper($values["item_size"]) ?></td>
+                    <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?> €</td>
+                    <td><img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" /></td>
+                </tr>
+                <?php
+                $total = $total + ($values["item_quantity"] * $values["item_price"]);
+            }
+            ?>
+            <tr>
+                <td colspan="3" align="right">Total</td>
+                <td align="right"> <?= number_format($total, 2) ?> euros</td>
+                <td></td>
+            </tr>
+        </table>
         <?php
-        $total = $total + ($values["item_quantity"] * $values["item_price"]);
-    }
-    ?>
-    <tr>
-        <td colspan="3" align="right">Total</td>
-        <td align="right"> <?= number_format($total, 2) ?> euros</td>
-        <td></td>
-    </tr>
-</table>
-<?php
-}
-else
-{
-    header('location:boutique_all.php');
-}
-
-/* Les variables suivantes doivent être personnalisées selon vos besoins */
-$email_paypal= 'seller_xxxxxxx_biz@gmail.com';/*email associé au compte paypal du vendeur*/
-$item_numero = $values["item_id"] ; /*Numéro du produit en vente*/
-$item_prix   = $commands->montant() ;    /*prix du produit*/
-$item_nom    = $values["item_name"] ; /*Nom du produit*/
-$url_retour='http://www.memo-web.fr/paypal-remerciement.php';/*page de remerciement à créer*/
-$url_cancel='http://www.memo-web.fr/paypal-annulation.php'; /*page d'annulation d'achat*/
-$url_confirmation='http://www.memo-web.net/paypal-confirmation.php';/*page de confirmation d'achat*/
-/* fin déclaration des variables */
-echo '
+        }
+        else
+        {
+            header('location:boutique_all.php');
+        }
+        ?>
+    </article>
+    <?php
+    /* Les variables suivantes doivent être personnalisées selon vos besoins */
+    $email_paypal= 'seller_xxxxxxx_biz@gmail.com';/*email associé au compte paypal du vendeur*/
+    $item_numero = $values["item_id"] ; /*Numéro du produit en vente*/
+    $item_prix   = $commands->montant() ;    /*prix du produit*/
+    $item_nom    = $values["item_name"] ; /*Nom du produit*/
+    $url_retour='http://www.memo-web.fr/paypal-remerciement.php';/*page de remerciement à créer*/
+    $url_cancel='http://www.memo-web.fr/paypal-annulation.php'; /*page d'annulation d'achat*/
+    $url_confirmation='http://www.memo-web.net/paypal-confirmation.php';/*page de confirmation d'achat*/
+    /* fin déclaration des variables */
+    echo '
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
   <input type="hidden" name="cmd" value="_xclick"/>
   <input type="hidden" name="business" value="'.$email_paypal.'"/>
@@ -77,8 +94,10 @@ echo '
     unset($_SESSION["panier"]);
     unset($_SESSION["icon_shop"]);
 
-?>
+    ?>
+    <article
 
-
-
-
+</main>
+<footer></footer>
+</body>
+</html>

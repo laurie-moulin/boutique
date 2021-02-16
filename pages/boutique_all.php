@@ -7,8 +7,8 @@ session_start();
 $product = new \db\product();
 $panier = new \db\panier();
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,21 +16,10 @@ $panier = new \db\panier();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <title>Boutique</title>
-
-    <style type="text/css">
-        .test{
-            background-color: red;
-            width: 20px;
-            height: 20px;
-            border-radius: 20px;
-            color: red;
-
-        }
-    </style>
+    <link rel="stylesheet" href="../css/shop.css" />
 </head>
 
 <body>
-
 <header>
 <nav>
     <a href="panier.php">Panier</a>
@@ -38,18 +27,16 @@ $panier = new \db\panier();
 </header>
 
 <main>
+    <article>
     <?php
-
-
     if(isset($_SESSION["icon_shop"]))
     {
         echo "<div class='test'>";
         echo  $_SESSION["icon_shop"] ;
         echo "</div>";
     }
-
     ?>
-
+    </article>
     <section>
         <?php foreach ($product->affichages_categories() as $line) { ?>
           <a href="?id_category=<?= $line["id"] ?>"><?= $line['categ_product'] ?></a>
@@ -88,7 +75,6 @@ $panier = new \db\panier();
 </main>
 
 <footer>
-
 </footer>
 
 </body>

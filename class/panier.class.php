@@ -69,9 +69,9 @@ class Panier extends dataBase
             {
                 if($values["item_id"] == $_GET["id"])
                 {
-//                    $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -1;
+                   $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -2;
                     unset($_SESSION["panier"][$keys]);
-                    unset($_SESSION["icon_shop"]);
+                    //unset($_SESSION["icon_shop"]);
                     echo '<script>alert("Article retiré du panier")</script>';
                     echo '<script>window.location="panier.php"</script>';
                 }

@@ -15,37 +15,29 @@ $panier = new \db\panier();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/shop.css" />
     <title>Produits</title>
-
-
-        <style type="text/css">
-            .test{
-                background-color: red;
-                width: 20px;
-                height: 20px;
-                border-radius: 20px;
-                color: red;
-
-            }
-        </style>
 
 </head>
 
 <body>
+
 <header>
 </header>
+
 <main>
 
-    <?php
 
+<article>
+    <?php
     if(isset($_SESSION["icon_shop"]))
     {
         echo "<div class='test'>";
         echo  $_SESSION["icon_shop"] ;
         echo "</div>";
     }
-
     ?>
+</article>
     <article><a href="panier.php">Panier</a> </article>
     <section>
         <?php
@@ -64,7 +56,6 @@ $panier = new \db\panier();
             header("location:boutique_all.php");
         }
         ?>
-
     </section>
 
     <section>
@@ -107,7 +98,6 @@ $panier = new \db\panier();
 
 </main>
 <footer>
-
 </footer>
 
 </body>

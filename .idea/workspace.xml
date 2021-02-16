@@ -14,6 +14,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/panier.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/panier.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/boutique_all.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/boutique_all.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/commande.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail_produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail_produit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/paiement.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/paiement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/paiement_paypal.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/paiement_paypal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +28,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>

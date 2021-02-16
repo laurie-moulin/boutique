@@ -19,52 +19,68 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
 }
 ?>
 
-<form method="GET" action="search.php">
-    <input type="search" name="search" size="100" placeholder="<?= $search->placeholders_article(); ?>"/>
-    <input type="submit" value="Search"/>
 
-</form>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Utilisation de main</title>
+    <link rel="stylesheet" href="../css/shop.css" />
+</head>
+<body>
+<header>
 
-<?php
-if(isset($submit)) {
-    $name = htmlspecialchars($_GET['search']);
-    if(empty($name))
-    {
-        $make = '<h1>Vous devriez taper un mot pour rechercher!</h1>';
-
-    }else{
-        $make = '<h2>Pas de résultats!</h2>';
-        $results = $search->resultat_recherche($name);
-
-        if($row = $results->rowCount() > 0){
-            while( $row = $results->fetch(\PDO::FETCH_ASSOC))
-            {
-                echo '<h3> Id : '.$row['id_product'];
-                echo '<br> name	: '.$row['nom'];
-                echo '<br> Prix	: '.$row['prix'] . " euros";
-                echo '</h3>';
-
-                echo "<a href='detail_produit.php?id_product=" . $row['id_product'] . "'>Voir</a>";
-
-
-            }
-        }else{
-            echo'<h4> Chercher un résultat</h4>';
-
-            print ($make);
+    <nav>
+        <a href="/"></a>
+    </nav>
+</header>
+<main>
+    <article>
+        <?php
+        if(isset($_SESSION["icon_shop"]))
+        {
+            echo "<div class='test'>";
+            echo  $_SESSION["icon_shop"] ;
+            echo "</div>";
         }
+        ?>
+    </article>
+    <article>
+        <form method="GET" action="search.php">
+            <input type="search" name="search" size="100" placeholder="<?= $search->placeholders_article(); ?>"/>
+            <input type="submit" value="Search"/>
 
-}
-}
+        </form>
+        <?php
+        if(isset($submit)) {
+            $name = htmlspecialchars($_GET['search']);
+            if(empty($name))
+            {
+                $make = '<h1>Vous devriez taper un mot pour rechercher!</h1>';
 
+            }else{
+                $make = '<h2>Pas de résultats!</h2>';
+                $results = $search->resultat_recherche($name);
 
-?>
+                if($row = $results->rowCount() > 0){
+                    while( $row = $results->fetch(\PDO::FETCH_ASSOC))
+                    {
+                        echo '<h3> Id : '.$row['id_product'];
+                        echo '<br> name	: '.$row['nom'];
+                        echo '<br> Prix	: '.$row['prix'] . " euros";
+                        echo '</h3>';
+                        echo "<a href='detail_produit.php?id_product=" . $row['id_product'] . "'>Voir</a>";
 
-
-
-
-
-
-
-
-
+                    }
+                }else{
+                    echo'<a href="boutique_all.php">Cliquer ici !</a> ';
+                    print ($make);
+                }
+            }
+        }
+        ?>
+    </article>
+</main>
+<footer></footer>
+</body>
+</html>
