@@ -89,7 +89,6 @@ $panier = new \db\panier();
                         <option value="<?= $i ?>"><?= $i ?></option>
                     <?php }
                     ?>
-
                 </select>
             <input type="submit" name="ajout_panier" value="ajout au panier">
         </form>

@@ -88,7 +88,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
         <?php
         if($panier->internauteEstConnecte())
         {?>
-            <form method="post" action="">
+            <form method="post" action="commande.php">
             <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement">Payer</td></tr>
             </form>
         <?php}
@@ -109,7 +109,12 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
         }
         ?>
         <a href="detail_produit.php">revenir</a>
-        <a href="paiement_paypal.php">payer</a>
+
+        <form method="post" action="commande.php">
+            <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
+            <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
+        </form>
+        <tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>
     </article>
 
 </main>
