@@ -8,6 +8,7 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
+
 $admin = new \db\admin();
 $register = new \db\user();
 
@@ -94,8 +95,7 @@ if ($admin->isAdmin()) {
 
             <?php
             if(isset($_POST['submit_addAdmin'])){
-                $register->register();
-                $admin->addStatut();
+                $admin->addAdmin();
             }
             ?>
 
