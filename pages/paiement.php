@@ -7,9 +7,9 @@ $item_nom    = $values["item_name"] ; /*Nom du produit*/
 $url_retour='http://www.memo-web.fr/paypal-remerciement.php';/*page de remerciement à créer*/
 $url_cancel='http://www.memo-web.fr/paypal-annulation.php'; /*page d'annulation d'achat*/
 $url_confirmation='http://www.memo-web.net/paypal-confirmation.php';/*page de confirmation d'achat*/
-/* fin déclaration des variables */
+/* fin déclaration des variables / ce lien c'est pour allez sur paypal ! https://www.paypal.com/cgi-bin/webscr */
 echo '
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <form action="confirmattion.php" method="post">
       <input type="hidden" name="cmd" value="_xclick"/>
       <input type="hidden" name="business" value="'.$email_paypal.'"/>
       <input type="hidden" name="item_name" value="'.$item_nom.'"/>

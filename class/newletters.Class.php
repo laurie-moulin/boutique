@@ -12,7 +12,6 @@ class newletter extends dataBase
     {
         $select = $this->query("SELECT * FROM newletters WHERE email = '$email'");
         return $select->fetch();
-
     }
 
     public function newsletter($email)
