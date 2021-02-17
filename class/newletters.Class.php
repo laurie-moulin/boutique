@@ -22,26 +22,26 @@ class newletter extends dataBase
 
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
                 {
-                    echo $result = "The mail you entered is not a valid email address.";
+                    echo $result = "Le mail que vous avez entré n'est pas valide.";
                 }
                 else
                 {
                     if ($this->selectnewletter($email) == true)
                     {
-                        echo $result = "Your email is alredy registered.";
+                        echo $result = "Votre mail est déjà enregistré.";
                     }
                     else
                     {
                         if ($this->insertnewsletter($email))
                         {
-                            echo $result = "Your email has been successfully registered. Thanks for your interest in SABF.!";
+                            echo $result = "Votre mail a été enregistré ! . Merci pour votre intérêt .!";
                         }
                     }
                 }
             }
             else
             {
-                echo $result = 'Please enter your email address.';
+                echo $result = 'Veuillez entrer votre adresse mail .';
             }
     }
 
