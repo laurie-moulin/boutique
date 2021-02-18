@@ -8,10 +8,8 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-
 $admin = new \db\admin();
 $register = new \db\user();
-
 
 if ($admin->isAdmin()) {
 
@@ -49,14 +47,14 @@ if ($admin->isAdmin()) {
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($admin->getAdmin() as $admin) { ?>
+            <?php foreach ($admin->getAdmin() as $admine) { ?>
                 <tr>
-                    <th><?= $admin['id'] ?></th>
-                    <td><?= $admin['nom'] ?></td>
-                    <td><?= $admin['prenom'] ?></td>
-                    <td><?= $admin['email'] ?></td>
-                    <td><?= $admin['admin'] ?></td>
-                    <td><a href="admin_deleteUser.php?id=<?= $admin['id'] ?>"><i class="fas fa-trash"></i></a></td>
+                    <th><?= $admine['id'] ?></th>
+                    <td><?= $admine['nom'] ?></td>
+                    <td><?= $admine['prenom'] ?></td>
+                    <td><?= $admine['email'] ?></td>
+                    <td><?= $admine['admin'] ?></td>
+                    <td><a href="admin_deleteUser.php?id=<?= $admine['id'] ?>"><i class="fas fa-trash"></i></a></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -91,11 +89,18 @@ if ($admin->isAdmin()) {
                 <label for="2">Admin</label>
             </div>
 
+            <div>
+                <input type="radio" name="admin" value="0" >
+                <label for="0">Sans statut (user)</label>
+            </div>
+
             <input type="submit" value="Ajouter" name="submit_addAdmin">
 
             <?php
+
             if(isset($_POST['submit_addAdmin'])){
                 $admin->addAdmin();
+
             }
             ?>
 

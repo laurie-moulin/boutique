@@ -18,6 +18,7 @@ if (isset($_POST['submit_addProd'])) {
   $product->addProduct();
 }
 
+
 ?>
 
 <html lang="fr">

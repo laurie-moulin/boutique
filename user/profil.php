@@ -39,7 +39,7 @@ $info = $user->setUser();
 
     <h1>Bienvenue sur votre profil <?php echo $info["prenom"]?> <?php echo $info["nom"];?></h1>
 
-    <form action="profil.php" method="post" >
+    <form action="profil.php?id=<?=$_SESSION['id']?>" method="post" >
 
         <h1 class="titre">Modifier les données de votre profil</h1>
 
@@ -58,11 +58,18 @@ $info = $user->setUser();
         <label for="confpassword">Confirmer mot de passe</label>
         <input type="password" id="confpassword" name="confpassword" required><br>
 
+
+
+        <input type="submit" value="Modifier" name="submit_update">
+
         <?php
 
-        ?>
+        if(isset($_POST['submit_update'])){
+            $update->update();
 
-        <input type="submit" value="S'inscrire" name="submit_update">
+        }
+
+        ?>
     </form>
 
 

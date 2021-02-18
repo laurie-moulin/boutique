@@ -68,7 +68,7 @@ class user extends dataBase
         $admin = new admin();
         $statut = $admin->getStatut($email);
 
-        if (empty($errors) && $statut['admin'] == 1) {
+        if (empty($errors) && $statut['admin'] >= 1) {
             $this->id = $user['id'];
             $_SESSION['id'] = $user['id'];
             header("location:../admin/admin_profil.php?id=" . $_SESSION['id']);

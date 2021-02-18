@@ -17,7 +17,7 @@ if ($admin->isAdmin()) {
 </nav>';
 } else {
     echo '<nav>
-    <a href="../admin/admin.php">Admin</a>
+    <a href="../admin/admin_profil.php?id='. $_SESSION['id'] .' ">Admin</a>
     <a href="../admin/admin_product.php">Produits</a>
     <a href="../admin/admin_addProd.php">Ajouter produit</a>
     <a href="../admin/admin_category.php">Catégories</a>

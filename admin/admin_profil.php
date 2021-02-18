@@ -56,7 +56,7 @@ $info = $users->setUser();
 
     <?php
     if(isset($_POST['submit_update'])){
-        var_dump( $update->update());
+         $update->update();
 
     }
     ?>

@@ -5,7 +5,7 @@ require_once 'dataBase.php';
 
 class product extends dataBase
 {
-    protected $category = [];
+//    protected $category = [];
 
     //CATEGORIES
 
@@ -93,7 +93,6 @@ class product extends dataBase
             echo $error;
         }
 
-
     }
 
     public function checkPicture()
@@ -140,6 +139,14 @@ class product extends dataBase
     public function getSizes()
     {
         return $this->query('SELECT * FROM stock WHERE id_product = ? ORDER BY taille', [$_GET['id']])->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getCategProd()
+    {
+        $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product INNER JOIN category ON (product.id_category = category.id) WHERE id=?', [$_GET['id']]);
+        return $cat->fetchAll(\PDO::FETCH_ASSOC);
+//        $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product, category ON (product.id_category = category.id) WHERE id=?', [$_GET['id']]);
+//        return $cat->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 
@@ -196,7 +203,7 @@ class product extends dataBase
 
     public function updateProduct()
     {
-        $productId = $_GET['id_product'];
+        $productId = $_GET['id'];
         $date = $_POST['date'];
         $nproduit = $_POST['nom'];
         $description = $_POST['description'];
@@ -218,10 +225,10 @@ class product extends dataBase
                 $nproduit,
                 $description,
                 $prix,
-                $_GET['id_product']
+                $_GET['id']
             ]);
             foreach ($this->getSizes() as $size) {
-                $currentSize = $_POST[$size->taille];
+                $currentSize = $_POST[$size['taille']];
                 $this->query('UPDATE stock set stock = ? WHERE id_product = ? AND taille = ? ', [
                     $currentSize,
                     $productId,
@@ -232,6 +239,12 @@ class product extends dataBase
 //                $this->setLogo();
 //            }
         }
+        return [];
+    }
+
+    public function deleteProduct()
+    {
+        $this->query('DELETE FROM product WHERE id_product = ?', [$_GET['id']]);
         return [];
     }
 
