@@ -9,8 +9,8 @@ if (isset($_SESSION['id'])) {
 include ("../includes/nav_admin.php");
 
 $product = new \db\product();
-
-$products = $product->setProduct();
+//
+//$products = $product->setProduct();
 
 
 
@@ -36,6 +36,10 @@ $products = $product->setProduct();
 </header>
 
 <main>
+
+    <?php foreach ($product->setProduct() as $products) { ?>
+
+    <?php } ?>
 
 
     <form action="admin_deleteProd.php?id=<?= $products['id_product'] ?>" method="post">
