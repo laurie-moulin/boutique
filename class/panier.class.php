@@ -5,17 +5,6 @@ require_once 'dataBase.php';
 class Panier extends dataBase
 {
 
-    public function internauteEstConnecte()
-    {
-        if(!isset($_SESSION['membre'])) return false;
-        else return true;
-    }
-    public function internauteEstConnecteEtEstAdmin()
-    {
-        if($this->internauteEstConnecte() && $_SESSION['membre']['statut'] == 1) return true;
-        else return false;
-    }
-
   public function creationDuPanier()
     {
         if(isset($_SESSION["panier"]))

@@ -3,18 +3,22 @@ require_once '../class/produit_boutique.php';
 require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
 require_once '../class/commands.php';
+require_once '../class/admin.php';
+require_once '../class/user.php';
+require_once '../class/admin.php';
 
-
-session_start();
 
 $product = new \db\product();
 $panier = new \db\panier();
 $commands = new \db\Commands();
+$admin = new \db\admin();
+$user = new \db\admin();
+
 
 if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
- $panier->creation_shop_icon();
+ //$panier->creation_shop_icon();
  //header('location:boutique_all.php');
 
 }
@@ -26,8 +30,7 @@ if(isset($_GET["action"]))
 if(isset($_GET['action']) && $_GET['action'] == "vider")
 {
     unset($_SESSION['panier']);
-    unset($_SESSION["icon_shop"]);
-    session_destroy();
+    //unset($_SESSION["icon_shop"]);
 }
 ?>
 
@@ -41,16 +44,15 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
 <body>
 <header>
     <nav>
-        <a href="/"></a>
     </nav>
     <article>
         <?php
-        if(isset($_SESSION["icon_shop"]))
+     /*   if(isset($_SESSION["icon_shop"]))
         {
             echo "<div class='test'>";
             echo  $_SESSION["icon_shop"] ;
             echo "</div>";
-        }
+        }*/
         ?>
     </article>
 </header>
@@ -85,36 +87,37 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                 <td></td>
             </tr>
         </table>
-        <?php
-        if($panier->internauteEstConnecte())
-        {?>
-            <form method="post" action="commande.php">
-            <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement">Payer</td></tr>
-            </form>
-        <?php}
-        else
-        {?>
-            <form method="post" action="commande.php">
-                <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
-                <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
-            </form>
-            <tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>
             <?php
-        }
-        echo "<tr><td colspan='5'><a href='?action=vider'>Vider mon panier</a></td></tr>";
+            if(isset($_SESSION['id']))
+            {
+                $user = $_SESSION['id'];
+                var_dump($user);
+                ?>
+                <a href="../user/profil.php">Profil</a>
+                <form method="post" action="commande.php">
+                    <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
+                    <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
+                </form>
+                <?php
+            }
+            else
+            {?>
+
+                <tr><td colspan="3">Veuillez vous <a href="../user/inscription.php">inscrire</a> ou vous <a href="../user/connexion.php">connecter</a> afin de pouvoir payer</td></tr>
+
+                <?php
+            }
         }
         else
         {
             echo "Votre panier est vide";
         }
+        echo "<tr><td colspan='5'><a href='?action=vider'>Vider mon panier</a></td></tr>";
         ?>
-        <a href="detail_produit.php">revenir</a>
 
-        <form method="post" action="commande.php">
-            <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
-            <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
-        </form>
-        <tr><td colspan="3">Veuillez vous <a href="inscription.php">inscrire</a> ou vous <a href="connexion.php">connecter</a> afin de pouvoir payer</td></tr>
+        <a href="detail_produit.php"> revenir</a>
+
+
     </article>
 
 </main>

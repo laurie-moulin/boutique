@@ -2,11 +2,22 @@
 require_once '../class/produit_boutique.php';
 require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
+require_once '../class/commands.php';
+require_once '../class/admin.php';
+require_once '../class/user.php';
+require_once '../class/admin.php';
 
-session_start();
 
 $product = new \db\product();
 $panier = new \db\panier();
+$commands = new \db\Commands();
+$admin = new \db\admin();
+$user = new \db\admin();
+
+if (isset($_SESSION['id'])) {
+    $user = $_SESSION['id'];
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -30,12 +41,12 @@ $panier = new \db\panier();
 
 <article>
     <?php
-    if(isset($_SESSION["icon_shop"]))
+  /*  if(isset($_SESSION["icon_shop"]))
     {
         echo "<div class='test'>";
         echo  $_SESSION["icon_shop"] ;
         echo "</div>";
-    }
+    }*/
     ?>
 </article>
     <article><a href="panier.php">Panier</a> </article>

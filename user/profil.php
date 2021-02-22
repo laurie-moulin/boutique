@@ -32,7 +32,9 @@ $info = $user->setUser();
 <body>
 
 <header>
-
+<nav>
+    <a href="../pages/boutique_all.php">Boutique</a>
+</nav>
 </header>
 
 <main>
@@ -66,7 +68,6 @@ $info = $user->setUser();
 
         if(isset($_POST['submit_update'])){
             $update->update();
-
         }
 
         ?>

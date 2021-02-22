@@ -4,7 +4,7 @@ require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
 require_once '../class/commands.php';
 
-session_start();
+
 
 $product = new \db\product();
 $panier = new \db\panier();
