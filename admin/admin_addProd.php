@@ -42,6 +42,9 @@ if (isset($_POST['submit_addProd'])) {
         <label for="date">Date d'ajout du produit : </label><br>
         <input type="date" id="date" name="date" value='<?php echo $today ?>' required><br>
 
+        <label for="ref">Référence du produit: </label><br>
+        <input type="text" id="ref" name="ref" required><br>
+
         <label for="categorie-select">Catégorie</label> <br/>
         <select name="category"  class="input">
             <?php foreach ($product->getCategory() as $categorie) { ?>

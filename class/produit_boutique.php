@@ -1,4 +1,5 @@
 <?php
+
 namespace db;
 require_once 'dataBase.php';
 
@@ -7,30 +8,31 @@ class product extends dataBase
 
     public function affichages_categories()
     {
-      $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product, category WHERE product.id_category = category.id');
-       return $cat->fetchAll();
+        $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product, category 
+WHERE product.id_category = category.id');
+        return $cat->fetchAll();
     }
 
 
     public function affichages_des_produits()
     {
-      $cat = $this->query("select id_product, nom, description, photo, prix, description  FROM  product where id_category ='$_GET[id_category]'");
-       return $cat->fetchAll();
+        $cat = $this->query("select id_product, nom, description, photo, prix, description  FROM  product where id_category ='$_GET[id_category]'");
+        return $cat->fetchAll();
     }
 
 
     public function affichages_boutique()
-        {
-           $cat = $this->query('SELECT * FROM product');
-           return $cat->fetchAll();
-        }
+    {
+        $cat = $this->query('SELECT * FROM product');
+        return $cat->fetchAll();
+    }
 
 
-        public function details_produit()
-        {
-           $cat = $this->query("SELECT * FROM product WHERE id_product = '$_GET[id_product]'");
-           return $cat->fetch(\PDO::FETCH_ASSOC);
-        }
+    public function details_produit()
+    {
+        $cat = $this->query("SELECT * FROM product WHERE id_product = '$_GET[id_product]'");
+        return $cat->fetch(\PDO::FETCH_ASSOC);
+    }
 
     public function getSizes()
     {
@@ -41,6 +43,24 @@ class product extends dataBase
     {
         $cat = $this->query("select id_product, nom, photo, prix, description  FROM  product where categorie ='$_GET[id_category]'");
         return $cat->fetchAll();
+    }
+
+    public function comments()
+    {
+        $stars = htmlentities($_POST['stars']);
+        $comment = htmlentities($_POST['comment']);
+
+        if(!empty($stars) && !empty($comment)){
+            return $this->query("INSERT INTO comment(id_product, stars, comment ) VALUES(?,?,?) ",
+                [$_GET['id_product'], $stars, $comment]);
+        }
+
+    }
+
+    public function getComments()
+    {
+
+        return $this->query("SELECT comment, stars FROM comment WHERE id_product = '$_GET[id_product]'");
     }
 
 }

@@ -63,6 +63,7 @@ class product extends dataBase
         $nameProd = htmlentities($_POST['nameProd']);
         $description = htmlentities($_POST['description']);
         $prix = htmlentities($_POST['prix']);
+        $ref = htmlentities($_POST['ref']);
 
         $error = '';
 
@@ -70,11 +71,11 @@ class product extends dataBase
         $this->checkPicture();
 
 //        $this->setPicture();
-        $photo = $_POST['nameProd'] . "." . $this->extension;
+        $photo = $_POST['ref'] . "." . $this->extension;
 
         if (empty($error)) {
-            $add = $this->query('INSERT INTO product(id_category, nom, description, prix, date, photo) VALUES(?,?,?,?,?,?) ',
-                [$cat, $nameProd, $description, $prix, $date, $photo]);
+            $add = $this->query('INSERT INTO product(id_category, ref, nom, description, prix, date, photo) VALUES(?,?,?,?,?,?,?) ',
+                [$cat, $ref, $nameProd, $description, $prix, $date, $photo]);
 
             $idProduct = $this->lastInsertId();
 
@@ -102,7 +103,7 @@ class product extends dataBase
         $this->extension = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
 
         if (in_array($this->extension, $extensionsValides)) {
-            $chemin = "../img/imgboutique/" . $_POST['nameProd'] . "." . $this->extension;
+            $chemin = "../img/imgboutique/" . $_POST['ref'] . "." . $this->extension;
             $resultat = move_uploaded_file($_FILES['image']['tmp_name'], $chemin);
         } else {
             $error = 'pas bon format';

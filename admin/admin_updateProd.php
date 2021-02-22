@@ -42,7 +42,7 @@ $product = new \db\product();
 
     <?php foreach ($product->setProduct() as $products) { ?>
         NOM : <?= $products['nom'] ?><br>
-        ID : <?= $products['id_product'] ?><br>
+        REFERENCE : <?= $products['ref'] ?><br>
         DESCRIPTION : <?= $products['description'] ?><br>
         PRIX : <?= $products['prix'] ?><br>
         <img width="300px" src="../img/imgboutique/<?= $products['photo'] ?>"><br>

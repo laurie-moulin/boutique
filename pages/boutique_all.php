@@ -4,9 +4,8 @@ require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
 require_once '../class/search.class.php';
 
-session_start();
 
-$product = new \db\Product();
+$product = new \db\product();
 $panier = new \db\Panier();
 $search = new \db\Search();
 
@@ -56,7 +55,7 @@ $search = new \db\Search();
             foreach ($product->affichages_des_produits() as $produits) { ?>
                 <div>
                     <h2><?=$produits["nom"]?></h2>
-                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
+                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img  width="300px" src=../img/imgboutique/<?=$produits["photo"]?> ></a>
                     <p><?=$produits["prix"] ?> €</p>
                     <p><?=$produits["description"] ?> </p>
                 </div>
@@ -67,7 +66,7 @@ $search = new \db\Search();
             foreach ($product->affichages_boutique() as $boutique) { ?>
                 <div>
                     <h2><?=$boutique["nom"]?></h2>
-                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
+                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img width="300px" src=../img/imgboutique/<?=$boutique["photo"]?> ></a>
                     <p><?=number_format($boutique["prix"] ,2,',',' ')?> €</p>
                     <p><?=$boutique["description"] ?> </p>
                 </div>
