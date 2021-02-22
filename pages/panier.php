@@ -14,7 +14,11 @@ $commands = new \db\Commands();
 $admin = new \db\admin();
 $user = new \db\admin();
 
+if (isset($_SESSION['id'])) {
+    $user = $_SESSION['id'];
+}
 
+var_dump( $_SESSION['id']);
 if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
@@ -89,27 +93,10 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             <?php
             if(isset($_SESSION['id']))
             {
-                $user = $_SESSION['id'];
-                var_dump($user);
                 ?>
                 <a href="../user/profil.php">Profil</a>
                 <form method="post" action="commande.php">
                     <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
-
-                        <h1 class="titre">Enregistrer votre adresse et validez la commande</h1>
-
-                        <label for="adresse">Adresse</label>
-                        <input type="text" id="adresse" name="adresse" required><br>
-
-                        <label for="code">Code postal</label>
-                        <input type="text" id="code" name="code" required><br>
-
-                        <label for="ville">Ville</label>
-                        <input type="text" id="nom" name="ville" required><br>
-
-                        <label for="phone">Numéro de téléphone</label>
-                        <input type="tel" id="phone" name="phone" required>
-
                     <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
                 </form>
                 <?php
@@ -132,6 +119,17 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
         <a href="detail_produit.php"> revenir</a>
 
     </article>
+    <section>
+    <?php
+          foreach ($commands->nouveaute() as $new) { ?>
+                <div>
+                    <h2><?=$new["nom"]?></h2>
+                    <a href = detail_produit.php?id_product=<?= $new["id_product"] ?>><img src=../img/<?=$new["photo"]?> ="500" height="550"></a>
+                    <p><?=$new["prix"] ?> €</p>
+                    <p><?=$new["description"] ?> </p>
+                </div>
+            <?php }?>
+    </section>
 
 </main>
 <footer></footer>

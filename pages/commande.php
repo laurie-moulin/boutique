@@ -24,7 +24,7 @@ var_dump($user);
 
 <?php
 
-if (isset($_POST["payer"]))
+if (isset($_POST["enregistrer"]))
 {
    $commands->insertcommande($user, $commands->montant(),date('Y-m-d'));
 
@@ -36,12 +36,7 @@ if (isset($_POST["payer"]))
     }
     $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);
 
-    $adresse = htmlspecialchars($_POST["adresse"]);
-    $code = htmlspecialchars($_POST["code"]);
-    $ville = htmlspecialchars($_POST["ville"]);
-    $phone = htmlspecialchars($_POST["phone"]);
-
-    $commands->insert_adresses($user, $adresse, $code, $ville, $phone);
+    $commands->insert_adresses($user);
 
 
     header('location:paiement_paypal.php');
@@ -68,7 +63,33 @@ if (isset($_POST["payer"]))
 </header>
 
 <main>
+<article>
+    <?php
+    if (isset($_POST["payer"]))
+    {
+    ?>
+    <form method="post" action="commande.php">
 
+        <h1 class="titre">Enregistrer votre adresse et validez la commande</h1>
+
+        <label for="adresse">Adresse</label>
+        <input type="text" id="adresse" name="adresse" required><br>
+
+        <label for="code">Code postal</label>
+        <input type="text" id="code" name="code" required><br>
+
+        <label for="ville">Ville</label>
+        <input type="text" id="nom" name="ville" required><br>
+
+        <label for="phone">Numéro de téléphone</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <tr><td colspan="5"><input type="submit" name="enregistrer" value="Enregistrer"></td></tr>
+    </form>
+    <?php
+    }
+    ?>
+</article>
 </main>
 
 <footer>
