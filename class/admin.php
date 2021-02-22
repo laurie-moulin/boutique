@@ -95,5 +95,11 @@ class admin extends dataBase
 
     }
 
+    public function getNews()
+    {
+        $newsletter = $this->query('SELECT * FROM newsletter')->fetchAll(\PDO::FETCH_ASSOC);
+        return $newsletter;
+    }
+
 
 }

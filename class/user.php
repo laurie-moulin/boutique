@@ -123,7 +123,25 @@ class user extends dataBase
             $message = new messages($errors);
             echo $message->renderMessage();
         }
+    }
 
+    public function newsletter()
+    {
+
+        $email = htmlentities($_POST['email']);
+        $userExist = $this->query('SELECT * FROM newsletter WHERE email_news = ?', [$email])->rowCount();
+        if ($userExist == 1) {
+            $errors[] = 'Vous êtes déjà inscris à la newsletter';
+        }
+
+        if(empty($errors)){
+            $this->query('INSERT INTO newsletter (email_news) VALUE(?)',
+                [$email]);
+        }
+        else {
+            $message = new messages($errors);
+            echo $message->renderMessage();
+        }
 
     }
 

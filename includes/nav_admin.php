@@ -13,6 +13,7 @@ if ($admin->isAdmin()) {
     <a href="../admin/admin_product.php">Produits</a>
     <a href="../admin/admin_addProd.php">Ajouter produit</a>
     <a href="../admin/admin_category.php">Catégories</a>
+    <a href="../admin/admin_newsletter.php">Newsletter</a>
 
 </nav>';
 } else {
@@ -21,6 +22,7 @@ if ($admin->isAdmin()) {
     <a href="../admin/admin_product.php">Produits</a>
     <a href="../admin/admin_addProd.php">Ajouter produit</a>
     <a href="../admin/admin_category.php">Catégories</a>
+     <a href="../admin/admin_newsletter.php">Newsletter</a>
 
 </nav>';
 }
