@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+* {
+    /* cursor: url(img/cursor.png); */
+    cursor: url(img/cursor.cur);
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+
+.hamburger-icon {
+    position: absolute;
+    z-index: 1;
+    top: 5vh;
+    left: 5vw;
+    padding-bottom: 2vh;
+}
+
+.hamburger-icon span {
+    height: 3px;
+    width: 35px;
+    background-color: black;
+    display: block;
+    margin: 5px 0px 5px 0px;
+    transition: 0.7s ease-in-out;
+    transform: none;
+}
+
+#openmenu:checked~.menu-pane {
+    left: 2vw;
+    transform: translateX(-5vw);
+}
+
+#openmenu:checked~.hamburger-icon span:nth-of-type(2) {
+    transform: translate(0%, 255%) rotate(-45deg);
+    background-color: white;
+}
+
+#openmenu:checked~.hamburger-icon span:nth-of-type(3) {
+    transform: rotate(45deg);
+    background-color: white;
+}
+
+#openmenu:checked~.hamburger-icon span:nth-of-type(1) {
+    opacity: 0;
+}
+
+#openmenu:checked~.hamburger-icon span:nth-of-type(4) {
+    opacity: 0;
+}
+
+div.menu-pane {
+    background-color: rgba(0, 0, 0, 0.658);
+    position: absolute;
+    transform: translateX(-50vw);
+    transform-origin: (0, 0);
+    width: 35vw;
+    height: 100vh;
+    transition: 0.8s linear;
+}
+
+.menu-pane p {
+    color: black;
+    font-size: 0.6em;
+}
+
+
+/* .menu-pane nav {
+    padding: 10%;
+} */
+
+.menu-links,
+a,
+span {
+    transition: 0.7s linear;
+}
+
+.menu-links {
+    margin-top: 30%;
+    margin-left: 25%;
+}
+
+.menu-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+}
+
+.menu-links a::before {
+    /* color: #FFAB91; */
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 0;
+    left: 0;
+    margin-left: 20%;
+    margin-top: 25px;
+    background: #ffffff;
+    transition: all .7s ease;
+}
+
+.menu-links a:hover:before {
+    width: 50%;
+}
+
+input.hamburger-checkbox {
+    position: absolute;
+    z-index: 3;
+    top: 5vh;
+    left: 5vw;
+    width: 10vw;
+    opacity: 0;
+    height: 6vh;
+}
+
+.nav_bis {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    float: right;
+}
+
+.title h1 {
+    /* font-family: 'Dosis', sans-serif; */
+    font-family: 'Dosis', sans-serif;
+    font-size: 3.2em;
+    /* margin-left: 20%; */
+}
+
+.link_user {
+    margin-right: 7%;
+}
+
+.link_user a {
+    color: black;
+    transition: 0.5s;
+    font-size: 1.5em;
+}
+
+.link_user a:hover {
+    color: rgb(179, 72, 72);
+}
+
+
+/* TEXTE DEFILANT */
+
+.txt_defilant {
+    margin-top: 5%;
+    max-width: 100%;
+    font-size: 1.5em;
+    margin: 1em auto 2em;
+    overflow: hidden;
+    color: rgb(185, 50, 50);
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold
+}
+
+.txt_defilant> :first-child {
+    display: inline-block;
+    padding-right: 2em;
+    padding-left: 100%;
+    white-space: nowrap;
+    animation: txt_defilant 17s infinite linear;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes txt_defilant {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+
+/* INFO ACHAT */
+
+.container_info {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid black; */
+    padding: 2%;
+    width: 95%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100px;
+    border: 1px solid rgb(184, 175, 175);
+    padding: 1%;
+}
+
+.info i {
+    font-size: 2em;
+    color: rgb(95, 95, 95);
+}
+
+.info p {
+    font-size: 1em;
+    font-family: 'Oxygen', sans-serif;
+}
+
+
+/* BANNIERE IMAGE MEN */
+
+h4 {
+    font-size: 1.5em;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+.img_principal {
+    width: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container_img {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main_img {
+    width: 50%;
+}
