@@ -9,7 +9,7 @@ $url_cancel='http://www.memo-web.fr/paypal-annulation.php'; /*page d'annulation 
 $url_confirmation='http://www.memo-web.net/paypal-confirmation.php';/*page de confirmation d'achat*/
 /* fin déclaration des variables / ce lien c'est pour allez sur paypal ! https://www.paypal.com/cgi-bin/webscr */
 echo '
-      <form action="confirmattion.php" method="post">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
       <input type="hidden" name="cmd" value="_xclick"/>
       <input type="hidden" name="business" value="'.$email_paypal.'"/>
       <input type="hidden" name="item_name" value="'.$item_nom.'"/>
@@ -27,6 +27,8 @@ echo '
       </form> ';
 
 unset($_SESSION["panier"]);
-unset($_SESSION["icon_shop"]);
+unset($_SESSION["id"]);
+
+
 
 ?>

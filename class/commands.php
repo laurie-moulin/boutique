@@ -35,6 +35,10 @@ class Commands extends dataBase
       return $insert = $this->query('INSERT INTO details_commande (id_commande, id_users , id_product, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$lastID, $id_users, $id_product, $quantite, $prix, $size]);
 
     }
+    public function insert_adresses($id_users, $adresse, $code, $ville, $phone)
+    {
+      return $insert = $this->query('INSERT INTO adresse (id_users, adresse, code_postal, ville, telephone) VALUE(?, ?, ?, ?, ?)', [$id_users, $adresse, $code, $ville, $phone]);
+    }
 
 
 }
