@@ -31,7 +31,7 @@ $user = new \db\user();
 
 <header>
 
-    <?php include 'includes/nav.php'?>
+    <?php include 'nav.php'?>
 
 </header>
 
@@ -105,12 +105,13 @@ $user = new \db\user();
 
 </article>
 
-
-
 </main>
 
 <footer>
 
+    <?php
+    include 'includes/footer.php';
+    ?>
 </footer>
 
 </body>

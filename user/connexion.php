@@ -6,7 +6,6 @@ require_once '../class/dataBase.php';
 $connect = new \db\user();
 
 
-
 ?>
 
 <html lang="fr">
@@ -15,6 +14,10 @@ $connect = new \db\user();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/zoro.css">
+    <link rel="stylesheet" href="../css/user.css">
     <title>Connexion</title>
 </head>
 
@@ -22,33 +25,45 @@ $connect = new \db\user();
 
 <header>
 
+    <?php
+    include 'nav.php';
+    ?>
+
 </header>
 
 <main>
 
-    <form action="connexion.php" method="post" >
+    <article class="connexion_user">
 
-        <h1 class="titre">Connexion</h1>
+        <h1 class="titre">SE CONNECTER</h1>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" ><br>
+        <form action="connexion.php" method="post">
 
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="password">Mot de passe</label><br>
+            <input type="password" id="password" name="password"><br>
 
 
-        <?php
-        if(isset($_POST['submit_connect'])){
-            $connect->connect();
-        }
-        ?>
+            <?php
+            if (isset($_POST['submit_connect'])) {
+                $connect->connect();
+            }
+            ?>
 
-        <input type="submit" value="Se connecter" name="submit_connect">
-    </form>
+            <input type="submit" value="Se connecter" name="submit_connect">
+        </form>
+
+    </article>
 
 </main>
 
 <footer>
+
+    <?php
+//    include '../includes/footer.php'
+    ?>
 
 </footer>
 

@@ -1,0 +1,29 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+
+.connexion_user h1{
+
+}
+
+.connexion_user form input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.connexion_user form input:focus{
+    outline: none;
+    border-bottom: 1px solid #cb0000;
+}
+
+
+
+.connexion_user form label{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-weight: lighter;
+}

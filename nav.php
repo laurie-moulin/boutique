@@ -36,7 +36,7 @@
 
     <div class="link_user">
 
-        <a href="#">SE CONNECTER</a>
+        <a href="user/connexion.php">SE CONNECTER</a>
         <a href="#">PANIER</i></a>
     </div>
 
