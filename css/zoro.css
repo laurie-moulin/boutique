@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 * {
     /* cursor: url(img/cursor.png); */
-    cursor: url(img/cursor.cur);
+   cursor: url(img/cursor.cur);
 }
 
 header {
@@ -161,7 +161,7 @@ input.hamburger-checkbox {
     overflow: hidden;
     color: rgb(185, 50, 50);
     font-family: 'Oxygen', sans-serif;
-    font-weight: bold
+    font-weight: bold;
 }
 
 .txt_defilant> :first-child {

@@ -65,7 +65,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
 </header>
 <main>
     <article>
-        <h1>PANIER D'ACHAT</h1>
+        <h1 class="panier_achat">PANIER D'ACHAT</h1>
         <table>
             <?php
             if(!empty($_SESSION["panier"]))
@@ -74,25 +74,23 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             foreach($_SESSION["panier"] as $keys => $values)
             {?>
 
-                <tr>
-                    <td><?=  $values["item_name"] ?></td>
-                    <td><?=  $values["item_quantity"]?></td>
-                    <td><?=  $values["item_price"] ?></td>
-                    <td><?=  strtoupper($values["item_size"]) ?></td>
-                    <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?> €</td>
-                    <td><img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" /></td>
-                    <td><a href="panier.php?action=delete&id=<?=  $values["item_id"] ?>"><img class="trash_basket" src="../img/trash2.png"></a></td>
-                </tr>
+                <div class="bask_panier_flex">
+                    <?= "TITRE : ". strtoupper($values["item_name"] )." ||" ?>
+                    <?=  "QUANTITÉ : ". $values["item_quantity"]." ||"?>
+                    <?=   "PRIX A L'UNITÉ : ".$values["item_price"] ." EUR" ." ||"?>
+                    <?=  "TAILLE : ".strtoupper($values["item_size"]) ." ||"?>
+                    <?=  "TOTAL : ".number_format($values["item_quantity"] * $values["item_price"], 2)."EUR" ." ||"?>
+                    <img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" />
+                     <a href="panier.php?action=delete&id=<?=  $values["item_id"] ?>"><img class="trash_basket" src="../img/trash2.png"></a>
+                </div>
                 <?php
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
             }
             ?>
 
-            <tr class="td_total">
-                <td>Total</td>
-                <td> <?= number_format($total, 2) ?> EUR</td>
-                <td></td>
-            </tr>
+
+                <span class="panier1_achat"> PRIX FINAL //  <?= number_format($total, 2) ?> EUR</span>
+
 
 
         </table>
@@ -113,31 +111,33 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             else
             {?>
 
-                <tr><td colspan="3">Veuillez vous <a href="../user/inscription.php">inscrire</a> ou vous <a href="../user/connexion.php">connecter</a> afin de pouvoir payer</td></tr>
-                <tr><td colspan='5'><a href='?action=vider'>Vider mon panier</a></td></tr>
+              <span class="panier_achat">Veuillez vous <a href="../user/inscription.php">inscrire</a> ou vous <a href="../user/connexion.php">connecter</a> afin de pouvoir payer</span>
+               <span class="panier_achat"><a href='?action=vider'>Vider mon panier</a></span>
 
                 <?php
             }
         }
         else
         {
-            echo "Votre panier est vide";
+            echo "<span class='empty_basket'>Votre panier est vide</span>";
 
         }
         ?>
 
-        <a href="detail_produit.php"> revenir</a>
+        <a class="a" href="detail_produit.php"> revenir</a>
 
     </article>
-    <section class="picture_category4">
+
+    <h1 class="nouveaute">NOUVEAUTÉS</h1>
+    <section class="picture_category">
+
     <?php
           foreach ($commands->nouveaute() as $new) { ?>
-                <div>
-                    <h2><?=$new["nom"]?></h2>
-                    <a href = detail_produit.php?id_product=<?= $new["id_product"] ?>><img src=../img/<?=$new["photo"]?> ="500" height="550"></a>
-                    <p><?=$new["prix"] ?> €</p>
-                    <p><?=$new["description"] ?> </p>
-                    <p class="new_article">NEW</p>
+              <div class="flex_product5">
+                  <span class="new_article">NEW</span>
+                  <a href = detail_produit.php?id_product=<?= $new["id_product"] ?>><img src=../img/<?=$new["photo"]?> ="500" height="550"></a>
+                  <?=strtoupper($new["description"]) ?><br>
+                  <?="<span class='text_police' >".$new["prix"] ." EUR</span>"?>
                 </div>
             <?php }?>
     </section>

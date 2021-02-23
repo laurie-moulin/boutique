@@ -75,7 +75,6 @@ body
     flex-direction: column;
     font-family: 'Oswald', sans-serif;
     font-size: 13px;
-
 }
 #taille
 {
@@ -138,5 +137,72 @@ textarea
 }
 .td_total
 {
-    border: 1px solid black;
+    border-top: 1px solid black;
+    width: 600px;
+    margin-top: 20px;
+}
+
+.empty_basket, .panier_achat, .panier1_achat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+.panier3_achat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    background-color: rgb(185, 50, 50);
+    text-decoration: none;
+    color: white;
+    padding-bottom: 3px;
+}
+.class_A a
+{
+   text-decoration: white;
+}
+
+
+.panier_achat
+{
+   padding: 5px;
+}
+.panier1_achat
+{
+    border-top: 1px solid black;
+    width: 40%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+.bask_panier_flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+.nouveaute
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    padding-top: 30px;
+}
+.flex_product5
+{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
 }
