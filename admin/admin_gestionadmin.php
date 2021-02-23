@@ -23,6 +23,7 @@ if ($admin->isAdmin()) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>Gestion Admin</title>
     </head>
 
@@ -34,77 +35,97 @@ if ($admin->isAdmin()) {
 
     </header>
 
-    <main>
+    <main class="main_gestionadmin">
 
-        <table>
-            <thead>
-            <tr>
-                <th scope="col">#id</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prenom</th>
-                <th scope="col">Email</th>
-                <th scope="col">Statut</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($admin->getAdmin() as $admine) { ?>
+        <div class="container_admintable">
+
+            <h4>Liste des administrateurs</h4>
+
+            <table>
+                <thead>
                 <tr>
-                    <th><?= $admine['id'] ?></th>
-                    <td><?= $admine['nom'] ?></td>
-                    <td><?= $admine['prenom'] ?></td>
-                    <td><?= $admine['email'] ?></td>
-                    <td><?= $admine['admin'] ?></td>
-                    <td><a href="admin_deleteUser.php?id=<?= $admine['id'] ?>"><i class="fas fa-trash"></i></a></td>
+                    <th scope="col">#id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col"></th>
+
                 </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <?php foreach ($admin->getAdmin() as $admine) { ?>
+                    <tr>
+                        <th><?= $admine['id'] ?></th>
+                        <td><?= $admine['nom'] ?></td>
+                        <td><?= $admine['prenom'] ?></td>
+                        <td><?= $admine['email'] ?></td>
+                        <td><?= $admine['admin'] ?></td>
+                        <td><a href="admin_deleteUser.php?id=<?= $admine['id'] ?>"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
 
-        <form action="admin_gestionadmin.php" method="post">
+        </div>
 
-            <label for="prenom">prenom</label> <br/>
-            <input type="text" name="prenom" required><br>
+        <div class="container_formadmin">
 
-            <label for="nom">nom</label> <br/>
-            <input type="text" name="nom" required><br>
+            <h4>Ajout d'un administrateur</h4>
 
-            <label for="email">email</label> <br/>
-            <input type="text" name="email" required><br>
+            <form action="admin_gestionadmin.php" method="post">
 
-            <label for="password">Mot de passe</label>
-            <input type="password" name="password" required><br>
+                <label for="prenom">Prenom</label> <br/>
+                <input type="text" name="prenom" required><br>
 
-            <label for="confpassword">Confirmer mot de passe</label>
-            <input type="password" name="confpassword" required><br>
+                <label for="nom">Nom</label> <br/>
+                <input type="text" name="nom" required><br>
 
-            <p>Statut:</p>
+                <label for="email">Email</label> <br/>
+                <input type="text" name="email" required><br>
 
-            <div>
-                <input type="radio" name="admin" value="1" >
-                <label for="1">Admin Premium</label>
-            </div>
+                <label for="password">Mot de passe</label><br>
+                <input type="password" name="password" required><br>
 
-            <div>
-                <input type="radio" name="admin" value="2" checked>
-                <label for="2">Admin</label>
-            </div>
+                <label for="confpassword">Confirmer mot de passe</label><br>
+                <input type="password" name="confpassword" required><br>
 
-            <div>
-                <input type="radio" name="admin" value="0" >
-                <label for="0">Sans statut (user)</label>
-            </div>
+                <p>Statut:</p>
 
-            <input type="submit" value="Ajouter" name="submit_addAdmin">
+                <div>
+                    <input class="radio" type="radio" name="admin" value="1" >
+                    <label for="1">Admin Premium</label>
+                </div>
 
-            <?php
+                <div>
+                    <input class="radio" type="radio" name="admin" value="2" checked>
+                    <label for="2">Admin</label>
+                </div>
 
-            if(isset($_POST['submit_addAdmin'])){
-                $admin->addAdmin();
+                <div>
+                    <input class="radio" type="radio" name="admin" value="0" >
+                    <label for="0">Sans statut (user)</label>
+                </div>
 
-            }
-            ?>
 
-        </form>
+                <button type="submit" value="Ajouter" name="submit_addAdmin">Ajouter</button>
+
+
+
+
+                <?php
+
+                if(isset($_POST['submit_addAdmin'])){
+                    $admin->addAdmin();
+
+                }
+                ?>
+
+            </form>
+
+
+        </div>
+
 
 
     </main>

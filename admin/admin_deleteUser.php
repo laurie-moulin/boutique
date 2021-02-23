@@ -25,6 +25,7 @@ if ($admin->isAdmin()) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>Delete User</title>
     </head>
 
@@ -37,9 +38,8 @@ if ($admin->isAdmin()) {
     </header>
 
     <main>
-        <form action="admin_deleteUser.php?id=<?=$users['id']?>" method="post">
+        <form action="admin_deleteUser.php?id=<?=$users['id']?>" method="post" class="form_delete">
             <p>Etes-vous sure de vouloir supprimer cet utilisateur : <?php echo $users['prenom'] ?> ? </p>
-            prout
 
             <?php if (isset($_POST['submit_delete'])) {
                 $delete = $admin->deleteUser();

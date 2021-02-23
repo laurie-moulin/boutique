@@ -17,6 +17,7 @@ $product = new \db\product();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>Admin</title>
 </head>
 
@@ -32,7 +33,7 @@ $product = new \db\product();
         <label for="name">Ajouter une catégorie: </label>
         <input type="text" name="add_categ" required>
 
-        <input type="submit" value="submit" name="submit">
+        <button type="submit" value="submit" name="submit">Ajouter</button>
 
         <?php if (isset($_POST['submit'])) {
         $product->addCategory();
@@ -40,6 +41,8 @@ $product = new \db\product();
 
         ?>
     </form>
+
+    <div class="container_tablecateg">
 
     <table class="table">
         <thead class="thead-dark">
@@ -61,7 +64,7 @@ $product = new \db\product();
         <?php } ?>
         </tbody>
     </table>
-
+    </div>
 
 </main>
 

@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+
+/*CSS COMMUN */
+
+form input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+    transition: 0.5s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.582);
+    font-size: 1.2em;
+    /*font-family: Helvetica Neue,Helvetica,Arial,sans-serif;*/
+    /*font-family: 'Unica One', cursive;*/
+}
+
+
+/*CSS PROFIL ADMIN*/
+
+
+.main_profil {
+    display: flex;
+    flex-direction: row;
+}
+
+.container_form {
+    width: 50%;
+    height: 100vh;
+
+}
+
+.container_form h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6em;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.container_form form input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 45%;
+    height: 30px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.container_title {
+    background-color: black;
+    width: 50%;
+    height: 100vh;
+    background-image: url("../img/profil1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container_form form {
+    margin-left: 25%;
+    margin-top: 7%;
+    width: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+
+.container_form form label {
+    font-size: 1.2em;
+}
+
+.container_form form input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+    transition: 0.5s;
+}
+
+.container_form button {
+    width: 20%;
+    height: 10%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
+    border: none;
+
+}
+
+.container_form button:hover {
+    background-color: #dd6060;
+    cursor: pointer;
+}
+
+.container_title h1 {
+    font-size: 4em;
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    /*font-weight: lighter;*/
+    margin-top: 30%;
+
+}
+
+/*CSS PAGE GESTION ADMIN*/
+
+.main_gestionadmin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.main_gestionadmin h4 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+}
+
+.container_admintable {
+    width: 50%;
+
+}
+
+.container_admintable table {
+    border-collapse: collapse;
+    border: 2px solid grey;
+    width: 90%;
+    text-align: center;
+    background-color: #ffffff;
+    margin-left: 5%;
+    /*overflow-y: scroll;*/
+}
+
+.container_admintable table th {
+    border-bottom: 2px solid grey;
+}
+
+.container_admintable table td {
+    border-bottom: 2px solid grey;
+    height: 35px;
+    color: #666666;
+}
+
+.container_admintable table td i {
+    color: #e32f2f;
+}
+
+
+.container_formadmin {
+    width: 50%;
+}
+
+
+.container_formadmin form input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 60%;
+    height: 30px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.container_formadmin form .radio {
+    height: 3%;
+    width: 10%;
+}
+
+.container_formadmin form {
+    margin-left: 20%;
+}
+
+.container_formadmin form input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+    transition: 0.5s;
+}
+
+.container_formadmin button {
+    width: 20%;
+    height: 7%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
+    border: none;
+}
+
+.container_formadmin button:hover {
+    background-color: #dd6060;
+    cursor: pointer;
+}
+
+/*CSS GESTION USERS*/
+
+.container_tableusers {
+
+    margin-top: 2%;
+    border: 2px solid grey;
+    width: 80%;
+    background-color: #ffffff;
+    /*margin-left: 5%;*/
+    font-family: 'Barlow Condensed', sans-serif;
+    /*overflow-y: scroll;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container_tableusers table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid grey;
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+.container_tableusers table th {
+    border-bottom: 2px solid grey;
+}
+
+.container_tableusers table td {
+    border-bottom: 2px solid grey;
+    height: 35px;
+    color: #666666;
+    text-align: center;
+}
+
+.container_tableusers table td i {
+    color: #e32f2f;
+}
+
+.main_users h4 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+/*CSS PAGE PRODUCT*/
+
+.container_tableproduct {
+
+    margin-top: 2%;
+    border: 2px solid grey;
+    width: 85%;
+    background-color: #ffffff;
+    /*margin-left: 5%;*/
+    font-family: 'Barlow Condensed', sans-serif;
+    /*overflow-y: scroll;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container_tableproduct table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid grey;
+    font-size: 1.1em;
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+.container_tableproduct table th {
+    border-bottom: 1px solid grey;
+}
+
+.container_tableproduct table td {
+    border-bottom: 1px solid grey;
+    height: 35px;
+    color: #343434;
+    text-align: center;
+}
+
+.container_tableproduct table td i {
+    color: #e32f2f;
+}
+
+.main_product h4 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+/*CSS AJOUT DE PRODUIT & UPDATE PRODUIT */
+
+.container_form_Addprod {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.div1 {
+    width: 50%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1em;
+}
+
+.div2 {
+    width: 50%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1em;
+}
+
+
+.div1 form input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 60%;
+    height: 30px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.div2 input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 40%;
+    height: 20px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.div1 form select {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 40%;
+    height: 20px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.div1 form {
+    margin-left: 20%;
+}
+
+.div1 form input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+    transition: 0.5s;
+}
+
+.div2 input:focus {
+    outline: none;
+    border-bottom: 1px solid #ff0000;
+    transition: 0.5s;
+}
+
+.div2 button {
+    width: 20%;
+    height: 10%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
+    border: none;
+}
+
+.container_form_Addprod button:hover {
+    background-color: #dd6060;
+    cursor: pointer;
+}
+
+.main_addProd h4 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.container_infoproduct {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5%;
+    background-color: #F0EAE5;
+    padding: 2%;
+
+
+}
+
+.container_allInfo {
+    border: 1px solid black;
+    padding: 3%;
+    background-color: white;
+    border-radius: 5px;
+
+}
+
+.container_allInfo p {
+    font-size: 1.6em;
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.container_allInfo table {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3em;
+    text-align: center;
+    border-collapse: separate;
+    border: 1px solid #888888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.update_product h4 {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+/*CSS CATEGORY*/
+
+.container_tablecateg {
+
+    margin-top: 2%;
+    border: 2px solid grey;
+    width: 80%;
+    background-color: #ffffff;
+    /*margin-left: 5%;*/
+    font-family: 'Barlow Condensed', sans-serif;
+    /*overflow-y: scroll;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.container_tablecateg table {
+    width: 100%;
+    border-collapse: collapse;
+    /*border: 1px solid #b5b5b5;*/
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    font-size: 1.2em;
+}
+
+.container_tablecateg table th {
+    border-bottom: 1px solid grey;
+}
+
+.container_tablecateg table td {
+    border-bottom: 1px solid grey;
+    height: 35px;
+    color: #666666;
+    text-align: center;
+}
+
+.container_tablecateg table td i {
+    color: #e32f2f;
+}
+
+/*.main_users h4{*/
+/*    text-align: center;*/
+/*    font-size: 1.6em;*/
+/*    font-weight: lighter;*/
+/*    font-family: 'Barlow Condensed', sans-serif;*/
+/*}*/
+
+.form_categ {
+    margin-left: 20%;
+}
+
+.form_categ input {
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #dd6060;
+    width: 15%;
+    height: 20px;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1em;
+}
+
+.form_categ label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+}
+
+.form_categ button {
+    width: 10%;
+    height: 5%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
+    border: none;
+}
+
+.form_categ button:hover {
+    background-color: #dd6060;
+    cursor: pointer;
+}
+
+/*PAGE DELETE*/
+
+.form_delete p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8em;
+    color: red;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.form_delete button {
+    width: 15%;
+    height: 10%;
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2em;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
+    border: 2px solid red;
+}
+
+.form_delete button:hover{
+    cursor: pointer;
+    color: red;
+}
+
+
+
+
+
+
+
+

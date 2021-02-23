@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-* {
-    /* cursor: url(img/cursor.png); */
-    cursor: url(img/cursor.cur);
+
+body{
+    margin: 0;
 }
+
+/** {*/
+/*    !* cursor: url(img/cursor.png); *!*/
+/*    cursor: url(img/cursor.cur);*/
+/*}*/
 
 header {
     width: 100%;
@@ -120,20 +125,19 @@ input.hamburger-checkbox {
     height: 6vh;
 }
 
+
+
 .nav_bis {
-    width: 50%;
+    /*width: 50%;*/
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     float: right;
 }
 
-.title h1 {
-    /* font-family: 'Dosis', sans-serif; */
-    font-family: 'Dosis', sans-serif;
-    font-size: 3.2em;
-    /* margin-left: 20%; */
+.title{
+    width: 45%;
 }
 
 .link_user {
@@ -143,24 +147,37 @@ input.hamburger-checkbox {
 .link_user a {
     color: black;
     transition: 0.5s;
-    font-size: 1.5em;
+    font-size: 0.6em;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
 }
 
 .link_user a:hover {
     color: rgb(179, 72, 72);
 }
 
+/*VIDEO*/
+
+.video{
+    width: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 6%;
+}
+
 
 /* TEXTE DEFILANT */
 
 .txt_defilant {
-    margin-top: 5%;
+    /*margin-top: 5%;*/
     max-width: 100%;
     font-size: 1.5em;
     margin: 1em auto 2em;
     overflow: hidden;
     color: rgb(185, 50, 50);
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif;
     font-weight: bold
 }
 
@@ -187,7 +204,7 @@ input.hamburger-checkbox {
 /* INFO ACHAT */
 
 .container_info {
-    margin-top: 6%;
+    margin-top: 2%;
     margin-bottom: 6%;
     display: flex;
     flex-direction: row;
@@ -215,16 +232,18 @@ input.hamburger-checkbox {
 
 .info p {
     font-size: 1em;
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    color: #d77118;
 }
 
 
 /* BANNIERE IMAGE MEN */
 
 h4 {
-    font-size: 1.5em;
-    font-family: 'Raleway', sans-serif;
+    font-size: 1.3em;
+    font-family: 'Barlow Semi Condensed', sans-serif;
     text-align: center;
+    font-weight: lighter;
 }
 
 .img_principal {
@@ -243,4 +262,52 @@ h4 {
 
 .main_img {
     width: 50%;
+}
+
+/*NEWSLETTER*/
+
+.container_newsletter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.container_newsletter h1{
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    font-size: 1.2em;
+}
+
+.container_newsletter input{
+    border: none;
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+}
+
+.container_newsletter label{
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+}
+
+.container_newsletter input:focus{
+    outline: none;
+    border-bottom: 1px solid #d77118;
+}
+
+.container_newsletter button{
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    border: none;
+    background-color: white;
+    width: 15%;
+    height: 10%;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.container_newsletter button:hover{
+    color: #d77118;
+    cursor: pointer;
 }

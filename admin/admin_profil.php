@@ -23,6 +23,7 @@ $info = $users->setUser();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>ADMIN</title>
 </head>
 
@@ -34,36 +35,51 @@ $info = $users->setUser();
 
 </header>
 
-<form action="admin_profil.php?id=<?=$_SESSION['id']?>" method="post">
+<main class="main_profil">
 
-    <label for="prenom">prenom</label> <br/>
-    <input type="text" name="prenom" value="<?php echo $info["prenom"] ?>" required><br>
+    <div class="container_form">
 
-    <label for="nom">nom</label> <br/>
-    <input type="text" name="nom" value="<?php echo $info["nom"] ?>" required><br>
+        <h1>Modifiez vos données personnelles</h1>
 
-    <label for="email">email</label> <br/>
-    <input type="text" name="email" value="<?php echo $info["email"] ?>" required><br>
+        <form action="admin_profil.php?id=<?= $_SESSION['id'] ?>" method="post">
 
-    <label for="password">Mot de passe</label>
-    <input type="password" name="password" required><br>
+            <label for="prenom">Prenom</label><br>
+            <input type="text" name="prenom" value="<?php echo $info["prenom"] ?>" required><br>
 
-    <label for="confpassword">Confirmer mot de passe</label>
-    <input type="password" name="confpassword" required><br>
+            <label for="nom">Nom</label><br>
+            <input type="text" name="nom" value="<?php echo $info["nom"] ?>" required><br>
 
+            <label for="email">Email</label><br>
+            <input type="text" name="email" value="<?php echo $info["email"] ?>" required><br>
 
-    <input type="submit" value="Ajouter" name="submit_update">
+            <label for="password">Mot de passe</label><br>
+            <input type="password" name="password" required><br>
 
-    <?php
-    if(isset($_POST['submit_update'])){
-         $update->update();
-
-    }
-    ?>
+            <label for="confpassword">Confirmer mot de passe</label><br>
+            <input type="password" name="confpassword" required><br><br>
 
 
-</form>
+            <button type="submit" value="Modifier" name="submit_update">Modifier</button>
 
+            <?php
+            if (isset($_POST['submit_update'])) {
+                $update->update();
+
+            }
+            ?>
+
+        </form>
+
+    </div>
+
+    <div class="container_title">
+
+        <h1>Profil Administrateur</h1>
+
+    </div>
+
+
+</main>
 
 </body>
 </html>

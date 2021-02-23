@@ -22,6 +22,7 @@ if ($admin->isAdmin()) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>Gestion Users</title>
     </head>
 
@@ -33,33 +34,38 @@ if ($admin->isAdmin()) {
 
     </header>
 
-    <main>
+    <main class="main_users">
 
-        <table>
-            <thead>
-            <tr>
-                <th scope="col">#id</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prenom</th>
-                <th scope="col">Email</th>
-                <th scope="col">Statut</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($admin->getUsers() as $user) { ?>
+        <h4>Gestion des utilisateurs</h4>
+
+        <div class="container_tableusers">
+
+            <table>
+                <thead>
                 <tr>
-                    <th><?= $user['id'] ?></th>
-                    <td><?= $user['nom'] ?></td>
-                    <td><?= $user['prenom'] ?></td>
-                    <td><?= $user['email'] ?></td>
-                    <td><?= $user['admin'] ?></td>
-                    <td><a href="admin_deleteUser.php?id=<?= $user['id'] ?>"><i class="fas fa-trash"></i></a></td>
+                    <th scope="col">#id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col"></th>
                 </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <?php foreach ($admin->getUsers() as $user) { ?>
+                    <tr>
+                        <th><?= $user['id'] ?></th>
+                        <td><?= $user['nom'] ?></td>
+                        <td><?= $user['prenom'] ?></td>
+                        <td><?= $user['email'] ?></td>
+                        <td><?= $user['admin'] ?></td>
+                        <td><a href="admin_deleteUser.php?id=<?= $user['id'] ?>"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                <?php } ?>
+                </tbody>
+            </table>
 
-
+        </div>
 
     </main>
 
@@ -70,6 +76,6 @@ if ($admin->isAdmin()) {
     </body>
     </html>
 
-<?php } else{
+<?php } else {
     header("location: admin.php");
-}?>
+} ?>
