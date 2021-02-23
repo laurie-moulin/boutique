@@ -66,7 +66,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
 <main>
     <article>
         <h1 class="panier_achat">PANIER D'ACHAT</h1>
-        <table>
+
             <?php
             if(!empty($_SESSION["panier"]))
             {
@@ -89,30 +89,27 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             ?>
 
 
-                <span class="panier1_achat"> PRIX FINAL //  <?= number_format($total, 2) ?> EUR</span>
+                <span class="panier1_achat"> PRIX FINAL   ||   <?= number_format($total, 2) ?> EUR</span>
 
-
-
-        </table>
             <?php
             if(isset($_SESSION['id']))
             {
                 ?>
-                <a href="../user/profil.php">Profil</a>
+                <a href="../user/profil.php?id=<?=$_SESSION['id']?>">Profil</a>
 
                 <form method="post" action="commande.php">
                     <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
-                    <tr><td colspan="5"><input type="submit" name="payer" value="Valider et déclarer le paiement"></td></tr>
+                   <input class="panier6_achat" type="submit" name="payer" value="Valider et déclarer le paiement">
                 </form>
-                 <tr><td colspan='5'><a href='?action=vider'>Vider mon panier</a></td></tr>
+                <span class="panier_achat"><a href='?action=vider'>Vider mon panier</a></span>
 
                 <?php
             }
             else
             {?>
 
-              <span class="panier_achat">Veuillez vous <a href="../user/inscription.php">inscrire</a> ou vous <a href="../user/connexion.php">connecter</a> afin de pouvoir payer</span>
-               <span class="panier_achat"><a href='?action=vider'>Vider mon panier</a></span>
+              <span class="panier_achat">Veuillez vous <a class="user_font" href="../user/inscription.php">inscrire</a> ou vous <a class="user_font" href="../user/connexion.php">connecter</a> afin de pouvoir payer</span>
+               <span class="panier_achat"><a class="user_font" href='?action=vider'>Vider mon panier</a></span>
 
                 <?php
             }

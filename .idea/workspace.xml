@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/panier.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/panier.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shop.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/zoro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/zoro.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
       <workItem from="1612255062294" duration="180000" />
       <workItem from="1612452543016" duration="176995000" />
       <workItem from="1613325343168" duration="2835000" />
-      <workItem from="1613466397242" duration="61790000" />
+      <workItem from="1613466397242" duration="63949000" />
     </task>
     <servers />
   </component>

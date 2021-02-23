@@ -54,7 +54,6 @@ class Panier extends dataBase
             {
                 if($values["item_id"] == $_GET["id"])
                 {
-                   $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -2;
                     unset($_SESSION["panier"][$keys]);
                     //unset($_SESSION["icon_shop"]);
                     echo "<span class='panier3_achat'>ARTICLE RETIRÉ DU PANIER</span>";
