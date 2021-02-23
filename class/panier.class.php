@@ -26,9 +26,8 @@ class Panier extends dataBase
             }
          else
             {
-                echo '<script>alert("Article deja ajouté au panier avec la quantité .")</script>';
-                echo '<script>window.location="boutique_all.php"</script>';
-
+                echo "Article deja ajouté au panier avec sa quantité !<br>";
+                echo "<a href='../pages/boutique_all.php'>Choissisez un autre produit<a/>";
             }
 
         }
@@ -59,8 +58,7 @@ class Panier extends dataBase
                    $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -2;
                     unset($_SESSION["panier"][$keys]);
                     //unset($_SESSION["icon_shop"]);
-                    echo '<script>alert("Article retiré du panier")</script>';
-                    echo '<script>window.location="panier.php"</script>';
+                    echo "Article retiré du panier";
                 }
             }
         }

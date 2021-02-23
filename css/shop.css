@@ -1,7 +1,142 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&display=swap');*/
+/*font-family: 'Fira Sans', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'PT Sans Narrow', sans-serif;*/
+
+body
+{
+    margin: auto;
+    height: 100vh;
+}
+
+/*PAGE-BOUTIQUE_ALL*/
 .test{
     background-color: red;
     width: 20px;
     height: 20px;
     border-radius: 20px;
     color: red;
+}
+.text_category
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+.text_category a
+{
+    text-decoration: none;
+}
+.picture_category
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+    font-weight: bold;
+
+}
+
+/*DETAIL-PRODUIT*/
+
+.picture2_category
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Oswald', sans-serif;
+
+}
+.picture3_category
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+
+}
+.text_police
+{
+    font-size: 10px;
+}
+
+.flex_detail_product
+{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+.flex_product
+{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+
+}
+#taille
+{
+border: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    border-bottom: solid 1px;
+
+}
+
+#quantite
+{
+    border: none;
+    border-bottom: solid 1px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+
+input[type="submit"]{
+    cursor:pointer;
+    border: none;
+    padding: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+textarea
+{
+    resize: none;
+    border: none;
+    border-bottom: solid 1px;
+    border-top: solid 1px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: #aaaaaa;
+}
+
+.select_flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*PAGE-PANIER*/
+.new_article
+{
+    color: red;
+}
+.picture_category4
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.trash_basket
+{
+    max-width: 25px;
+}
+.td_total
+{
+    border: 1px solid black;
 }
