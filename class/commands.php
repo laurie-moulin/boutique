@@ -20,7 +20,16 @@ class Commands extends dataBase
 
     public function UpdateStock($stock,$id_product,$taille)
     {
-        return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
+        $verification =$this->query('SELECT stock FROM stock WHERE id_product = ? ', [$id_product])->fetchAll(\PDO::FETCH_ASSOC);
+        
+        if($verification <= 0)
+        {
+            echo "Rupture de stock";
+        }
+        else
+        {
+            return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
+        }
 
     }
 
@@ -57,6 +66,7 @@ class Commands extends dataBase
     {
         return $insert = $this->query('SELECT * FROM product ORDER BY id_product DESC LIMIT 4');
     }
+
 
 
 }

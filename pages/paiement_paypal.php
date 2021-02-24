@@ -38,6 +38,17 @@ if (isset($_SESSION['id'])) {
 </header>
 <main>
     <article>
+        <?php foreach ($product->affichages_adresse() as $adresses)
+        {?>
+            <?= $adresses["adresse"]?>
+            <?= $adresses["code_postal"]?>
+            <?= $adresses["ville"]?>
+            <?= $adresses["telephone"]?>
+
+        <?php }?>
+
+    </article>
+    <article>
         <table>
             <article><h1>RECAPITULATIF DE LA COMMANDE ET PAIEMENT</h1></article>
             <?php

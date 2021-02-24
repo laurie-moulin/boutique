@@ -11,11 +11,13 @@ class product extends dataBase
        return $cat->fetchAll();
     }
 
-/* public function affichages_categories()
+    public function affichages_adresse()
     {
-      $cat = $this->query('SELECT product.id_category,category.id, category.categ_product FROM product, category WHERE product.id_category = category.id');
-       return $cat->fetchAll();
-    }*/
+        if (isset($_SESSION['id'])) {
+            return $this->query('SELECT * FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    }
+
 
 
     public function affichages_des_produits()
