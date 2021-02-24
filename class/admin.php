@@ -30,6 +30,21 @@ class admin extends dataBase
         }
     }
 
+    public function isAllAdmin()
+    {
+        if (empty($_SESSION['id'])) {
+            echo '';
+        }
+        if (isset($_SESSION)) {
+            $isalladmin = $this->query('SELECT * FROM users WHERE id = ?', [$_SESSION['id'],])->fetch(\PDO::FETCH_ASSOC);
+            if (!empty($isalladmin['admin']) && $isalladmin['admin'] >= 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     public function getAdmin()
     {
         $getAdmin = $this->query('SELECT * FROM users WHERE admin >= 1');
@@ -93,6 +108,32 @@ class admin extends dataBase
             echo $message->renderMessage();
         }
 
+    }
+
+    public function connectAdmin(){
+        $email = htmlentities($_POST['email']);
+        $password = $_POST['password'];
+
+        $user = $this->query('SELECT * FROM users WHERE email = ? ', [$email])->fetch(\PDO::FETCH_ASSOC);
+
+
+        $admin = new admin();
+        $statut = $admin->getStatut($email);
+
+        if ($statut['admin'] == 0) {
+            $errors[] = "Accès refusé";
+        }
+
+        if(empty($errors) && $statut['admin'] >= 1 )
+        {
+            $this->id = $user['id'];
+            $_SESSION['id'] = $user['id'];
+            header("location:admin_profil.php?id=" . $_SESSION['id']);
+        }
+        else{
+            $message = new messages($errors);
+            echo $message->renderMessage();
+        }
     }
 
     public function getNews()

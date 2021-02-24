@@ -1,3 +1,18 @@
+<?php
+require_once 'class/user.php';
+require_once 'class/dataBase.php';
+require_once 'class/admin.php';
+
+$admin = new \db\admin();
+
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+}
+
+?>
+
+<html>
+
 <div class="menu-container">
 
     <input type="checkbox" id="openmenu" class="hamburger-checkbox">
@@ -20,9 +35,8 @@
             <a href="###">Sweats | Pulls</a><br><br>
             <a href="###">Jeans | Pantalon</a><br><br>
             <a href="###">T-shirts | Polos</a><br><br>
-
-
         </nav>
+
 
     </div>
 
@@ -36,8 +50,25 @@
 
     <div class="link_user">
 
-        <a href="user/connexion.php">SE CONNECTER</a>
-        <a href="#">PANIER</i></a>
+        <?php
+        if (isset($_SESSION['id'])) {
+        if ($admin->isAllAdmin()) {
+
+            ?>
+            <a href="admin/admin_profil.php?id=<?= $_SESSION['id'] ?>">PROFIL</a>
+            <a href="admin/deconnexion.php?>">DECONNEXION</a>
+        <?php } else { ?>
+            <a href="admin/deconnexion.php?>">DECONNEXION</a>
+            <a href="user/profil.php?id=<?= $_SESSION['id'] ?>">PROFIL</a>
+            <a href="#">PANIER</a>
+        <?php } } else{ ?>
+            <a href="user/connexion.php">SE CONNECTER</a>
+            <a href="#">PANIER</a>
+       <?php } ?>
+
+
     </div>
 
 </div>
+
+</html>

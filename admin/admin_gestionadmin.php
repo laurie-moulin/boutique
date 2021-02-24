@@ -11,6 +11,10 @@ if (isset($_SESSION['id'])) {
 $admin = new \db\admin();
 $register = new \db\user();
 
+if (!$admin->isAdmin()) {
+    header('location:../404.php');
+}
+
 if ($admin->isAdmin()) {
 
 

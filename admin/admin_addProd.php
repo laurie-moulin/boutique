@@ -1,10 +1,18 @@
 <?php
 require_once '../class/product.php';
 require_once '../class/dataBase.php';
+require_once '../class/admin.php';
 
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
+
+$admin = new \db\admin();
+if (!$admin->isAllAdmin()) {
+    header('location:../404.php');
+}
+
+
 
 $product = new \db\product();
 
@@ -15,6 +23,10 @@ $today = date("d/m/Y");
 if (isset($_POST['submit_addProd'])) {
     $product->addProduct();
 }
+
+
+
+
 
 
 ?>

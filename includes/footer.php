@@ -15,5 +15,6 @@
     <div><a href="">MENTIONS LEGALES</a> </div>
     <div><a href="">CONDITIONS DE VENTES</a> </div>
     <div><a href="">FAQ</a> </div>
+    <div><a href="admin/connexion_admin.php">Espace admin</a> </div>
 
 </div>

@@ -2,6 +2,7 @@
 require_once '../class/product.php';
 require_once '../class/dataBase.php';
 require_once '../class/user.php';
+require_once '../class/admin.php';
 
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
@@ -11,14 +12,12 @@ include("../includes/nav_admin.php");
 
 $product = new \db\product();
 
-//var_dump($product->setCategory());
-//var_dump($_GET['id']);
-//var_dump($product->getCategProd());
+$admin = new \db\admin();
+if (!$admin->isAllAdmin()) {
+    header('location:../404.php');
+}
 
-//$category = $product->getCategory();
-//var_dump($category);
 
-//$stock = $product->getSize();
 
 ?>
 
@@ -157,4 +156,5 @@ $product = new \db\product();
 </footer>
 
 </body>
+
 </html>

@@ -1,6 +1,12 @@
 <?php
 require_once '../class/product.php';
 require_once '../class/dataBase.php';
+require_once '../class/admin.php';
+
+$admin = new \db\admin();
+if (!$admin->isAllAdmin()) {
+    header('location:../404.php');
+}
 
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];

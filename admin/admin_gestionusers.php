@@ -9,6 +9,10 @@ if (isset($_SESSION['id'])) {
 
 $admin = new \db\admin();
 
+if (!$admin->isAdmin()) {
+    header('location:../404.php');
+}
+
 
 if ($admin->isAdmin()) {
 

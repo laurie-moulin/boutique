@@ -64,7 +64,7 @@ div.menu-pane {
     background-color: rgba(0, 0, 0, 0.658);
     position: absolute;
     transform: translateX(-50vw);
-    transform-origin: (0, 0);
+    /*transform-origin:(0, 0);*/
     width: 35vw;
     height: 100vh;
     transition: 0.8s linear;
@@ -304,7 +304,6 @@ h4 {
     height: 10%;
     font-size: 1.2em;
     border-radius: 5px;
-    transition: 0.5s;
 }
 
 .container_newsletter button:hover{
@@ -361,7 +360,7 @@ footer{
     top: 10px;
     opacity: 0;
     transition: opacity 0.5s ease, top 0.5s ease;
-    transition-delay: 0;
+    transition-delay: 0s;
 }
 span {
     transition: color 0.5s ease;
@@ -452,4 +451,40 @@ span {
     color: black;
     font-size: 0.6em;
     font-weight: bold;
+}
+
+
+/*404*/
+
+.logo404{
+    width: 35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+}
+
+.body404 h1{
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.body404 h2{
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.body404 a{
+    text-decoration: none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    color: black;
+    transition: 0s;
+}
+
+.body404 a:hover{
+    color: red;
 }

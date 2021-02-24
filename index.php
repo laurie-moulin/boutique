@@ -9,7 +9,6 @@ if (isset($_SESSION['id'])) {
 $user = new \db\user();
 
 
-
 ?>
 
 <!doctype html>
@@ -48,7 +47,6 @@ $user = new \db\user();
             RÉINVENTE TON LOOK AVEC LES DERNIERS VÊTEMENTS ET ACCESSOIRES TENDANCE POUR HOMME. DÉCOUVRE DES NOUVEAUTÉS CHAQUE SEMAINE. </div>
     </div>
 
-<!--    <img src="img/zoro1.PNG" class="img_principal">-->
 
     <h4>ZORO - La mode pour tout les hommes.</h4>
 

@@ -13,6 +13,10 @@ $users = new \db\admin();
 
 $info = $users->setUser();
 
+if (!$users->isAllAdmin()) {
+    header('location:../404.php');
+}
+
 
 ?>
 

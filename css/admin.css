@@ -615,6 +615,47 @@ margin-left: 20%;
     background-color: red;
 }
 
+/*CONNEXION*/
+
+.connexion_admin{
+    text-align: center;
+    margin-top: 8%;
+}
+
+.connexion_admin h1{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5em;
+}
+
+.connexion_admin form input{
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    width: 20%;
+}
+
+.connexion_admin form input:focus{
+    outline: none;
+    border-bottom: 1px solid #cb0000;
+}
+
+.connexion_admin button{
+    width: 10%;
+    height: 30px;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-size: 0.7em;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.connexion_admin button:hover{
+    background-color: #343434;
+    cursor: pointer;
+}
+
 
 
 
