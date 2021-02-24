@@ -31,7 +31,7 @@ $connect = new \db\user();
 
 </header>
 
-<main>
+<main class="main_connexion">
 
     <article class="connexion_user">
 
@@ -39,11 +39,9 @@ $connect = new \db\user();
 
         <form action="connexion.php" method="post">
 
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email"><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
 
-            <label for="password">Mot de passe</label><br>
-            <input type="password" id="password" name="password"><br>
+            <input type="password" id="password" name="password" placeholder="Password"><br>
 
 
             <?php
@@ -52,8 +50,17 @@ $connect = new \db\user();
             }
             ?>
 
-            <input type="submit" value="Se connecter" name="submit_connect">
+            <button type="submit" name="submit_connect">SE CONNECTER</button>
         </form>
+
+    </article>
+
+    <article class="link_inscription">
+
+        <h1>INSCRIVEZ-VOUS</h1>
+        <p>SI VOUS N'AVEZ PAS ENCORE DE COMPTE D'UTILISATEUR DE ZORO.COM, UTILISEZ CETTE OPTION POUR ACCÉDER AU FORMULAIRE D'INSCRIPTION.</p>
+
+        <a href="inscription.php"><button>INSCRIPTION</button></a>
 
     </article>
 
@@ -62,7 +69,7 @@ $connect = new \db\user();
 <footer>
 
     <?php
-//    include '../includes/footer.php'
+    include '../includes/footer.php'
     ?>
 
 </footer>

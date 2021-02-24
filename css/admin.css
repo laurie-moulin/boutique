@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
 
+*{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
 
 /*CSS COMMUN */
 
@@ -11,7 +14,8 @@ form input:focus {
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.582);
-    font-size: 1.2em;
+    font-size:
+            1.2em;
     /*font-family: Helvetica Neue,Helvetica,Arial,sans-serif;*/
     /*font-family: 'Unica One', cursive;*/
 }
@@ -19,36 +23,80 @@ input::placeholder {
 
 /*CSS PROFIL ADMIN*/
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-.main_profil {
+.nav_admin{
+    margin-top: 8%;
+}
+
+.navAdmin{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    background-color: #303030;
+    padding: 0.5%;
 }
+
+.navAdmin a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 0.9em;
+    color: white;
+}
+
+.beginNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+
+.beginNav h1{
+    font-size: 1em;
+}
+
+.beginNav a{
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: black;
+}
+
+.beginNav a:hover{
+    color: red;
+    cursor: pointer;
+}
+
+
+
 
 .container_form {
-    width: 50%;
-    height: 100vh;
-
+    margin-top: 10%;
 }
 
+
 .container_form h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-weight: lighter;
-    text-align: center;
-    margin-top: 8%;
+    margin-left: 20%;
+    margin-top: 4%;
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 .container_form form input {
     background-color: rgba(0, 0, 0, 0);
-    margin-bottom: 2%;
     border: none;
-    color: #dd6060;
+    color: #000000;
     width: 45%;
     height: 30px;
     border-bottom: 1px solid black;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .container_title {
@@ -62,15 +110,14 @@ input::placeholder {
 }
 
 .container_form form {
-    margin-left: 25%;
-    margin-top: 7%;
-    width: 100%;
+    width: 50%;
+margin-left: 20%;
     font-family: 'Barlow Condensed', sans-serif;
 
 }
 
 .container_form form label {
-    font-size: 1.2em;
+    font-size: 0.7em;
 }
 
 .container_form form input:focus {
@@ -81,33 +128,22 @@ input::placeholder {
 
 .container_form button {
     width: 20%;
-    height: 10%;
+    height: 30px;
     margin-top: 3%;
     margin-left: 3%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2em;
+    font-size: 0.7em;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
     border: none;
 
 }
 
 .container_form button:hover {
-    background-color: #dd6060;
+    background-color: #343434;
     cursor: pointer;
 }
 
-.container_title h1 {
-    font-size: 4em;
-    color: black;
-    font-family: 'Barlow Condensed', sans-serif;
-    text-align: center;
-    /*font-weight: lighter;*/
-    margin-top: 30%;
 
-}
 
 /*CSS PAGE GESTION ADMIN*/
 
@@ -116,12 +152,14 @@ input::placeholder {
     flex-direction: row;
     justify-content: center;
     font-family: 'Barlow Condensed', sans-serif;
+    margin-top: 5%;
 }
 
 .main_gestionadmin h4 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.1em;
     font-weight: lighter;
+    color: #000000;
 }
 
 .container_admintable {
@@ -131,22 +169,23 @@ input::placeholder {
 
 .container_admintable table {
     border-collapse: collapse;
-    border: 2px solid grey;
-    width: 90%;
+    border: 2px solid #000000;
+    width: 94%;
     text-align: center;
     background-color: #ffffff;
     margin-left: 5%;
+    font-size: 0.9em;
     /*overflow-y: scroll;*/
 }
 
 .container_admintable table th {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid black;
 }
 
 .container_admintable table td {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid black;
     height: 35px;
-    color: #666666;
+    color: #3e3e3e;
 }
 
 .container_admintable table td i {
@@ -163,7 +202,7 @@ input::placeholder {
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 2%;
     border: none;
-    color: #dd6060;
+    color: #000000;
     width: 60%;
     height: 30px;
     border-bottom: 1px solid black;
@@ -172,8 +211,8 @@ input::placeholder {
 }
 
 .container_formadmin form .radio {
-    height: 3%;
-    width: 10%;
+    height: 2%;
+    width: 8%;
 }
 
 .container_formadmin form {
@@ -188,20 +227,17 @@ input::placeholder {
 
 .container_formadmin button {
     width: 20%;
-    height: 7%;
+    height: 5%;
     margin-top: 3%;
     margin-left: 3%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2em;
+    font-size: 0.7em;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
     border: none;
 }
 
 .container_formadmin button:hover {
-    background-color: #dd6060;
+    background-color: #343434;
     cursor: pointer;
 }
 
@@ -209,8 +245,7 @@ input::placeholder {
 
 .container_tableusers {
 
-    margin-top: 2%;
-    border: 2px solid grey;
+    margin-top: 7%;
     width: 80%;
     background-color: #ffffff;
     /*margin-left: 5%;*/
@@ -224,20 +259,21 @@ input::placeholder {
 .container_tableusers table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid grey;
+    border: 2px solid #000000;
+    font-size: 0.9em;
     /*display: block;*/
     /*margin-left: auto;*/
     /*margin-right: auto;*/
 }
 
 .container_tableusers table th {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid black;
 }
 
 .container_tableusers table td {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid black;
     height: 35px;
-    color: #666666;
+    color: #353535;
     text-align: center;
 }
 
@@ -247,9 +283,8 @@ input::placeholder {
 
 .main_users h4 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: lighter;
-    font-family: 'Barlow Condensed', sans-serif;
 }
 
 /*CSS PAGE PRODUCT*/
@@ -257,7 +292,7 @@ input::placeholder {
 .container_tableproduct {
 
     margin-top: 2%;
-    border: 2px solid grey;
+    border: 2px solid black;
     width: 85%;
     background-color: #ffffff;
     /*margin-left: 5%;*/
@@ -272,7 +307,7 @@ input::placeholder {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid grey;
-    font-size: 1.1em;
+    font-size: 0.9em;
     /*display: block;*/
     /*margin-left: auto;*/
     /*margin-right: auto;*/
@@ -295,31 +330,33 @@ input::placeholder {
 
 .main_product h4 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.1em;
     font-weight: lighter;
-    font-family: 'Barlow Condensed', sans-serif;
 }
 
 
 /*CSS AJOUT DE PRODUIT & UPDATE PRODUIT */
+
+.main_product{
+    margin-top: 6%;
+}
 
 .container_form_Addprod {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    margin-bottom: 2%;
 }
 
 .div1 {
     width: 50%;
-    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.1em;
 }
 
 .div2 {
     width: 50%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 
@@ -327,36 +364,33 @@ input::placeholder {
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 2%;
     border: none;
-    color: #dd6060;
+    color: red;
     width: 60%;
     height: 30px;
     border-bottom: 1px solid black;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .div2 input {
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 2%;
     border: none;
-    color: #dd6060;
+    color: red;
     width: 40%;
     height: 20px;
     border-bottom: 1px solid black;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .div1 form select {
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 2%;
     border: none;
-    color: #dd6060;
+    color: red;
     width: 40%;
     height: 20px;
     border-bottom: 1px solid black;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1em;
+    font-size: 0.8em;
 }
 
 .div1 form {
@@ -376,29 +410,25 @@ input::placeholder {
 }
 
 .div2 button {
-    width: 20%;
+    width: 35%;
     height: 10%;
     margin-top: 3%;
     margin-left: 3%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2em;
+    font-size: 0.7em;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
     border: none;
 }
 
 .container_form_Addprod button:hover {
-    background-color: #dd6060;
+    background-color: #343434;
     cursor: pointer;
 }
 
 .main_addProd h4 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-weight: lighter;
-    font-family: 'Barlow Condensed', sans-serif;
 }
 
 .container_infoproduct {
@@ -422,14 +452,12 @@ input::placeholder {
 }
 
 .container_allInfo p {
-    font-size: 1.6em;
+    font-size: 1.1em;
     font-weight: lighter;
-    font-family: 'Barlow Condensed', sans-serif;
 }
 
 .container_allInfo table {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.2em;
     text-align: center;
     border-collapse: separate;
     border: 1px solid #888888;
@@ -439,9 +467,8 @@ input::placeholder {
 
 .update_product h4 {
     text-align: center;
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-weight: lighter;
-    font-family: 'Barlow Condensed', sans-serif;
 }
 
 
@@ -450,11 +477,10 @@ input::placeholder {
 .container_tablecateg {
 
     margin-top: 2%;
-    border: 2px solid grey;
+    border: 1px solid black;
     width: 80%;
     background-color: #ffffff;
     /*margin-left: 5%;*/
-    font-family: 'Barlow Condensed', sans-serif;
     /*overflow-y: scroll;*/
     display: block;
     margin-left: auto;
@@ -464,22 +490,22 @@ input::placeholder {
 
 .container_tablecateg table {
     width: 100%;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
     /*border: 1px solid #b5b5b5;*/
     /*display: block;*/
     /*margin-left: auto;*/
     /*margin-right: auto;*/
-    font-size: 1.2em;
+    font-size: 0.9em;
 }
 
 .container_tablecateg table th {
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #282828;
 }
 
 .container_tablecateg table td {
     border-bottom: 1px solid grey;
     height: 35px;
-    color: #666666;
+    color: #282828;
     text-align: center;
 }
 
@@ -506,38 +532,65 @@ input::placeholder {
     width: 15%;
     height: 20px;
     border-bottom: 1px solid black;
-    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1em;
 }
 
 .form_categ label {
-    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.2em;
 }
 
 .form_categ button {
-    width: 10%;
-    height: 5%;
+    width: 20%;
+    height: 25px;
     margin-top: 3%;
     margin-left: 3%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2em;
+    font-size: 0.7em;
     background-color: black;
     color: white;
-    border-radius: 5px;
-    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
     border: none;
 }
 
 .form_categ button:hover {
-    background-color: #dd6060;
+    background-color: #343434;
+    cursor: pointer;
+}
+
+/*UPDATE CATEG*/
+
+.update_categ{
+    margin-top: 10%;
+    margin-left: 20%;
+}
+
+.update_categ input{
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2%;
+    border: none;
+    color: #ff0000;
+    width: 15%;
+    height: 20px;
+    border-bottom: 1px solid black;
+    font-size: 1em;
+}
+
+.update_categ button {
+    width: 10%;
+    height: 25px;
+    margin-left: 3%;
+    font-size: 0.7em;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.update_categ button:hover {
+    background-color: #343434;
     cursor: pointer;
 }
 
 /*PAGE DELETE*/
 
 .form_delete p {
-    font-family: 'Barlow Condensed', sans-serif;
     font-size: 1.8em;
     color: red;
     text-align: center;
@@ -545,23 +598,21 @@ input::placeholder {
 }
 
 .form_delete button {
-    width: 15%;
-    height: 10%;
-    /*display: block;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2em;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
-    /*box-shadow: 0px 0px 5px 3px rgba(150, 150, 150, 0.75);*/
-    border: 2px solid red;
+    width: 20%;
+    height: 40px;
+    /*margin-left: 3%;*/
+    font-size: 0.9em;
+    background-color: black;
+    color: white;
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form_delete button:hover{
     cursor: pointer;
-    color: red;
+    background-color: red;
 }
 
 

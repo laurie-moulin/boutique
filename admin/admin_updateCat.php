@@ -6,8 +6,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-include ("../includes/nav_admin.php");
-
 $product = new \db\product();
 
 $category = $product->setCategory();
@@ -18,7 +16,9 @@ $category = $product->setCategory();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/admin.css">
     <title>Admin update</title>
 </head>
 
@@ -26,15 +26,18 @@ $category = $product->setCategory();
 
 <header>
 
+    <?php
+    include '../includes/nav_admin.php';
+    ?>
 </header>
 
 <main>
 
-    <form action="admin_updateCat.php?id=<?= $category['id'] ?>" method="post">
+    <form action="admin_updateCat.php?id=<?= $category['id'] ?>" method="post" class="update_categ">
 
             <label for="categoryUpdate">Modifier nom Catégorie</label>
             <input type="text" name="categoryUpdate"  value="<?= $category['categ_product'] ?>"
-                   class="input">
+                   class="input"><br><br>
         <?php if (isset($_POST['submit_update'])) {
             $product->updateCategory();
         }

@@ -6,8 +6,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-include("../includes/nav_admin.php");
-
 $product = new \db\product();
 
 $error = '';
@@ -35,6 +33,10 @@ if (isset($_POST['submit_addProd'])) {
 
 <header>
 
+    <?php
+    include '../includes/nav_admin.php';
+    ?>
+
 </header>
 
 <main class="main_addProd">
@@ -55,6 +57,7 @@ if (isset($_POST['submit_addProd'])) {
 
                 <label for="categorie-select">Catégorie</label> <br/>
                 <select name="category" class="input">
+                    <option></option>
                     <?php foreach ($product->getCategory() as $categorie) { ?>
                         <option value="<?= $categorie['id'] ?>"><?= $categorie['categ_product'] ?></option>
                     <?php } ?>

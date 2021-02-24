@@ -23,6 +23,7 @@ if ($admin->isAdmin()) {
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
         <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/zoro.css">
         <title>Gestion Users</title>
     </head>
 
@@ -36,10 +37,10 @@ if ($admin->isAdmin()) {
 
     <main class="main_users">
 
-        <h4>Gestion des utilisateurs</h4>
+
 
         <div class="container_tableusers">
-
+            <h4>Gestion des utilisateurs</h4>
             <table>
                 <thead>
                 <tr>

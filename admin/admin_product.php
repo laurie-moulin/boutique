@@ -6,7 +6,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-include("../includes/nav_admin.php");
 
 $product = new \db\product();
 
@@ -19,6 +18,7 @@ $product = new \db\product();
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/zoro.css">
     <title>Admin Product</title>
 </head>
 
@@ -26,10 +26,14 @@ $product = new \db\product();
 
 <header>
 
+    <?php
+   include("../includes/nav_admin.php");
+    ?>
 </header>
 
 <main class="main_product">
 
+    <h4>Gestion des produits</h4>
 
     <div class="container_tableproduct">
 

@@ -24,6 +24,7 @@ if ($admin->isAdmin()) {
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
         <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/zoro.css">
         <title>Gestion Admin</title>
     </head>
 
@@ -31,7 +32,8 @@ if ($admin->isAdmin()) {
 
     <header>
 
-        <?php include("../includes/nav_admin.php"); ?>
+            <?php include("../includes/nav_admin.php"); ?>
+
 
     </header>
 
@@ -75,20 +77,15 @@ if ($admin->isAdmin()) {
 
             <form action="admin_gestionadmin.php" method="post">
 
-                <label for="prenom">Prenom</label> <br/>
-                <input type="text" name="prenom" required><br>
+                <input type="text" name="prenom" placeholder="Prénom" required><br>
 
-                <label for="nom">Nom</label> <br/>
-                <input type="text" name="nom" required><br>
+                <input type="text" name="nom" placeholder="Nom" required><br>
 
-                <label for="email">Email</label> <br/>
-                <input type="text" name="email" required><br>
+                <input type="text" name="email" placeholder="Email" required><br>
 
-                <label for="password">Mot de passe</label><br>
-                <input type="password" name="password" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
 
-                <label for="confpassword">Confirmer mot de passe</label><br>
-                <input type="password" name="confpassword" required><br>
+                <input type="password" name="confpassword" placeholder="Confirmation password" required><br>
 
                 <p>Statut:</p>
 

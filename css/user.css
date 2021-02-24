@@ -3,9 +3,20 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
 
+.main_connexion{
+    margin-top: 13%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.connexion_user{
+    width: 30%;
+}
 
 .connexion_user h1{
 
@@ -14,6 +25,9 @@ body{
 .connexion_user form input{
     border: none;
     border-bottom: 1px solid black;
+    margin: 3%;
+    font-family: 'Barlow Condensed', sans-serif;
+    width: 60%;
 }
 
 .connexion_user form input:focus{
@@ -21,9 +35,56 @@ body{
     border-bottom: 1px solid #cb0000;
 }
 
-
-
-.connexion_user form label{
-    font-family: 'PT Sans Narrow', sans-serif;
-    font-weight: lighter;
+button{
+    width: 35%;
+    height: 10%;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-size: 0.7em;
+    background-color: black;
+    color: white;
+    border: none;
 }
+
+button:hover{
+    background-color: #343434;
+    cursor: pointer;
+}
+
+
+.link_inscription{
+    width: 30%;
+}
+
+.link_inscription p{
+    text-align: justify;
+    font-size: 0.8em;
+    margin-bottom: 9%;
+}
+
+/*INSCRIPTION*/
+
+.main_inscription{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.form_inscription{
+    width: 30%;
+}
+
+.form_inscription input{
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 2%;
+    font-family: 'Barlow Condensed', sans-serif;
+    width: 80%;
+}
+
+.form_inscription input:focus{
+    outline: none;
+    border-bottom: 1px solid #cb0000;
+}
+

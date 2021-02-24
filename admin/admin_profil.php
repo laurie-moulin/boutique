@@ -24,18 +24,19 @@ $info = $users->setUser();
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/zoro.css">
     <title>ADMIN</title>
 </head>
 
 <body>
 
 <header>
-
     <?php include("../includes/nav_admin.php"); ?>
-
 </header>
 
 <main class="main_profil">
+
+
 
     <div class="container_form">
 
@@ -72,14 +73,10 @@ $info = $users->setUser();
 
     </div>
 
-    <div class="container_title">
-
-        <h1>Profil Administrateur</h1>
-
-    </div>
-
-
 </main>
+
+<footer>
+</footer>
 
 </body>
 </html>
