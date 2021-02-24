@@ -51,7 +51,11 @@ if (isset($_POST["enregistrer"]))
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profil</title>
+    <link rel="icon" type="image/png" href="../img/logovignette-100.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/shop.css" />
+    <title>Commande</title>
 </head>
 
 <body>
@@ -63,33 +67,39 @@ if (isset($_POST["enregistrer"]))
 </header>
 
 <main>
-<article>
+    <section class="all_delivery">
+
+    <section>
+        <article class="delivery_title">
+            <img src="../img/camion.png">
+            <h1>LIVRAISON GRATUITE</h1>
+            <p>Livraison gratuite et recevez votre colis en 2 à 5 jours ouvrés,
+                chez vous, en bureau de poste ou en point retrait.</p>
+        </article>
+    </section>
+
+<article class="form_adresse">
     <?php
     if (isset($_POST["payer"]))
     {
     ?>
-    <form method="post" action="commande.php">
+    <form class="commande_adresse" method="post" action="commande.php">
 
-        <h1 class="titre">Enregistrer votre adresse et validez la commande</h1>
-
-        <label for="adresse">Adresse</label>
-        <input type="text" id="adresse" name="adresse" required><br>
-
-        <label for="code">Code postal</label>
-        <input type="text" id="code" name="code" required><br>
-
-        <label for="ville">Ville</label>
-        <input type="text" id="nom" name="ville" required><br>
-
-        <label for="phone">Numéro de téléphone</label>
-        <input type="tel" id="phone" name="phone" required>
-
-        <tr><td colspan="5"><input type="submit" name="enregistrer" value="Enregistrer"></td></tr>
+        <h1 class="titre">ENREGISTRER VOTRE ADRESSE ET VALIDER LA COMMANDE</h1>
+        <div class="form_adresse_detail">
+            <input type="text" id="adresse" name="adresse" placeholder="Adresse" required><br>
+            <input type="text" id="code" name="code" placeholder="Code postal" required><br>
+            <input type="text" id="nom" name="ville" placeholder="Ville" required><br>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+            <input type="submit" name="enregistrer" value="Payez"><br>
+        </div>
     </form>
     <?php
     }
     ?>
-</article>
+   </article>
+    </section>
+
 </main>
 
 <footer>

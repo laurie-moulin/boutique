@@ -18,7 +18,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-
 if(isset($_POST["ajout_panier"]))
 {
  $panier->creationDuPanier();
@@ -64,7 +63,9 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
     </article>
 </header>
 <main>
-    <article>
+    <!-- Container general de la page //////////////////////////   -->
+    <div class="container_general">
+    <article class="responsive_basket1">
         <h1 class="panier_achat">PANIER D'ACHAT</h1>
 
             <?php
@@ -87,10 +88,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
             }
             ?>
-
-
                 <span class="panier1_achat"> PRIX FINAL   ||   <?= number_format($total, 2) ?> EUR</span>
-
             <?php
             if(isset($_SESSION['id']))
             {
@@ -102,32 +100,24 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                    <input class="panier6_achat" type="submit" name="payer" value="Valider et déclarer le paiement">
                 </form>
                 <span class="panier_achat"><a href='?action=vider'>Vider mon panier</a></span>
-
                 <?php
             }
             else
             {?>
-
-              <span class="panier_achat">Veuillez vous <a class="user_font" href="../user/inscription.php">inscrire</a> ou vous <a class="user_font" href="../user/connexion.php">connecter</a> afin de pouvoir payer</span>
-               <span class="panier_achat"><a class="user_font" href='?action=vider'>Vider mon panier</a></span>
-
+              <span class="panier_achat">Veuillez vous <a class="user_font" href="../user/inscription.php">INSCRIRE</a> ou vous <a class="user_font" href="../user/connexion.php">CONNECTER</a> afin de pouvoir payer</span>
+               <span class="panier_achat"><a class="user_font" href='?action=vider'>VIDER MON PANIER</a></span>
                 <?php
             }
         }
         else
         {
             echo "<span class='empty_basket'>Votre panier est vide</span>";
-
         }
         ?>
-
         <a class="a" href="detail_produit.php"> revenir</a>
-
     </article>
-
     <h1 class="nouveaute">NOUVEAUTÉS</h1>
     <section class="picture_category">
-
     <?php
           foreach ($commands->nouveaute() as $new) { ?>
               <div class="flex_product5">
@@ -138,7 +128,8 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                 </div>
             <?php }?>
     </section>
-
+        <!--     FIN CONTAINER GENERAL       -->
+    </div>
 </main>
 <footer></footer>
 </body>
