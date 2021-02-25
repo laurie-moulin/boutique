@@ -37,7 +37,10 @@ if (isset($_SESSION['id'])) {
     </nav>
 </header>
 <main>
-    <article>
+    <p class="nav_adresse"><span class="span_livraison">LIVRAISON ET PAIEMENT</span> > RESUMÉ</p>
+    <article class="paiement_paypal_adresse">
+      <h1>RECAPITULATIF DE LA COMMANDE </h1>
+        <h2>ADRESSE</h2>
         <?php foreach ($product->affichages_adresse() as $adresses)
         {?>
             <?= $adresses["adresse"]?>
@@ -48,9 +51,9 @@ if (isset($_SESSION['id'])) {
         <?php }?>
 
     </article>
-    <article>
-        <table>
-            <article><h1>RECAPITULATIF DE LA COMMANDE ET PAIEMENT</h1></article>
+    <article class="paiement_paypal_adresse">
+        <h2>DETAIL COMMANDE</h2>
+
             <?php
             if(!empty($_SESSION["panier"]))
             {
@@ -58,33 +61,30 @@ if (isset($_SESSION['id'])) {
             foreach($_SESSION["panier"] as $keys => $values)
             {
                 ?>
-                <tr>
-                    <td><?=  $values["item_name"] ?></td>
-                    <td><?=  $values["item_quantity"]?></td>
-                    <td><?=  $values["item_price"] ?></td>
-                    <td><?=  strtoupper($values["item_size"]) ?></td>
-                    <td><?=  number_format($values["item_quantity"] * $values["item_price"], 2)?> €</td>
-                    <td><img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" /></td>
-                </tr>
+                <div class="bask_panier_flex">
+                    <?= "TITRE : ". strtoupper($values["item_name"] )." ||" ?>
+                    <?=  "QUANTITÉ : ". $values["item_quantity"]." ||"?>
+                    <?=   "PRIX A L'UNITÉ : ".$values["item_price"] ." EUR" ." ||"?>
+                    <?=  "TAILLE : ".strtoupper($values["item_size"]) ." ||"?>
+                    <?=  "TOTAL : ".number_format($values["item_quantity"] * $values["item_price"], 2)."EUR" ?>
+                    <img width="45" height="65" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" />
+                </div>
                 <?php
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
             }
             ?>
-            <tr>
-                <td colspan="3" align="right">Total</td>
-                <td align="right"> <?= number_format($total, 2) ?> euros</td>
-                <td></td>
-            </tr>
-        </table>
+                <h3>PRIX TOTAL</h3>
+                <?= number_format($total, 2). " EUR" ?>
         <?php
         }
-        else
-        {
-            header('location:boutique_all.php');
-        }
+//        else
+//        {
+//            header('location:boutique_all.php');
+//        }
         ?>
     </article>
-    <?php
+    <article class="paypal">
+        <?php
     /* Les variables suivantes doivent être personnalisées selon vos besoins */
     $email_paypal= 'seller_xxxxxxx_biz@gmail.com';/*email associé au compte paypal du vendeur*/
     $item_numero = $values["item_id"] ; /*Numéro du produit en vente*/
@@ -95,7 +95,7 @@ if (isset($_SESSION['id'])) {
     $url_confirmation='http://www.memo-web.net/paypal-confirmation.php';/*page de confirmation d'achat*/
     /* fin déclaration des variables / ce lien c'est pour allez sur paypal ! https://www.paypal.com/cgi-bin/webscr */
     echo '
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <form   action="https://www.paypal.com/cgi-bin/webscr" method="post">
       <input type="hidden" name="cmd" value="_xclick"/>
       <input type="hidden" name="business" value="'.$email_paypal.'"/>
       <input type="hidden" name="item_name" value="'.$item_nom.'"/>
@@ -108,15 +108,18 @@ if (isset($_SESSION['id'])) {
       <input type="hidden" name="notify_url" value="'.$url_confirmation.'"/>
       <input type="hidden" name="cancel_return" value="'.$url_cancel.'">
       <input type="hidden" name="return" value="'.$url_retour.'">
-      <p>PAYER</p>
-      <input  align="right" valign="center" type="image" alt="Paiement par Paypal" src=" https://www.paypal.com/fr_FR/i/bnr/horizontal_solution_PP.gif" border="0" name="submit" alt="Paiement sécurisé par paypal"/>
+      <h2 class="paypal_line">PAIEMENT PAR PAYPAL</h2>
+      <input class="size_image" align="right" valign="center" type="image" alt="Paiement par Paypal" src=" https://www.paypal.com/fr_FR/i/bnr/horizontal_solution_PP.gif" border="0" name="submit" alt="Paiement sécurisé par paypal"/>
       </form> ';
 
     unset($_SESSION["panier"]);
 
     ?>
-    <article
+    </article>
 
+    <section>
+        <p class="paypal_line1">J'AI LU ET J'ACCEPTE LES CONDITIONS GÉNÉRALES DACHAT ET J'AI COMPRIS LA POLITIQUE DE CONFIDENTIALITÉ ET EN MATIÈRE DE COOKIES.</p>
+    </section>
 </main>
 <footer></footer>
 </body>

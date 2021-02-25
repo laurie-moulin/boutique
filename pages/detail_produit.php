@@ -175,7 +175,6 @@ if (isset($_SESSION['id'])) {
 
 <footer>
 </footer>
-
 </body>
 </html>
 

@@ -67,8 +67,8 @@ if (isset($_POST["enregistrer"]))
 </header>
 
 <main>
+    <p class="nav_adresse">LIVRAISON ET PAIEMENT > <span class="span_livraison">RESUMÉ</span></p>
     <section class="all_delivery">
-
     <section>
         <article class="delivery_title">
             <img src="../img/camion.png">
@@ -91,7 +91,7 @@ if (isset($_POST["enregistrer"]))
             <input type="text" id="code" name="code" placeholder="Code postal" required><br>
             <input type="text" id="nom" name="ville" placeholder="Ville" required><br>
             <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-            <input type="submit" name="enregistrer" value="Payez"><br>
+            <input class="submit_adresse" type="submit" name="enregistrer" value="PAYEZ"><br>
         </div>
     </form>
     <?php

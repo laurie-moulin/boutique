@@ -253,6 +253,7 @@ textarea
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+
 }
 .form_adresse_detail
 {
@@ -278,11 +279,6 @@ textarea
 }
 
 
-.commande_adresse button:hover{
-    background-color: #3e3e3e;
-    cursor: pointer;
-    font-family: 'Barlow Condensed', sans-serif;
-}
 
 .delivery_title
 {
@@ -299,6 +295,59 @@ textarea
     text-align: center;
 
 }
+.submit_adresse
+{
+    font-size: 20px;
+}
+.form_adresse_detail ::placeholder
+{
+    font-size: 16px;
+}
+
+/*PAIEMENT-PAYPAL*/
+
+.paiement_paypal_adresse
+{
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.paypal
+{
+    font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.paypal_line
+{
+    border-top: red;
+}
+.size_image
+{
+    width: 250px;
+}
+.nav_adresse
+{
+    font-size: 10px;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.span_livraison
+{
+    color: #aaaaaa;
+}
+.paypal_line1
+{
+    font-size: 10px ;
+    color: #aaaaaa;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+
+}
+
 @media screen and (min-width: 700px) {
     .picture3_category{
         width: 100%;
