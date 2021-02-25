@@ -44,15 +44,16 @@ if (isset($_SESSION['id'])) {
     <article class="paiement_paypal_adresse">
       <h1>RECAPITULATIF DE LA COMMANDE </h1>
         <h2>ADRESSE</h2>
+        <section class="Policie_adresse">
         <?php foreach ($product->affichages_adresse() as $adresses)
         {?>
-            <?= $adresses["adresse"]?>
+            <?= strtoupper($adresses["adresse"])?><br>
             <?= $adresses["code_postal"]?>
-            <?= $adresses["ville"]?>
+            <?= strtoupper($adresses["ville"])?><br>
             <?= $adresses["telephone"]?>
 
         <?php }?>
-
+        </section>
     </article>
     <article class="paiement_paypal_adresse">
         <h2>DETAIL COMMANDE</h2>

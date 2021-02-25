@@ -24,17 +24,20 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Utilisation de main</title>
+    <link rel="icon" type="image/png" href="../img/logovignette-100.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <title>Boutique</title>
     <link rel="stylesheet" href="../css/shop.css" />
 </head>
-<body>
+<body class="body_search">
 <header>
 
     <nav>
         <a href="/"></a>
     </nav>
 </header>
-<main>
+<main class="main_Search">
     <article>
         <?php
         if(isset($_SESSION["icon_shop"]))
@@ -45,13 +48,18 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
         }
         ?>
     </article>
-    <article>
-        <form method="GET" action="search.php">
-            <input type="search" name="search" size="100" placeholder="<?= $search->placeholders_article(); ?>"/>
-            <input type="submit" value="Search"/>
-
+    <article class="cross_flex">
+        <a href="boutique_all.php" ><img src="../img/cross.png"></a>
+        <div>
+        <form class="search" method="GET" action="search.php">
+            <input type="search" name="search" size="100" placeholder="ÉCRIVEZ VOTRE RECHERCHE"/>
+            <input type="submit" value="Cherche"/>
         </form>
+        </div>
+        </article>
+    <article>
         <?php
+        //$search->placeholders_article();
         if(isset($submit)) {
             $name = htmlspecialchars($_GET['search']);
             if(empty($name))
@@ -65,21 +73,21 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
                 if($row = $results->rowCount() > 0){
                     while( $row = $results->fetch(\PDO::FETCH_ASSOC))
                     {
-                        echo '<h3> Id : '.$row['id_product'];
-                        echo '<br> name	: '.$row['nom'];
-                        echo '<br> Prix	: '.$row['prix'] . " euros";
+                        echo '<h3> RÉFERENCE : '.$row['id_product'];
+                        echo '<br> NOM	: '.$row['nom'];
+                        echo '<br> PRIX	: '.$row['prix'] . " EUR";
                         echo '</h3>';
-                        echo "<a href='detail_produit.php?id_product=" . $row['id_product'] . "'>Voir</a>";
+                        echo "<a class='lonk_search' href='detail_produit.php?id_product=" . $row['id_product'] . "'>VOIR</a>";
 
                     }
                 }else{
-                    echo'<a href="boutique_all.php">Cliquer ici !</a> ';
+                    echo'<a class="lonk_search" href="boutique_all.php">CLIQUER ICI !</a> ';
                     print ($make);
                 }
             }
         }
         ?>
-    </article>
+        </article>
 </main>
 <footer></footer>
 </body>
