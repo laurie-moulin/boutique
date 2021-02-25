@@ -28,6 +28,9 @@ if (isset($_SESSION['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>paimenent</title>
+    <link rel="icon" type="image/png" href="../img/logovignette-100.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
 </head>
 <body>
