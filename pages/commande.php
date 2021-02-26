@@ -27,11 +27,11 @@ var_dump($user);
 if (isset($_POST["enregistrer"]))
 {
    $commands->insertcommande($user, $commands->montant(),date('Y-m-d'));
-
     $lastID = $commands->lastInsertId();
 
     foreach($_SESSION["panier"] as $keys => $values)
     {
+
         $commands->insertcommandedetail($lastID,$user,$values["item_id"], $values["item_quantity"], $values["item_price"], $values["item_size"]);
     }
     $commands->UpdateStock($values["item_quantity"], $values["item_id"], $values["item_size"]);

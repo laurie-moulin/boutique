@@ -15,7 +15,7 @@ class Commands extends dataBase
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
             }
         }
-        return number_format($total, 2);
+        return $total ;
     }
 
     public function UpdateStock($stock,$id_product,$taille)

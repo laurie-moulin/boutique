@@ -34,6 +34,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
     unset($_SESSION['panier']);
     //unset($_SESSION["icon_shop"]);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +100,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                     <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
                    <input class="panier6_achat" type="submit" name="payer" value="Valider et déclarer le paiement">
                 </form>
-                <span class="panier_achat"><a href='?action=vider'>Vider mon panier</a></span>
+                <span class="panier_achat"><a class="user_font" href='?action=vider'>Vider mon panier</a></span>
                 <?php
             }
             else
