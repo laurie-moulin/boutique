@@ -48,9 +48,10 @@ foreach($product->get_profil_commande() as $keys => $values)
         <?= "NUMERO DE COMMANDE : ". strtoupper($values["id_commande"] ) ?><br>
         <?=  "PRIX TOTAL : ". $values["montant"]." "?><br>
         <?=   "DATE : ".$values["date_enregistrement"] ?><br>
+        <a href="detail_page_commande.php?id_commande=<?= $values['id_commande'] ?>">Voir le detail de la commande</a><br>
+
     <?php  }?>
 
-    <a href="detail_page_commande.php?id_commande=<?= $values['id_commande'] ?>">Voir le detail de la commande</a>
 
 
 

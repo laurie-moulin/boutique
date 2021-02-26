@@ -57,7 +57,7 @@ class product extends dataBase
     }
 
     public function getCommande() {
-        return $this->query('SELECT * FROM commande WHERE id_users = ?',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query('SELECT * FROM commande WHERE id_users = ? ORDER BY id_commande DESC LIMIT 0,4',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function detail_Commande($num_commande) {
