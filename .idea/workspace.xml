@@ -11,10 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/detail_page_commande.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/voir_commande.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class/commands.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/commands.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/produit_boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/produit_boutique.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/commande.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/newletters.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/paiement_paypal.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/paiement_paypal.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,7 @@
       <workItem from="1612452543016" duration="176995000" />
       <workItem from="1613325343168" duration="2835000" />
       <workItem from="1613466397242" duration="64822000" />
-      <workItem from="1614155051941" duration="34064000" />
+      <workItem from="1614155051941" duration="44463000" />
     </task>
     <servers />
   </component>
@@ -89,10 +93,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="354" y="135" key="#Inspections" timestamp="1613386933446">
+    <state x="354" y="135" key="#Inspections" timestamp="1614368923700">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1613386933446" />
+    <state x="354" y="135" key="#Inspections/0.0.1440.900@0.0.1440.900" timestamp="1614368923700" />
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612508360886">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -105,14 +109,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="516" y="130" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1612774805641" />
-    <state x="513" y="167" key="NewPhpClassDialog" timestamp="1612446068679">
+    <state x="513" y="167" key="NewPhpClassDialog" timestamp="1614350382777">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="513" y="167" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1612446068679" />
-    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1614094129460">
+    <state x="513" y="167" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1614350382777" />
+    <state x="539" y="376" key="NewPhpFileDialog" timestamp="1614371975810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1614094129460" />
+    <state x="539" y="376" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1614371975810" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1612446321881">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

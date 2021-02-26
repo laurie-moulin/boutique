@@ -37,6 +37,7 @@ if (isset($_SESSION['id'])) {
 <header>
     <nav>
         <a></a>
+        <a href="voir_commande.php">commande</a>
     </nav>
 </header>
 <main>
@@ -113,7 +114,7 @@ if (isset($_SESSION['id'])) {
       <input type="hidden" name="cancel_return" value="'.$url_cancel.'">
       <input type="hidden" name="return" value="'.$url_retour.'">
       <h2 class="paypal_line">PAIEMENT PAR PAYPAL</h2>
-      <input class="size_image" align="right" valign="center" type="image" alt="Paiement par Paypal" src=" https://www.paypal.com/fr_FR/i/bnr/horizontal_solution_PP.gif" border="0" name="submit" alt="Paiement sécurisé par paypal"/>
+      <input class="size_image" align="right" valign="center" type="image" alt="Paiement par Paypal" src="../img/buy-logo-large-fr.png" border="0" name="submit" alt="Paiement sécurisé par paypal"/>
       </form> ';
 
     unset($_SESSION["panier"]);

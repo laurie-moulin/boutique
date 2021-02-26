@@ -18,7 +18,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-var_dump($user);
 
 ?>
 

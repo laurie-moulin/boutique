@@ -11,14 +11,6 @@ class product extends dataBase
        return $cat->fetchAll();
     }
 
-    public function affichages_adresse()
-    {
-        if (isset($_SESSION['id'])) {
-            return $this->query('SELECT * FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
-        }
-    }
-
-
 
     public function affichages_des_produits()
     {
@@ -49,6 +41,33 @@ class product extends dataBase
     {
         $cat = $this->query("select id_product, nom, photo, prix, description  FROM  product where categorie ='$_GET[id_category]'");
         return $cat->fetchAll();
+    }
+
+    //COMMANDES-ADRESSE
+    public function affichages_adresse()
+    {
+        if (isset($_SESSION['id'])) {
+            return $this->query('SELECT * FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        }
+    }
+
+    public function get_profil_commande()
+    {
+        return $this->query('SELECT adresse.adresse_id AS id_adresse, users.nom, users.prenom, email, adresse, telephone, code_postal, ville FROM users INNER JOIN adresse ON users.id = adresse.id_users WHERE users.id = ? ORDER BY adresse_id DESC LIMIT 0,1',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getCommande() {
+        return $this->query('SELECT * FROM commande WHERE id_users = ?',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function detail_Commande($num_commande) {
+        $sql = $this->query("SELECT  commande.montant, commande.id_commande, commande.date_enregistrement ,details_commande.quantité, details_commande.taille, details_commande.id_product, details_commande.prix AS prix_produit, quantité FROM commande INNER JOIN details_commande ON commande.id_commande = details_commande.id_commande WHERE commande.id_users = '".$_SESSION['id']."' AND commande.id_commande = '$num_commande'");
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function prix_total($num_commande)
+    {
+        return $this->query('SELECT prix FROM commande WHERE id_commande = ?',[$num_commande])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 }
