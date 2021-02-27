@@ -393,6 +393,100 @@ textarea
     max-width: 100%;
     padding-left: 70px;
 }
+
+/*PAGE_VOIR_COMMANDE*/
+.flex_commande
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    font-family: 'Barlow  Condensed', sans-serif;
+
+}
+ .flex_commande p
+{
+    color: #F02A24;
+}
+.flex_commande a
+{
+    background-color: black;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.flex_refresh_commande
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    width: 30%;
+}
+.hr_title
+{
+    border: none;
+    border: 0.5px solid black;
+    width: 30%;
+}
+.refresh_commande
+{
+    background-color: black;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+.refresh_commande a
+{
+    margin: 30px;
+}
+.h1_commande
+{
+    text-align: center;
+    font-family: 'Barlow  Condensed', sans-serif;
+
+}
+.hr_commande
+{
+    border: none;
+    border: 0.5px solid #aaaaaa;
+    width: 97%;
+
+}
+.order_end
+{
+    font-size: 10px;
+    color: #F02A24;
+}
+.bold_commande
+{
+    font-weight: bold;
+}
+.bask_commande
+{
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: grey;
+}
+.bask_detail_commande
+{
+    font-family: 'PT Sans Narrow', sans-serif;
+    background-color: #F2F2F2;
+
+}
+.h1_tite_commande
+{
+    background-color: #F02A24;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+
 @media screen and (min-width: 700px) {
     .picture3_category{
         width: 100%;

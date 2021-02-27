@@ -43,13 +43,17 @@ class Commands extends dataBase
         if ($adresse != "" && $code != "" && $ville != "" && $phone !="")
         {
             return $insert = $this->query('INSERT INTO adresse (id_users, adresse, code_postal, ville, telephone) VALUE(?, ?, ?, ?, ?)', [$id_users, $adresse, $code, $ville, $phone]);
-
         }
         else
         {
             echo $result = "Tous les champs ne sont pas rempli !";
         }
 
+    }
+    public function get_adresse_id()
+    {
+        $cat = $this->query('SELECT * FROM adresse');
+        return $cat->fetchAll();
     }
 
     public function nouveaute()

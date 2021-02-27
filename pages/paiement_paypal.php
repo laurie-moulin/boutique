@@ -18,8 +18,6 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
-
-
 ?>
 
 
@@ -37,7 +35,6 @@ if (isset($_SESSION['id'])) {
 <header>
     <nav>
         <a></a>
-        <a href="voir_commande.php">commande</a>
     </nav>
 </header>
 <main>
@@ -82,10 +79,10 @@ if (isset($_SESSION['id'])) {
                 <?= number_format($total, 2). " EUR" ?>
         <?php
         }
-//        else
-//        {
-//            header('location:boutique_all.php');
-//        }
+        else
+        {
+            header('location:voir_commande.php');
+        }
         ?>
     </article>
     <article class="paypal">

@@ -51,13 +51,32 @@ class product extends dataBase
         }
     }
 
+  /*  public function set_adresses()
+    {
+        $set = $this->query('SELECT * FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->rowCount();
+        if (isset($_SESSION['id'])) {
+            if($set > 0)
+        {
+            return $set;
+        }
+            else
+            {
+                return "";
+            }
+    }
+    }*/
+
     public function get_profil_commande()
     {
         return $this->query('SELECT adresse.adresse_id AS id_adresse, users.nom, users.prenom, email, adresse, telephone, code_postal, ville FROM users INNER JOIN adresse ON users.id = adresse.id_users WHERE users.id = ? ORDER BY adresse_id DESC LIMIT 0,1',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    /*public function getCommande() {
+        return $this->query('SELECT c.*, d.*, u.* FROM commande as c, adresse as d, users as u WHERE  d.id_users = c.id_users AND c.id_users = u.id ORDER BY id_commande DESC')->fetchAll(\PDO::FETCH_ASSOC);
+    }*/
+
     public function getCommande() {
-        return $this->query('SELECT * FROM commande WHERE id_users = ? ORDER BY id_commande DESC LIMIT 0,4',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query('SELECT * FROM commande WHERE id_users = ? ORDER BY id_commande DESC',[$_SESSION['id']])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function detail_Commande($num_commande) {
