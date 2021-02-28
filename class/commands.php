@@ -22,6 +22,12 @@ class Commands extends dataBase
     {
             return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
     }
+ /*   public function adress_id()
+    {
+        //if (isset($_SESSION['id'])) {
+        return  $this->query('SELECT adresse_id FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->fetch(\PDO::FETCH_ASSOC);
+        //}
+    }*/
 
     public function insertcommande($id_users, $montant,$date_enregistrement)
     {

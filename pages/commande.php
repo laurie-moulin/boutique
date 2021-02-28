@@ -106,17 +106,17 @@ if (isset($_POST["enregistrer"]))
 
                     <h1 class="titre">ENREGISTRER VOTRE ADRESSE ET VALIDER LA COMMANDE</h1>
                     <div class="form_adresse_detail">
-                        <input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?php // echo $product->set_adresses()['adresse'] ?>" required><br>
-                        <input type="text" id="code" name="code" placeholder="Code postal" value="<?php //echo $product->set_adresses()['code_postal'] ?>" required><br>
-                        <input type="text" id="nom" name="ville" placeholder="Ville" value="<?php //echo $product->set_adresses()['ville'] ?>" required><br>
-                        <input type="tel" id="phone" name="phone" placeholder="Phone" value="<?php //echo $product->set_adresses()['telephone'] ?>" required>
+                        <input type="text" id="adresse" name="adresse" placeholder="Adresse"  required><br>
+                        <input type="text" id="code" name="code" placeholder="Code postal"  required><br>
+                        <input type="text" id="nom" name="ville" placeholder="Ville"  required><br>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
                         <input class="submit_adresse" type="submit" name="enregistrer" value="PAYEZ"><br>
                     </div>
                 </form>
 
                <?php
             }
-    }
+       }
     }
     ?>
    </article>

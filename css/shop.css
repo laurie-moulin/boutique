@@ -251,6 +251,7 @@ textarea
     font-family: 'Barlow Condensed', sans-serif;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
 
@@ -259,6 +260,7 @@ textarea
 {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -486,7 +488,11 @@ textarea
     font-family: 'Barlow Condensed', sans-serif;
 
 }
-
+.bask_commande a
+{
+    color: black;
+    font-size: 20px;
+}
 @media screen and (min-width: 700px) {
     .picture3_category{
         width: 100%;

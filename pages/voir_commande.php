@@ -70,7 +70,8 @@ if (isset($_SESSION['id'])) {
                     <?=  strtoupper($values["adresse"]) ." ||"?>
                     <?=  strtoupper($values["code_postal"]) ." ||"?>
                     <?=  strtoupper($values["ville"]) ?><br>
-                    <?=  strtoupper($values["telephone"])?>
+                    <?=  strtoupper($values["telephone"])?><br>
+                    <a class="modify_adresse" href="../user/profil.php?id=<?=$_SESSION['id']?>">Modifier</a>
                 </div>
                 <?php
             }
