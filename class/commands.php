@@ -34,6 +34,8 @@ class Commands extends dataBase
       return $insert = $this->query('INSERT INTO details_commande (id_commande, id_users , id_product, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$lastID, $id_users, $id_product, $quantite, $prix, $size]);
 
     }
+    //ADRESSE
+
     public function insert_adresses($id_users)
     {
         $adresse = htmlspecialchars($_POST["adresse"]);
@@ -55,6 +57,15 @@ class Commands extends dataBase
         $cat = $this->query('SELECT * FROM adresse');
         return $cat->fetchAll();
     }
+    public function editAddress($id_users)
+    {
+        $adresse = htmlspecialchars($_POST["adresse"]);
+        $code = htmlspecialchars($_POST["code"]);
+        $ville = htmlspecialchars($_POST["ville"]);
+        $phone = htmlspecialchars($_POST["phone"]);
+        $this->query('UPDATE adresse SET adresse = ?, code_postal = ?, ville = ?, phone = ? WHERE id_users = ?', [$adresse, $code, $ville, $phone, $id_users]);
+    }
+
 
     public function nouveaute()
     {

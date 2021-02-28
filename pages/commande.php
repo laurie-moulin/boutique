@@ -17,6 +17,10 @@ $user = new \db\admin();
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
+else
+{
+    header('location:boutique_all.php');
+}
 
 
 ?>
@@ -77,19 +81,42 @@ if (isset($_POST["enregistrer"]))
     <?php
     if (isset($_POST["payer"]))
     {
+        if(isset($_SESSION["id"]))
+        {
+            if($product->set_adresses())
+            {
     ?>
     <form class="commande_adresse" method="post" action="commande.php">
 
         <h1 class="titre">ENREGISTRER VOTRE ADRESSE ET VALIDER LA COMMANDE</h1>
         <div class="form_adresse_detail">
-            <input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?php // echo $product->set_adresses()['adresse'] ?>" required><br>
-            <input type="text" id="code" name="code" placeholder="Code postal" value="<?php //echo $product->set_adresses()['code_postal'] ?>" required><br>
-            <input type="text" id="nom" name="ville" placeholder="Ville" value="<?php //echo $product->set_adresses()['ville'] ?>" required><br>
-            <input type="tel" id="phone" name="phone" placeholder="Phone" value="<?php //echo $product->set_adresses()['telephone'] ?>" required>
+            <input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?php echo $product->set_adresses()['adresse'] ?>" required><br>
+            <input type="text" id="code" name="code" placeholder="Code postal" value="<?php echo $product->set_adresses()['code_postal'] ?>" required><br>
+            <input type="text" id="nom" name="ville" placeholder="Ville" value="<?php echo $product->set_adresses()['ville'] ?>" required><br>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" value="<?php echo $product->set_adresses()['telephone'] ?>" required>
             <input class="submit_adresse" type="submit" name="enregistrer" value="PAYEZ"><br>
         </div>
     </form>
     <?php
+            }
+            else
+            {
+                ?>
+                <form class="commande_adresse" method="post" action="commande.php">
+
+                    <h1 class="titre">ENREGISTRER VOTRE ADRESSE ET VALIDER LA COMMANDE</h1>
+                    <div class="form_adresse_detail">
+                        <input type="text" id="adresse" name="adresse" placeholder="Adresse" value="<?php // echo $product->set_adresses()['adresse'] ?>" required><br>
+                        <input type="text" id="code" name="code" placeholder="Code postal" value="<?php //echo $product->set_adresses()['code_postal'] ?>" required><br>
+                        <input type="text" id="nom" name="ville" placeholder="Ville" value="<?php //echo $product->set_adresses()['ville'] ?>" required><br>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" value="<?php //echo $product->set_adresses()['telephone'] ?>" required>
+                        <input class="submit_adresse" type="submit" name="enregistrer" value="PAYEZ"><br>
+                    </div>
+                </form>
+
+               <?php
+            }
+    }
     }
     ?>
    </article>
