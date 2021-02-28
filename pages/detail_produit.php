@@ -69,7 +69,7 @@ if (isset($_SESSION['id'])) {
                 $product->details_produit() ?>
                 <div class="boutique-produit">
                     <h2><?=strtoupper($product->details_produit()["nom"])?></h2>
-                    <img src=../img/<?=$product->details_produit()["photo"]?> ="500" height="550"><br>
+                    <img src=../img/imgboutique/<?=$product->details_produit()["photo"]?> ="500" height="550"><br>
                     <?=strtoupper($product->details_produit()["description"]) ?><br>
                     <?=number_format($product->details_produit()["prix"] ,2,',',' ') . " EUR"?><br>
                 </div>

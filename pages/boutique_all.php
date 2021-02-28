@@ -67,7 +67,7 @@ if (isset($_SESSION['id'])) {
         {
             foreach ($product->affichages_des_produits() as $produits) { ?>
                 <div class="flex_product">
-                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
+                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/imgboutique/<?=$produits["photo"]?> ="500" height="550"></a>
                    <?=strtoupper($produits["description"]) ?><br>
                     <span class="text_police"><?=number_format($produits["prix"] ,2,',',' ') . " EUR"?></span>
                 </div>
@@ -82,7 +82,7 @@ if (isset($_SESSION['id'])) {
             foreach ($product->affichages_boutique() as $boutique) { ?>
                 <div class="flex_product">
 
-                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
+                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/imgboutique/<?=$boutique["photo"]?> ="500" height="550"></a>
                     <?=strtoupper($boutique["description"]) ?> <br>
                    <span class="text_police"><?=number_format($boutique["prix"] ,2,',',' '). " EUR"?></span>
 
