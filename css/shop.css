@@ -353,48 +353,6 @@ textarea
     font-family: 'Barlow Semi Condensed', sans-serif;
 
 }
-/*BARRE DE RECHERCHE*/
-.body_search input[type="search"]
-{
-    height: 100px;
-    border: none;
-    border-bottom: 3px solid black;
-    width: 70%;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 50px;
-
-}
-.lonk_search
-{
-    color: black;
-}
-.body_search ::placeholder
-{
-    font-size: 50px;
-    color: black;
-    font-family: 'Barlow Semi Condensed', sans-serif;
-
-}
-.body_search
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    font-family: 'Barlow  Condensed', sans-serif;
-    text-align: center;
-}
-.cross_flex
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.cross_flex img
-{
-    max-width: 100%;
-    padding-left: 70px;
-}
 
 /*PAGE_VOIR_COMMANDE*/
 .flex_commande
