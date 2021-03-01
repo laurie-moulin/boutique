@@ -11,8 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/confirmattion.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/confirmattion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/zoro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/zoro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/admin/profil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/aa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/chemise rayé.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/chemiserayégrise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/veste.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/imgboutique/zoro toto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/profil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/profil1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/zoro1.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +86,8 @@
       <workItem from="1612452543016" duration="176995000" />
       <workItem from="1613325343168" duration="2835000" />
       <workItem from="1613466397242" duration="19603000" />
+      <workItem from="1614331685096" duration="3564000" />
+      <workItem from="1614584184164" duration="107000" />
     </task>
     <servers />
   </component>
@@ -118,5 +139,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1612876242581" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1614331765492">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1614331765492" />
   </component>
 </project>

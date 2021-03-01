@@ -127,26 +127,35 @@ input.hamburger-checkbox {
 
 
 
+
+
 .nav_bis {
     /*width: 50%;*/
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     float: right;
 }
 
 .title{
-    width: 45%;
+    width: 30%;
+    /*background-color: green;*/
+}
+
+.title img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .link_user {
-    margin-right: 7%;
+    margin-right: 4%;
 }
 
 .link_user a {
     color: black;
-    transition: 0.5s;
     font-size: 0.6em;
     text-decoration: none;
     font-family: 'Oswald', sans-serif;
@@ -154,8 +163,70 @@ input.hamburger-checkbox {
 }
 
 .link_user a:hover {
-    color: rgb(179, 72, 72);
+    color: red;
 }
+
+/*BARRE DE RECHERCHE*/
+
+.main_search input[type="search"]
+{
+    height: 100%;
+    border: none;
+    border-bottom: 3px solid black;
+    width: 55%;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 0.8em;
+    background-color: transparent;
+}
+
+.main_search input:focus{
+    outline: none;
+    border-bottom: 3px solid red;
+}
+
+.lonk_search
+{
+    color: black;
+}
+.main_search ::placeholder
+{
+    font-size: 0.8em;
+    color: black;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+
+}
+.main_search
+{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-family: 'Barlow  Condensed', sans-serif;
+    text-align: center;
+    /*background-color: red;*/
+}
+
+.main_search button{
+    background-color: transparent;
+    border: none;
+}
+
+.main_search button:hover{
+    color: red;
+    cursor: pointer;
+}
+/*.cross_flex*/
+/*{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-around;*/
+/*}*/
+/*.cross_flex img*/
+/*{*/
+/*    max-width: 10%;*/
+/*    !*padding-left: 70px;*!*/
+/*}*/
 
 /*VIDEO*/
 
@@ -164,8 +235,9 @@ input.hamburger-checkbox {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    padding: 6%;
+    padding: 8%;
 }
+
 
 
 /* TEXTE DEFILANT */
@@ -282,7 +354,6 @@ h4 {
 .container_newsletter input{
     border: none;
     border-bottom: 1px solid black;
-    transition: 0.5s;
 }
 
 .container_newsletter label{
@@ -292,7 +363,7 @@ h4 {
 
 .container_newsletter input:focus{
     outline: none;
-    border-bottom: 1px solid #d77118;
+    border-bottom: 1px solid red;
 }
 
 .container_newsletter button{
@@ -307,7 +378,7 @@ h4 {
 }
 
 .container_newsletter button:hover{
-    color: #d77118;
+    color: red;
     cursor: pointer;
 }
 
@@ -488,3 +559,4 @@ span {
 .body404 a:hover{
     color: red;
 }
+

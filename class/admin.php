@@ -115,7 +115,14 @@ class admin extends dataBase
         $password = $_POST['password'];
 
         $user = $this->query('SELECT * FROM users WHERE email = ? ', [$email])->fetch(\PDO::FETCH_ASSOC);
-
+        if (empty($user)) {
+            $errors[] = "Adresse mail inexistante";
+        }
+        
+        //VERIF MDP
+        if (!empty($user) && !password_verify($password, $user['password'])) {
+            $errors[] = "mauvais mdp";
+        }
 
         $admin = new admin();
         $statut = $admin->getStatut($email);
