@@ -41,12 +41,13 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
     <div class="menu-pane">
 
         <nav class="menu-links">
-
-            <a href="###">Blousons | Manteaux</a><br><br>
-            <a href="###">Chemises | Surchemises</a><br><br>
-            <a href="###">Sweats | Pulls</a><br><br>
-            <a href="###">Jeans | Pantalon</a><br><br>
-            <a href="###">T-shirts | Polos</a><br><br>
+            <a href="../index.php">ACCUEIL</a><br><br><br>
+            <a href="../pages/boutique_all.php">TOUT LES PRODUITS</a><br><br>
+            <a href="../pages/boutique_all.php?id_category=34">Blousons | Manteaux</a><br><br>
+            <a href="../pages/boutique_all.php?id_category=35">Chemises | Surchemises</a><br><br>
+            <a href="../pages/boutique_all.php?id_category=36">Sweats | Pulls</a><br><br>
+            <a href="../pages/boutique_all.php?id_category=37">Jeans | Pantalon</a><br><br>
+            <a href="../pages/boutique_all.php?id_category=38">T-shirts | Polos</a><br><br>
         </nav>
 
     </div>
@@ -56,61 +57,18 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
 <div class="nav_bis">
 
     <div class="title">
-        <img src="../img/index/logo.png" class="title">
+        <a href="../index.php"><img src="../img/index/logo.png" class="title"></a>
     </div>
 
-    <div class="main_search">
-        <article>
-            <?php
-            if(isset($_SESSION["icon_shop"]))
-            {
-                echo "<div class='test'>";
-                echo  $_SESSION["icon_shop"] ;
-                echo "</div>";
-            }
-            ?>
-        </article>
+    <div >
 
-        <article class="cross_flex">
-            <!--            <a href="pages/boutique_all.php" ><img src="img/cross.png"></a>-->
-            <div>
-                <form class="search" method="GET" action="nav.php">
-                    <input type="search" name="search" size="100" placeholder="ÉCRIVEZ VOTRE RECHERCHE"/>
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
+        <article >
+
+            <div class="search_icon">
+                <a href="../pages/search.php">RECHERCHER </a>
             </div>
         </article>
-        <article>
-            <?php
-            //$search->placeholders_article();
-            if(isset($submit)) {
-                $name = htmlspecialchars($_GET['search']);
-                if(empty($name))
-                {
-                    $make = '<h1>Vous devriez taper un mot pour rechercher!</h1>';
 
-                }else{
-                    $make = '<h2>Pas de résultats!</h2>';
-                    $results = $search->resultat_recherche($name);
-
-                    if($row = $results->rowCount() > 0){
-                        while( $row = $results->fetch(\PDO::FETCH_ASSOC))
-                        {
-                            echo '<h3> RÉFERENCE : '.$row['id_product'];
-                            echo '<br> NOM	: '.$row['nom'];
-                            echo '<br> PRIX	: '.$row['prix'] . " EUR";
-                            echo '</h3>';
-                            echo "<a class='lonk_search' href='detail_produit.php?id_product=" . $row['id_product'] . "'>VOIR</a>";
-
-                        }
-                    }else{
-                        echo'<a class="lonk_search" href="boutique_all.php">CLIQUER ICI !</a> ';
-                        print ($make);
-                    }
-                }
-            }
-            ?>
-        </article>
     </div>
 
     <div class="link_user">
@@ -126,7 +84,8 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
                 <a href="../admin/deconnexion.php?>">DECONNEXION</a>
                 <a href="../user/profil.php?id=<?= $_SESSION['id'] ?>">PROFIL</a>
                 <a href="../pages/panier.php?id=<?= $_SESSION['id'] ?>">PANIER</a>
-            <?php } } else{ ?>
+            <?php }
+        } else { ?>
             <a href="../user/connexion.php">SE CONNECTER</a>
             <a href="../pages/panier.php?id=<?= $_SESSION['id'] ?>">PANIER</a>
         <?php } ?>

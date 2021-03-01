@@ -215,10 +215,12 @@ button:hover{
     font-size: 1.2em;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: lighter;
+    transition: 0s;
 }
 
 .button_commande a:hover{
     background-color: #3e3e3e;
+    transition: 0s;
 
 }
 

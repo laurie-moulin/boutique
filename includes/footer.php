@@ -1,6 +1,6 @@
 
 <div class="menu">
-    <div class="label">Follow Me</div>
+    <div class="label">Follow Us</div>
     <div class="spacer"></div>
     <div class="item"><span>Instagram</span></div>
     <div class="item"><span>Facebook</span></div>
