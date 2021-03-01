@@ -32,13 +32,14 @@ if (isset($_SESSION['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <title>Boutique</title>
     <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
 </head>
 
 <body>
 <header>
-<nav>
-    <a class="basket" href="panier.php">Panier</a>
-</nav>
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
 
 <main>
@@ -65,10 +66,11 @@ if (isset($_SESSION['id'])) {
         <?php
         if (isset($_GET['id_category']))
         {
-            foreach ($product->affichages_des_produits() as $produits) { ?>
+            foreach ($product->affichages_des_produits() as $produits) {?>
+
                 <div class="flex_product">
-                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
-                   <?=strtoupper($produits["description"]) ?><br>
+                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/imgboutique/<?=$produits["photo"]?> ="500" height="430"></a>
+                   <span class="txtdescription"><?=strtoupper($produits["nom"]) ?><br></span>
                     <span class="text_police"><?=number_format($produits["prix"] ,2,',',' ') . " EUR"?></span>
                 </div>
             <?php }
@@ -82,8 +84,8 @@ if (isset($_SESSION['id'])) {
             foreach ($product->affichages_boutique() as $boutique) { ?>
                 <div class="flex_product">
 
-                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
-                    <?=strtoupper($boutique["description"]) ?> <br>
+                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/imgboutique/<?=$boutique["photo"]?> ="500" height="430"></a>
+                   <span class="txtdescription"> <?=strtoupper($boutique["nom"]) ?></span>
                    <span class="text_police"><?=number_format($boutique["prix"] ,2,',',' '). " EUR"?></span>
 
                 </div>
@@ -94,6 +96,10 @@ if (isset($_SESSION['id'])) {
 </main>
 
 <footer>
+
+    <?php
+    include '../includes/footer.php';
+    ?>
 </footer>
 
 </body>

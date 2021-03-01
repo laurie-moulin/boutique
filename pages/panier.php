@@ -46,22 +46,14 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
     <title>Panier</title>
 </head>
 <body>
 <header>
-    <nav>
-    </nav>
-    <article>
-        <?php
-     /*   if(isset($_SESSION["icon_shop"]))
-        {
-            echo "<div class='test'>";
-            echo  $_SESSION["icon_shop"] ;
-            echo "</div>";
-        }*/
-        ?>
-    </article>
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
 <main>
     <!-- Container general de la page //////////////////////////   -->
@@ -82,7 +74,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
                     <?=   "PRIX A L'UNITÉ : ".$values["item_price"] ." EUR" ." ||"?>
                     <?=  "TAILLE : ".strtoupper($values["item_size"]) ." ||"?>
                     <?=  "TOTAL : ".number_format($values["item_quantity"] * $values["item_price"], 2)."EUR" ." ||"?>
-                    <img width="45" height="55" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" />
+                    <img width="45" height="55" src="../img/imgboutique/<?= $values["item_photo"] ?>" class="img-responsive" />
                      <a href="panier.php?action=delete&id=<?=  $values["item_id"] ?>"><img class="trash_basket" src="../img/trash2.png"></a>
                 </div>
                 <?php
@@ -94,7 +86,6 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             if(isset($_SESSION['id']))
             {
                 ?>
-                <a href="../user/profil.php?id=<?=$_SESSION['id']?>">Profil</a>
 
                 <form method="post" action="commande.php">
                     <input type="hidden" name="total" value="<?= number_format($total, 2)  ?>" />
@@ -115,7 +106,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
             echo "<span class='empty_basket'>Votre panier est vide</span>";
         }
         ?>
-        <a class="a" href="detail_produit.php"> revenir</a>
+
     </article>
     <h1 class="nouveaute">NOUVEAUTÉS</h1>
     <section class="picture_category">
@@ -123,8 +114,8 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
           foreach ($commands->nouveaute() as $new) { ?>
               <div class="flex_product5">
                   <span class="new_article">NEW</span>
-                  <a href = detail_produit.php?id_product=<?= $new["id_product"] ?>><img src=../img/<?=$new["photo"]?> ="500" height="550"></a>
-                  <?=strtoupper($new["description"]) ?><br>
+                  <a href = detail_produit.php?id_product=<?= $new["id_product"] ?>><img src=../img/imgboutique/<?=$new["photo"]?> ="500" height="400"></a>
+                  <span class="text_decriptionnews"><?=strtoupper($new["description"]) ?></span<br><br>
                   <?="<span class='text_police' >".$new["prix"] ." EUR</span>"?>
                 </div>
             <?php }?>

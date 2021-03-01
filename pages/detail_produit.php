@@ -18,6 +18,17 @@ if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
 }
 
+//var_dump($product->getComments());
+
+//foreach ($product->getComments() as $comment){
+//    echo $comment['comment'];
+//}
+//$comment = $product->getComments();
+
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +41,7 @@ if (isset($_SESSION['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
     <link rel="stylesheet" href="../css/product.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
     <title>Produits</title>
 
 </head>
@@ -37,6 +49,10 @@ if (isset($_SESSION['id'])) {
 <body>
 
 <header>
+
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
 
 <main>
@@ -45,20 +61,20 @@ if (isset($_SESSION['id'])) {
     <div class="container_general">
 
         <!--   Partie en attente header    -->
-        <div class="wait_header">
-            <article>
-                <?php
-                /*  if(isset($_SESSION["icon_shop"]))
-                  {
-                      echo "<div class='test'>";
-                      echo  $_SESSION["icon_shop"] ;
-                      echo "</div>";
-                  }*/
-                ?>
-            </article>
-            <article><a href="panier.php">Panier</a> </article>
-            <a href='boutique_all.php'>Revenir à la boutique</a>
-        </div>
+<!--        <div class="wait_header">-->
+<!--            <article>-->
+<!--                --><?php
+//                /*  if(isset($_SESSION["icon_shop"]))
+//                  {
+//                      echo "<div class='test'>";
+//                      echo  $_SESSION["icon_shop"] ;
+//                      echo "</div>";
+//                  }*/
+//                ?>
+<!--            </article>-->
+<!--            <article><a href="panier.php">Panier</a> </article>-->
+<!--            <a href='boutique_all.php'>Revenir à la boutique</a>-->
+<!--        </div>-->
 
         <!--   Partie top (green) ///////////-->
         <section class="picture2_category">
@@ -69,9 +85,9 @@ if (isset($_SESSION['id'])) {
                 $product->details_produit() ?>
                 <div class="boutique-produit">
                     <h2><?=strtoupper($product->details_produit()["nom"])?></h2>
-                    <img src=../img/<?=$product->details_produit()["photo"]?> ="500" height="550"><br>
-                    <?=strtoupper($product->details_produit()["description"]) ?><br>
-                    <?=number_format($product->details_produit()["prix"] ,2,',',' ') . " EUR"?><br>
+                    <img src=../img/imgboutique/<?=$product->details_produit()["photo"]?> ="500" height="450"><br>
+                    <span class="text_descrproduct"><?=strtoupper($product->details_produit()["description"]) ?></span><br>
+                    <span class="price_product"><?=number_format($product->details_produit()["prix"] ,2,',',' ') . " EUR"?></span><br>
                 </div>
             <?php }
             else
@@ -160,12 +176,15 @@ if (isset($_SESSION['id'])) {
 
             <h1>Les avis des clients sur ce produit</h1><br><br>
 
-            <?php
-            /*foreach ($product->getComments() as $comments) { */?><!--
-            commentaire :<br>  <?/*= $comments['comment'] */?><br>
+            <article class="container_comment">
 
-            <img width="100px" src="../img/stars/<?/*= $comments['stars'] */?>.png"><br>
-        --><?php /*}*/ ?>
+            <?php
+            foreach ($product->getComments() as $comments) { ?>
+                <div class="commentaire"><? echo $comments['comment'] ?><br>
+            <img width="100px" src="../img/stars/<?echo $comments['stars'] ?>.png"><br>
+       <?php } ?></div>
+
+            </article>
         </article>
         <!-- /////// FIN Partie bottom ///////////-->
 
@@ -174,6 +193,10 @@ if (isset($_SESSION['id'])) {
 </main>
 
 <footer>
+
+    <?php
+    include '../includes/footer.php';
+    ?>
 </footer>
 </body>
 </html>

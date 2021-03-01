@@ -30,14 +30,16 @@ if (isset($_SESSION['id'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
 </head>
 <body>
 <header>
-    <nav>
-        <a></a>
-    </nav>
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
-<main>
+
+<main class="main_payment">
     <p class="nav_adresse"><span class="span_livraison">LIVRAISON ET PAIEMENT</span> > RESUMÉ</p>
     <article class="paiement_paypal_adresse">
       <h1>RECAPITULATIF DE LA COMMANDE </h1>
@@ -69,7 +71,7 @@ if (isset($_SESSION['id'])) {
                     <?=   "PRIX A L'UNITÉ : ".$values["item_price"] ." EUR" ." ||"?>
                     <?=  "TAILLE : ".strtoupper($values["item_size"]) ." ||"?>
                     <?=  "TOTAL : ".number_format($values["item_quantity"] * $values["item_price"], 2)."EUR" ?>
-                    <img width="45" height="65" src="../img/<?= $values["item_photo"] ?>" class="img-responsive" />
+                    <img width="45" height="65" src="../img/imgboutique/<?= $values["item_photo"] ?>" class="img-responsive" />
                 </div>
                 <?php
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);

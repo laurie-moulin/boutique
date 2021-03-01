@@ -37,15 +37,16 @@ if (isset($_SESSION['id'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
     <title>Commande</title>
 </head>
 <body>
 <header>
-    <nav>
-        <a href="/"></a>
-    </nav>
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
-<main>
+<main class="main_recapCommande">
     <article>
         <p class="nav_adresse"><span class="span_livraison">RESUMÉ </span> > TOUTES MES COMMANDES</p>
         <section class="all_delivery">
@@ -71,7 +72,6 @@ if (isset($_SESSION['id'])) {
                     <?=  strtoupper($values["code_postal"]) ." ||"?>
                     <?=  strtoupper($values["ville"]) ?><br>
                     <?=  strtoupper($values["telephone"])?><br>
-                    <a class="modify_adresse" href="../user/profil.php?id=<?=$_SESSION['id']?>">Modifier</a>
                 </div>
                 <?php
             }

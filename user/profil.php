@@ -39,7 +39,7 @@ $info = $user->setUser();
 <header>
 
     <?php
-    include 'nav.php';
+    include '../includes/nav.php';
     ?>
 
 </header>

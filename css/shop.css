@@ -10,6 +10,7 @@ body
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 9%;
 }
 /*PAGE-BOUTIQUE_ALL*/
 .test{
@@ -25,11 +26,20 @@ body
     flex-direction: row;
     justify-content: space-around;
     font-family: 'PT Sans Narrow', sans-serif;
+    padding-top: 10%;
+    padding-bottom: 3%;
 
 }
 .text_category a
 {
     text-decoration: none;
+    font-size: 0.8em;
+    color: black;
+    transition: 0s;
+}
+
+.text_category a:hover{
+    color: red;
 }
 .picture_category
 {
@@ -43,13 +53,27 @@ body
 
 /*DETAIL-PRODUIT*/
 
+.text_descrproduct{
+    width: 10%;
+    font-size: 0.8em;
+}
+
+.boutique-produit{
+    width: 52%;
+}
+
+.price_product{
+    font-weight: bold;
+}
+
 .picture2_category
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: flex-end;
     font-family: 'Oswald', sans-serif;
+    padding-top: 7%;
 
     max-width: 100%;
 }
@@ -87,7 +111,33 @@ body
     flex-direction: column;
     font-family: 'Oswald', sans-serif;
     font-size: 13px;
+    width: 30%;
+    margin-bottom: 3%;
 }
+
+/*.flex_product a{*/
+/*    width: 10%;*/
+/*}*/
+
+.container_comment{
+    overflow-y: scroll;
+    text-align: center;
+    width: 40%;
+    height: 250px;
+}
+
+.commentaire{
+    border-top: 1px solid black;
+}
+
+.txtdescription{
+    /*width: 45%;*/
+    font-size: 0.8em;
+    /*text-align: center;*/
+    font-weight: lighter;
+    width: 80%;
+}
+
 #taille
 {
 border: none;
@@ -233,6 +283,7 @@ textarea
     flex-direction: column;
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
+    width: 20%;
 }
 .user_font
 {
@@ -244,6 +295,10 @@ textarea
     background-color: #F2F2F2;
 }
 
+.text_decriptionnews{
+    font-size: 1em;
+    font-weight: lighter;
+}
 /*PAGE COMMANDE */
 
 .commande_adresse
@@ -280,6 +335,10 @@ textarea
     font-family: 'Barlow Condensed', sans-serif;
 }
 
+.main_commande{
+    padding-top: 7%;
+}
+
 
 
 .delivery_title
@@ -307,6 +366,10 @@ textarea
 }
 
 /*PAIEMENT-PAYPAL*/
+
+.main_payment{
+    padding-top: 7%;
+}
 
 .paiement_paypal_adresse
 {
@@ -355,6 +418,11 @@ textarea
 }
 
 /*PAGE_VOIR_COMMANDE*/
+
+.main_recapCommande{
+    padding-top: 7%;
+}
+
 .flex_commande
 {
     display: flex;

@@ -81,6 +81,25 @@ class product extends dataBase
         return $this->query('SELECT prix FROM commande WHERE id_commande = ?',[$num_commande])->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function comments()
+    {
+        $stars = htmlentities($_POST['stars']);
+        $comment = htmlentities($_POST['comment']);
+
+        if(!empty($stars) && !empty($comment)){
+            return $this->query("INSERT INTO comment(id_product, stars, comment ) VALUES(?,?,?) ",
+                [$_GET['id_product'], $stars, $comment]);
+        }
+
+    }
+
+    public function getComments()
+    {
+
+        $comment = $this->query("SELECT * FROM comment WHERE id_product = '$_GET[id_product]'");
+        return $comment->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }
 
 

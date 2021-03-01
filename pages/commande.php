@@ -54,18 +54,19 @@ if (isset($_POST["enregistrer"]))
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shop.css" />
+    <link rel="stylesheet" href="../css/zoro.css" />
     <title>Commande</title>
 </head>
 
 <body>
 
 <header>
-    <nav>
-        <a href="../pages/boutique_all.php">Boutique</a>
-    </nav>
+    <?php
+    include '../includes/nav.php';
+    ?>
 </header>
 
-<main>
+<main class="main_commande">
     <p class="nav_adresse">LIVRAISON ET PAIEMENT > <span class="span_livraison">RESUMÉ</span></p>
     <section class="all_delivery">
     <section>
