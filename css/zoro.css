@@ -223,7 +223,6 @@ input.hamburger-checkbox {
 
 .container_info {
     margin-top: 2%;
-    margin-bottom: 6%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -232,6 +231,10 @@ input.hamburger-checkbox {
     /* border: 1px solid black; */
     padding: 2%;
     width: 95%;
+}
+
+.picture_category{
+    margin-bottom: 5%;
 }
 
 .info {

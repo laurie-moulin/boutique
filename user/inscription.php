@@ -25,7 +25,7 @@ $register = new \db\user();
 <header>
 
     <?php
-    include 'nav.php';
+    include '../includes/nav.php';
     ?>
 
 </header>
