@@ -5,17 +5,6 @@ require_once 'dataBase.php';
 class Panier extends dataBase
 {
 
-    public function internauteEstConnecte()
-    {
-        if(!isset($_SESSION['membre'])) return false;
-        else return true;
-    }
-    public function internauteEstConnecteEtEstAdmin()
-    {
-        if($this->internauteEstConnecte() && $_SESSION['membre']['statut'] == 1) return true;
-        else return false;
-    }
-
   public function creationDuPanier()
     {
         if(isset($_SESSION["panier"]))
@@ -37,9 +26,7 @@ class Panier extends dataBase
             }
          else
             {
-                echo '<script>alert("Article deja ajouté au panier avec la quantité .")</script>';
-                echo '<script>window.location="boutique_all.php"</script>';
-
+                echo "<a class='panier3_achat' href='../pages/boutique_all.php'><span >ARTICLE DEJA AJOUTÉ AVEC LA QUANTITÉ !</span></a>";
             }
 
         }
@@ -67,11 +54,9 @@ class Panier extends dataBase
             {
                 if($values["item_id"] == $_GET["id"])
                 {
-                   $_SESSION["icon_shop"] = $_SESSION["icon_shop"] -2;
                     unset($_SESSION["panier"][$keys]);
                     //unset($_SESSION["icon_shop"]);
-                    echo '<script>alert("Article retiré du panier")</script>';
-                    echo '<script>window.location="panier.php"</script>';
+                    echo "<span class='panier3_achat'>ARTICLE RETIRÉ DU PANIER</span>";
                 }
             }
         }

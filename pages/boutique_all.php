@@ -2,12 +2,23 @@
 require_once '../class/produit_boutique.php';
 require_once '../class/dataBase.php';
 require_once '../class/panier.class.php';
-require_once '../class/search.class.php';
+require_once '../class/commands.php';
+require_once '../class/admin.php';
+require_once '../class/user.php';
+require_once '../class/admin.php';
 
 
 $product = new \db\product();
-$panier = new \db\Panier();
-$search = new \db\Search();
+$panier = new \db\panier();
+$commands = new \db\Commands();
+$admin = new \db\admin();
+$user = new \db\admin();
+
+if (isset($_SESSION['id'])) {
+    $user = $_SESSION['id'];
+}
+
+
 
 ?>
 
@@ -16,7 +27,9 @@ $search = new \db\Search();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../img/logovignette-100.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=PT+Sans+Narrow&family=Tajawal:wght@300&display=swap" rel="stylesheet">
     <title>Boutique</title>
     <link rel="stylesheet" href="../css/shop.css" />
 </head>
@@ -24,51 +37,55 @@ $search = new \db\Search();
 <body>
 <header>
 <nav>
-    <a href="panier.php">Panier</a>
+    <a class="basket" href="panier.php">Panier</a>
 </nav>
 </header>
 
 <main>
     <article>
     <?php
-    if(isset($_SESSION["icon_shop"]))
+/*    if(isset($_SESSION["icon_shop"]))
     {
         echo "<div class='test'>";
         echo  $_SESSION["icon_shop"] ;
         echo "</div>";
-    }
+    }*/
     ?>
     </article>
-    <section>
+    <section class="text_category">
         <?php foreach ($product->affichages_categories() as $line) { ?>
-          <a href="?id_category=<?= $line["id"] ?>"><?= $line['categ_product'] ?></a>
+          <a href="?id_category=<?= $line["id"] ?>"><?= strtoupper($line['categ_product'] )?></a>
         <?php } ?>
 
-        <a href='boutique_all.php'>All</a>
+        <a href='boutique_all.php'>ALL</a>
 
     </section>
 
-    <section>
+    <section class="picture_category">
         <?php
         if (isset($_GET['id_category']))
         {
             foreach ($product->affichages_des_produits() as $produits) { ?>
-                <div>
-                    <h2><?=$produits["nom"]?></h2>
-                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img  width="300px" src=../img/imgboutique/<?=$produits["photo"]?> ></a>
-                    <p><?=$produits["prix"] ?> €</p>
-                    <p><?=$produits["description"] ?> </p>
+                <div class="flex_product">
+                    <a href = detail_produit.php?id_product=<?= $produits["id_product"] ?>><img src=../img/<?=$produits["photo"]?> ="500" height="550"></a>
+                   <?=strtoupper($produits["description"]) ?><br>
+                    <span class="text_police"><?=number_format($produits["prix"] ,2,',',' ') . " EUR"?></span>
                 </div>
             <?php }
+            if (empty($_GET['id_category']))
+            {
+                echo "La catégorie selectionée est en rupture de stock !";
+            }
         }
         else
         {
             foreach ($product->affichages_boutique() as $boutique) { ?>
-                <div>
-                    <h2><?=$boutique["nom"]?></h2>
-                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img width="300px" src=../img/imgboutique/<?=$boutique["photo"]?> ></a>
-                    <p><?=number_format($boutique["prix"] ,2,',',' ')?> €</p>
-                    <p><?=$boutique["description"] ?> </p>
+                <div class="flex_product">
+
+                    <a href = detail_produit.php?id_product=<?= $boutique["id_product"] ?>><img src=../img/<?=$boutique["photo"]?> ="500" height="550"></a>
+                    <?=strtoupper($boutique["description"]) ?> <br>
+                   <span class="text_police"><?=number_format($boutique["prix"] ,2,',',' '). " EUR"?></span>
+
                 </div>
             <?php }
         }

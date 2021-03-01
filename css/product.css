@@ -40,10 +40,14 @@ a[href*="intent"] {
  * Rating styles
  */
 .rating {
-    width: 226px;
+    /*width: 475px;*/
+
     /*margin: 0 auto 1em;*/
-    font-size: 45px;
+  font-size: 20px;
     overflow:hidden;
+    text-align: center;
+
+    /*background-color: #f410ff;*/
 }
 .rating input {
     float: right;

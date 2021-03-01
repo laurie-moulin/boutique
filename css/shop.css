@@ -1,7 +1,473 @@
+
+body
+{
+    margin: auto;
+    height: 100vh;
+}
+.container_general {
+    margin: 0;
+    /*padding: 100px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*PAGE-BOUTIQUE_ALL*/
 .test{
-    background-color: red;
+    background-color: #F02A24;
     width: 20px;
     height: 20px;
     border-radius: 20px;
-    color: red;
+    color: #F02A24;
 }
+.text_category
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+.text_category a
+{
+    text-decoration: none;
+}
+.picture_category
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-weight: bold;
+
+}
+
+/*DETAIL-PRODUIT*/
+
+.picture2_category
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Oswald', sans-serif;
+
+    max-width: 100%;
+}
+.picture3_category
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+
+    max-width: 100%;
+    /*padding: 30px;*/
+    /*background-color: cornflowerblue;*/
+}
+.picture3_category_form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 469px;
+}
+.text_police
+{
+    font-size: 10px;
+}
+
+.flex_detail_product
+{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+.flex_product
+{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+}
+#taille
+{
+border: none;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    border-bottom: solid 1px;
+
+}
+
+#quantite
+{
+    border: none;
+    border-bottom: solid 1px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+}
+
+input[type="submit"]{
+    cursor:pointer;
+    border: none;
+    padding: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+textarea
+{
+    resize: none;
+    border: none;
+    border-bottom: solid 1px;
+    border-top: solid 1px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: #aaaaaa;
+}
+
+.select_flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*PAGE-PANIER*/
+.new_article
+{
+    color: #F02A24;
+}
+.picture_category4
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.trash_basket
+{
+    max-width: 25px;
+}
+.td_total
+{
+    width: 600px;
+    margin-top: 20px;
+
+}
+
+.empty_basket, .panier_achat, .panier1_achat, .panier6_achat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+.panier3_achat
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    /*background-color: rgb(185, 50, 50);*/
+    background-color: #aaaaaa;
+    text-decoration: none;
+    color: white;
+    padding-bottom: 3px;
+}
+.class_A a
+{
+   text-decoration: white;
+}
+
+
+.panier_achat
+{
+   padding: 5px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+
+}
+.panier1_achat
+{
+    border-top: 1px solid black;
+    width: 40%;
+    padding: 10px;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;
+
+}
+.panier6_achat
+{
+    cursor:pointer;
+    border: none;
+    padding: 20px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+}
+.bask_panier_flex
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+}
+.nouveaute
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    padding-top: 50px;
+    font-size: 25px;
+}
+.flex_product5
+{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+}
+.user_font
+{
+    font-weight: bold;
+    color: black;
+}
+.responsive_basket1
+{
+    background-color: #F2F2F2;
+}
+
+/*PAGE COMMANDE */
+
+.commande_adresse
+{
+    font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+}
+.form_adresse_detail
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.commande_adresse input{
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 7px;
+    font-family: 'Barlow Condensed', sans-serif;
+    width: 40%;
+
+}
+
+.commande_adresse input:focus{
+    outline: none;
+    border-bottom: 1px solid #F02A24;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+
+.delivery_title
+{
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.delivery_title img
+{
+    max-width: 50px;
+}
+.all_delivery
+{
+    margin-top: 30px;
+    text-align: center;
+
+}
+.submit_adresse
+{
+    font-size: 20px;
+}
+.form_adresse_detail ::placeholder
+{
+    font-size: 16px;
+}
+
+/*PAIEMENT-PAYPAL*/
+
+.paiement_paypal_adresse
+{
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.Policie_adresse
+{
+    font-family: 'Oswald', sans-serif;
+}
+.paypal
+{
+    font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.paypal_line
+{
+    border-top: red;
+}
+.size_image
+{
+    width: 250px;
+}
+.nav_adresse
+{
+    font-size: 10px;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.span_livraison
+{
+    color: #aaaaaa;
+}
+.paypal_line1
+{
+    font-size: 10px ;
+    color: #aaaaaa;
+    text-align: center;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+
+}
+
+/*PAGE_VOIR_COMMANDE*/
+.flex_commande
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+    font-family: 'Barlow  Condensed', sans-serif;
+
+}
+ .flex_commande p
+{
+    color: #F02A24;
+}
+.flex_commande a
+{
+    background-color: black;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.flex_refresh_commande
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    width: 30%;
+}
+.hr_title
+{
+    border: none;
+    border: 0.5px solid black;
+    width: 30%;
+}
+.refresh_commande
+{
+    background-color: black;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+.refresh_commande a
+{
+    margin: 30px;
+}
+.h1_commande
+{
+    text-align: center;
+    font-family: 'Barlow  Condensed', sans-serif;
+
+}
+.hr_commande
+{
+    border: none;
+    border: 0.5px solid #aaaaaa;
+    width: 97%;
+
+}
+.order_end
+{
+    font-size: 10px;
+    color: #F02A24;
+}
+.bold_commande
+{
+    font-weight: bold;
+}
+.bask_commande
+{
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: grey;
+}
+.bask_detail_commande
+{
+    font-family: 'PT Sans Narrow', sans-serif;
+    background-color: #F2F2F2;
+
+}
+.h1_tite_commande
+{
+    background-color: #F02A24;
+    font-family: 'Barlow Condensed', sans-serif;
+
+}
+.bask_commande a
+{
+    color: black;
+}
+@media screen and (min-width: 700px) {
+    .picture3_category{
+        width: 100%;
+    }
+    .picture2_category {
+        flex-direction: row;
+    }
+    .picture_category
+    {
+       width: 100%;
+    }
+    .responsive_basket1
+    {
+        width: 100%;
+    }
+    .responsive_validation
+    {
+        flex-direction: column;
+    }
+}
+

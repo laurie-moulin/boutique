@@ -15,14 +15,19 @@ class Commands extends dataBase
                 $total = $total + ($values["item_quantity"] * $values["item_price"]);
             }
         }
-        return number_format($total, 2);
+        return $total ;
     }
 
     public function UpdateStock($stock,$id_product,$taille)
     {
-        return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
-
+            return $update = $this->query('UPDATE stock SET stock = stock - ? WHERE id_product = ? and taille = ?', [$stock, $id_product, $taille]);
     }
+ /*   public function adress_id()
+    {
+        //if (isset($_SESSION['id'])) {
+        return  $this->query('SELECT adresse_id FROM adresse WHERE id_users = ? ORDER BY adresse_id DESC LIMIT 0,1', [$_SESSION['id']])->fetch(\PDO::FETCH_ASSOC);
+        //}
+    }*/
 
     public function insertcommande($id_users, $montant,$date_enregistrement)
     {
@@ -35,6 +40,46 @@ class Commands extends dataBase
       return $insert = $this->query('INSERT INTO details_commande (id_commande, id_users , id_product, quantité, prix, taille) VALUE(?, ?, ?, ?, ?, ?)', [$lastID, $id_users, $id_product, $quantite, $prix, $size]);
 
     }
+    //ADRESSE
+
+    public function insert_adresses($id_users)
+    {
+        $adresse = htmlspecialchars($_POST["adresse"]);
+        $code = htmlspecialchars($_POST["code"]);
+        $ville = htmlspecialchars($_POST["ville"]);
+        $phone = htmlspecialchars($_POST["phone"]);
+        if ($adresse != "" && $code != "" && $ville != "" && $phone !="")
+        {
+            return $insert = $this->query('INSERT INTO adresse (id_users, adresse, code_postal, ville, telephone) VALUE(?, ?, ?, ?, ?)', [$id_users, $adresse, $code, $ville, $phone]);
+        }
+        else
+        {
+            echo $result = "Tous les champs ne sont pas rempli !";
+        }
+
+    }
+    public function get_adresse_id()
+    {
+        $cat = $this->query('SELECT * FROM adresse');
+        return $cat->fetchAll();
+    }
+    public function editAddress($id_users)
+    {
+        $adresse = htmlspecialchars($_POST["adresse"]);
+        $code = htmlspecialchars($_POST["code"]);
+        $ville = htmlspecialchars($_POST["ville"]);
+        $phone = htmlspecialchars($_POST["phone"]);
+        $this->query('UPDATE adresse SET adresse = ?, code_postal = ?, ville = ?, phone = ? WHERE id_users = ?', [$adresse, $code, $ville, $phone, $id_users]);
+    }
+
+
+    public function nouveaute()
+    {
+        return $insert = $this->query('SELECT * FROM product ORDER BY id_product DESC LIMIT 4');
+    }
+
+
+
 
 
 }
