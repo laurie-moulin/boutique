@@ -182,8 +182,8 @@ if (isset($_SESSION['id'])) {
 
             <?php
             foreach ($product->getComments() as $comments) { ?>
-                <div class="commentaire"><? echo $comments['comment'] ?><br>
-            <img width="100px" src="../img/stars/<?echo $comments['stars'] ?>.png"><br>
+                <div class="commentaire"><?php echo $comments['comment'] ?><br>
+            <img width="100px" src="../img/stars/<?php echo $comments['stars'] ?>.png"><br>
        <?php } ?></div>
 
             </article>
