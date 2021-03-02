@@ -23,7 +23,6 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
 
 ?>
 
-<html>
 
 <div class="menu-container">
 

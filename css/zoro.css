@@ -509,3 +509,55 @@ span {
     color: red;
 }
 
+
+/*FAQ*/
+
+.main_faq{
+    padding-top: 7%;
+
+}
+
+.sectionfaq{
+    width: 70%;
+    text-align: justify;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sectionfaq h1{
+    font-weight: lighter;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-decoration: overline;
+}
+
+.sectionfaq article{
+    font-family: 'Oswald', sans-serif;
+}
+
+.formfaq input{
+    margin-bottom: 1%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.formfaq textarea{
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.formfaq button{
+    width: 20%;
+    height: 30px;
+    margin-top: 3%;
+    font-size: 0.7em;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.formfaq button:hover{
+    background-color: #343434;
+    cursor: pointer;
+}

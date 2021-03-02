@@ -26,6 +26,8 @@ if ($admin->isAdmin()) {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
               integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/zoro.css">
         <title>Gestion Users</title>
     </head>
 
@@ -37,27 +39,9 @@ if ($admin->isAdmin()) {
 
     </header>
 
-    <main>
+    <main class="main_newsletter">
 
-        <table>
-            <thead>
-            <tr>
-                <th scope="col">#id</th>
-                <th scope="col">Email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($admin->getNews() as $news) { ?>
-                <tr>
-                    <th><?= $news['id_news'] ?></th>
-                    <td><?= $news['email_news'] ?></td>
-<!--                    <td><a href="admin_deleteUser.php?id=--><?//= $user['id'] ?><!--"><i class="fas fa-trash"></i></a></td>-->
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-
-
+        <a href="https://login.mailchimp.com/?_ga=2.61454060.1593604843.1614671456-1484478570.1613981049"><img src="../img/mailchimp.gif" height="250"></a>
 
     </main>
 

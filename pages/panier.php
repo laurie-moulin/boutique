@@ -111,7 +111,7 @@ if(isset($_GET['action']) && $_GET['action'] == "vider")
 
     </article>
     <h1 class="nouveaute">NOUVEAUTÉS</h1>
-    <section class="picture_category">
+    <section class="picture_categoryNews">
     <?php
           foreach ($commands->nouveaute() as $new) { ?>
               <div class="flex_product5">

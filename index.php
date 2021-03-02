@@ -2,6 +2,7 @@
 require_once 'class/user.php';
 require_once 'class/dataBase.php';
 require_once 'class/commands.php';
+require_once 'class/newsletter.php';
 
 
 if (isset($_SESSION['id'])) {
@@ -12,12 +13,15 @@ $user = new \db\user();
 $commands = new \db\Commands();
 
 
+
+
 ?>
 
 <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="img/logovignette-100.jpg" />
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -88,7 +92,7 @@ $commands = new \db\Commands();
     </div>
 
     <h1 class="nouveaute">NOUVEAUTÉS</h1>
-    <section class="picture_category">
+    <section class="picture_categoryNews">
         <?php
         foreach ($commands->nouveaute() as $new) { ?>
             <div class="flex_product5">
@@ -106,13 +110,15 @@ $commands = new \db\Commands();
 
         <form action="index.php" method="post">
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
+            <input type="text" name="fname" placeholder="Prénom"/><br>
+            <input type="text" name="lname" placeholder="Nom"/><br>
+            <input type="email" name="email" placeholder="Email"><br>
 
             <?php
 
             if (isset($_POST['submit_news'])) {
-                $news = $user->newsletter();
+                $newsletter = new \db\newsletter();
+                $newsletter->addNewsletter();
             }
 
             ?>
@@ -127,7 +133,7 @@ $commands = new \db\Commands();
 <footer>
 
     <?php
-    include 'includes/footer.php';
+    include 'footer.php';
     ?>
 </footer>
 

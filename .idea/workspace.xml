@@ -11,9 +11,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/class/action.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class/education.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class/faq.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/class/newsletter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/googlemap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/apropos.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/faq.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/admin_newsletter.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/admin_newsletter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class/newletters.Class.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/shop.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/shop.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/zoro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/zoro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/detail_produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail_produit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/panier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/panier.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/profil.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/profil.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +89,7 @@
       <workItem from="1613466397242" duration="19603000" />
       <workItem from="1614331685096" duration="3564000" />
       <workItem from="1614584184164" duration="15749000" />
-      <workItem from="1614670167210" duration="1375000" />
+      <workItem from="1614670167210" duration="18115000" />
     </task>
     <servers />
   </component>

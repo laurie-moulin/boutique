@@ -155,14 +155,14 @@ if (isset($_SESSION['id'])) {
 
                 <h1>Laisser un avis</h1>
 
-                <textarea name="comment" rows="3" cols="80">Laisse ton avis ! </textarea><br>
+                <textarea name="comment" rows="3" cols="80" placeholder="Laisse ton avis !" required> </textarea><br>
 
                 <div class="rating"><!--
             --><input name="stars" id="e5" type="radio" value="5"></a><label for="e5">★</label><!--
             --><input name="stars" id="e4" type="radio" value="4"></a><label for="e4">★</label><!--
             --><input name="stars" id="e3" type="radio" value="3"></a><label for="e3">★</label><!--
             --><input name="stars" id="e2" type="radio" value="2"></a><label for="e2">★</label><!--
-            --><input name="stars" id="e1" type="radio" value="1"></a><label for="e1">★</label>
+            --><input name="stars" id="e1" type="radio" value="1" required></a><label for="e1">★</label>
                 </div><br>
 
                 <?php

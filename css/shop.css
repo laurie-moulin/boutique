@@ -46,9 +46,18 @@ body
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     font-weight: bold;
 
+}
+
+.picture_categoryNews{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-weight: bold;
+    margin-bottom: 5%;
 }
 
 /*DETAIL-PRODUIT*/
@@ -110,7 +119,7 @@ body
     flex-direction: column;
     font-family: 'Oswald', sans-serif;
     font-size: 13px;
-    width: 30%;
+    width: 31%;
     margin-bottom: 3%;
 }
 
