@@ -84,11 +84,11 @@ if (isset($_GET['search']) and !empty($_GET['search'])) {
             <?php } else { ?>
                 <a href="admin/deconnexion.php?>">DECONNEXION</a>
                 <a href="user/profil.php?id=<?= $_SESSION['id'] ?>">PROFIL</a>
-                <a href="#">PANIER</a>
+                <a href="pages/panier.php?id=<?= $_SESSION['id'] ?>">PANIER</a>
             <?php }
         } else { ?>
             <a href="user/connexion.php">SE CONNECTER</a>
-            <a href="#">PANIER</a>
+            <a href="pages/panier.php?id=<?= $_SESSION['id'] ?>">PANIER</a>
         <?php } ?>
 
 

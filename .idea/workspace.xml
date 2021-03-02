@@ -12,10 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5d54db7d-c89d-47d8-9261-45767239d980" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/zoro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/zoro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/user/inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +69,7 @@
       <workItem from="1613466397242" duration="19603000" />
       <workItem from="1614331685096" duration="3564000" />
       <workItem from="1614584184164" duration="15749000" />
+      <workItem from="1614670167210" duration="677000" />
     </task>
     <servers />
   </component>
