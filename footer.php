@@ -11,8 +11,7 @@
 
 <div class="menu_shop">
 
-    <div><a href="">POLITIQUE DE CONFIDENTIALITE</a> </div>
-    <div><a href="">MENTIONS LEGALES</a> </div>
+    <div><a href="">POLITIQUE DE CONFIDENTIALITE & MENTIONS LEGALES</a> </div>
     <div><a href="">CONDITIONS DE VENTES</a> </div>
     <div><a href="pages/apropos.php">A PROPOS</a> </div>
     <div><a href="pages/faq.php">FAQ</a> </div>

@@ -102,6 +102,19 @@ body
     max-width: 100%;
     width: 469px;
 }
+
+.picture3_category_form input{
+    border: none;
+    border-bottom: 1px solid black;
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: #aaaaaa;
+}
+
+.picture3_category_form input:focus{
+    outline: none;
+    border-bottom: 1px solid red;
+}
+
 .text_police
 {
     font-size: 10px;
@@ -179,7 +192,11 @@ textarea
     border-bottom: solid 1px;
     border-top: solid 1px;
     font-family: 'PT Sans Narrow', sans-serif;
-    color: #aaaaaa;
+    color: #353535;
+}
+
+textarea ::placeholder{
+    color: black;
 }
 
 .select_flex

@@ -85,10 +85,11 @@ class product extends dataBase
     {
         $stars = htmlentities($_POST['stars']);
         $comment = htmlentities($_POST['comment']);
+        $name = htmlentities($_POST['name']);
 
         if(!empty($stars) && !empty($comment)){
-            return $this->query("INSERT INTO comment(id_product, stars, comment ) VALUES(?,?,?) ",
-                [$_GET['id_product'], $stars, $comment]);
+            return $this->query("INSERT INTO comment(id_product, name, stars, comment ) VALUES(?,?,?,?) ",
+                [$_GET['id_product'], $name, $stars, $comment]);
         }
 
     }

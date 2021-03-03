@@ -12,6 +12,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .connexion_user{
@@ -87,6 +88,23 @@ button:hover{
     outline: none;
     border-bottom: 1px solid #cb0000;
 }
+
+.confirm_inscription p{
+    color: #34A853;
+}
+
+.confirm_inscription a{
+    color: darkslategrey;
+    text-decoration: none;
+    transition: 0s;
+    font-weight: bold;
+}
+
+.confirm_inscription a:hover{
+    cursor: pointer;
+    color: red;
+}
+
 
 
 /*PROFIL*/

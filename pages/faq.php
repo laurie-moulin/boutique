@@ -97,8 +97,13 @@ require_once '../class/faq.php';
 
     </section>
 
-
 </main>
+
+<footer>
+    <?php
+    include '../includes/footer.php';
+    ?>
+</footer>
 
 
 </body>

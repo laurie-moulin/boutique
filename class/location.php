@@ -32,4 +32,25 @@ class location extends dataBase
         $sql = $this->query("SELECT * FROM $this->tableName WHERE lat IS NULL AND lng IS NULL");
         return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllShop() {
+        $sql = "SELECT * FROM $this->tableName";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function updateShopWithLatLng() {
+        $sql = "UPDATE $this->tableName SET lat = :lat, lng = :lng WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':lat', $this->lat);
+        $stmt->bindParam(':lng', $this->lng);
+        $stmt->bindParam(':id', $this->id);
+
+        if($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

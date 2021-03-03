@@ -3,6 +3,7 @@
 require_once '../class/user.php';
 require_once '../class/admin.php';
 require_once '../class/dataBase.php';
+require_once '../class/newsletter.php';
 
 if (isset($_SESSION['id'])) {
     $user = $_SESSION['id'];
@@ -90,24 +91,30 @@ $info = $user->setUser();
 
         <div class="container_infoprofil">
 
-            <div class="button_commande"><a href="#">Historique des commandes <i class="fas fa-shopping-cart"></i></a></div>
+            <div class="button_commande"><a href="../pages/voir_commande.php">Historique des commandes <i class="fas fa-shopping-cart"></i></a></div>
 
             <div class="newsletter">
                 <h1>ABONNEZ-VOUS A NOTRE NEWSLETTER</h1>
 
                 <form action="profil.php?id=<?= $_SESSION['id'] ?>" method="post">
 
-                    <label for="email">Email:</label><br>
+                    <label for="fname">Prénom:</label>
+                    <input type="text" name="fname" value="<?php echo $info["prenom"] ?>" /><br>
+
+                    <label for="lname">Nom:</label>
+                    <input type="text" name="lname" placeholder="Nom" value="<?php echo $info["nom"] ?>"/><br>
+
+                    <label for="email">Email:</label>
                     <input type="email" id="email" name="email" value="<?php echo $info["email"] ?>" ><br><br>
 
-                                    <?php
+                    <?php
 
-                                    if(isset($_POST['submit_news']))
-                                    {
-                                        $news = $update->newsletter();
-                                    }
+                    if (isset($_POST['submit_news'])) {
+                        $newsletter = new \db\newsletter();
+                        $newsletter->addNewsletter();
+                    }
 
-                                    ?>
+                    ?>
 
                     <button type="submit" name="submit_news">S'inscrire</button>
                 </form>

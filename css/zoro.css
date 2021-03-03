@@ -14,10 +14,12 @@ body{
 header {
     width: 100%;
     position: fixed;
+    z-index: 2;
     /* display: flex;
     flex-direction: row;
     justify-content: space-between; */
 }
+
 
 .hamburger-icon {
     position: absolute;
@@ -561,3 +563,65 @@ span {
     background-color: #343434;
     cursor: pointer;
 }
+
+
+/*A PROPOS*/
+
+
+.container_map {
+    height: 350px;
+    width: 40%;
+    z-index: 1;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #a49886;
+
+}
+#data, #allData {
+    display: none;
+
+}
+
+.main_map{
+    padding-top: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.container_about{
+    text-align: justify;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    width: 40%;
+}
+
+.container_about p{
+    font-weight: lighter;
+    font-size: 0.9em;
+    color: #343434;
+}
+
+.container_about a{
+    color: white;
+    background-color: black;
+    padding:2%;
+    transition: 0s;
+    text-decoration: none;
+}
+
+.container_about a:hover{
+    cursor: pointer;
+    background-color: #4a4a4a;
+}
+
+.main_map h1{
+    font-weight: lighter;
+    font-size: 1.3em;
+    color: #343434;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+

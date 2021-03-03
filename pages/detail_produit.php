@@ -155,6 +155,7 @@ if (isset($_SESSION['id'])) {
 
                 <h1>Laisser un avis</h1>
 
+                <input type="text" name="name" placeholder="Nom/Pseudo" required>
                 <textarea name="comment" rows="3" cols="80" placeholder="Laisse ton avis !" required> </textarea><br>
 
                 <div class="rating"><!--
@@ -182,7 +183,8 @@ if (isset($_SESSION['id'])) {
 
             <?php
             foreach ($product->getComments() as $comments) { ?>
-                <div class="commentaire"><?php echo $comments['comment'] ?><br>
+
+                <div class="commentaire"><?php echo $comments['name'] ?> : <?php echo $comments['comment'] ?><br>
             <img width="100px" src="../img/stars/<?php echo $comments['stars'] ?>.png"><br>
        <?php } ?></div>
 

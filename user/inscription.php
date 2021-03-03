@@ -51,13 +51,13 @@ $register = new \db\user();
 
         <input type="password" id="confpassword" name="confpassword" placeholder="Confirmation password" required><br>
 
+
+        <button type="submit" value="S'inscrire" name="submit_register">S'inscrire</button>
         <?php
         if(isset($_POST['submit_register'])){
             $register->register();
         }
         ?>
-
-        <button type="submit" value="S'inscrire" name="submit_register">S'inscrire</button>
     </form>
     </article>
 </main>

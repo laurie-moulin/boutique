@@ -39,7 +39,8 @@ class user extends dataBase
         if (empty($errors)) {
             $this->query('INSERT INTO users (prenom, nom, email, password) VALUE(?, ?, ?, ?)',
                 [$prenom, $nom, $email, $password]);
-//            header('location: connexion.php');
+            echo '<div class="confirm_inscription"><p> Votre inscription à bien été prise en compte <br><a href="../user/connexion.php">Se connecter</a></p><br>
+                   </div>';
         } else {
             $message = new messages($errors);
             echo $message->renderMessage();

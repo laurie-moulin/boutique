@@ -45,17 +45,17 @@ class newsletter extends dataBase
 
             // store the status message based on response code
             if ($httpCode == 200) {
-                $_SESSION['msg'] = '<p style="color: #34A853">You have successfully subscribed to CodexWorld.</p>';
+                echo '<p style="color: #34A853">Vous avez bien été inscris à la Newsletter de Zoro! </p>';
             } else {
                 switch ($httpCode) {
                     case 214:
-                        $msg = 'You are already subscribed.';
+                        echo 'Vous êtes déjà inscris à la newsletter';
                         break;
                     default:
-                        $msg = 'Some problem occurred, please try again.';
+                        echo 'Nous avons recontré un problème réésayez ultérieurement';
                         break;
                 }
-                $_SESSION['msg'] = '<p style="color: #EA4335">'.$msg.'</p>';
+//                $_SESSION['msg'] = '<p style="color: #EA4335">'.$msg.'</p>';
             }
         }else{
             $_SESSION['msg'] = '<p style="color: #EA4335">Please enter valid email address.</p>';

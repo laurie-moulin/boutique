@@ -49,14 +49,17 @@ $connect = new \db\user();
             <input type="password" id="password" name="password" placeholder="Password"><br>
 
 
+            <button type="submit" name="submit_connect">SE CONNECTER</button>
+
             <?php
             if (isset($_POST['submit_connect'])) {
                 $connect->connect();
             }
             ?>
 
-            <button type="submit" name="submit_connect">SE CONNECTER</button>
         </form>
+
+
 
     </article>
 

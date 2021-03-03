@@ -1,10 +1,13 @@
 <?php
-require 'education.php';
-$edu = new education;
-$edu->setId($_REQUEST['id']);
-$edu->setLat($_REQUEST['lat']);
-$edu->setLng($_REQUEST['lng']);
-$status = $edu->updateCollegesWithLatLng();
+namespace db;
+require_once 'dataBase.php';
+require 'location.php';
+$loc = new \db\location();
+
+$loc->setId($_REQUEST['id']);
+$loc->setLat($_REQUEST['lat']);
+$loc->setLng($_REQUEST['lng']);
+$status = $loc->updateShopWithLatLng();
 if($status == true) {
     echo "Updated...";
 } else {
