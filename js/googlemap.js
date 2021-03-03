@@ -4,14 +4,14 @@ var geocoder;
 function loadMap() {
     var marseille = {lat: 43.296482, lng: 5.36978};
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
+        zoom: 15,
         center: marseille
     });
 
-//     var marker = new google.maps.Marker({
-//         position: pune,
-//         map: map
-//     });
+    var marker = new google.maps.Marker({
+        position: marseille,
+        map: map
+    });
 //
 //     var cdata = JSON.parse(document.getElementById('data').innerHTML);
 //     geocoder = new google.maps.Geocoder();

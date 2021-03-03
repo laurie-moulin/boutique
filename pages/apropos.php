@@ -8,7 +8,8 @@
     <script type="text/javascript" src="../js/googlemap.js"></script>
     <style type="text/css">
         .container {
-            height: 450px;
+            height: 400px;
+            width: 50%;
         }
         #map {
             width: 100%;
@@ -22,18 +23,18 @@
 </head>
 <body>
 <div class="container">
-    <center><h1>Access Google Maps API in PHP</h1></center>
-<!--    --><?php
-//    require '../class/education.php';
-//    $edu = new db\education;
-//    $coll = $edu->getCollegesBlankLatLng();
-//    $coll = json_encode($coll, true);
-//    echo '<div id="data">' . $coll . '</div>';
-//
+    <h1>A Propos</h1>
+    <?php
+    require '../class/location.php';
+    $loc = new db\location;
+    $shop = $loc->getShopLatLng();
+    $shop = json_encode($shop, true);
+    echo '<div id="data">' . $shop . '</div>';
+
 //    $allData = $edu->getAllColleges();
 //    $allData = json_encode($allData, true);
 //    echo '<div id="allData">' . $allData . '</div>';
-//    ?>
+    ?>
     <div id="map"></div>
 </div>
 </body>

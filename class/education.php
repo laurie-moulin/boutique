@@ -10,7 +10,7 @@ class education	extends dataBase {
     private $lat;
     private $lng;
     private $conn;
-    private $tableName = "colleges";
+    private $tableName = "shops";
 
     function setId($id) { $this->id = $id; }
     function getId() { return $this->id; }
